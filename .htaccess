@@ -1,0 +1,6 @@
+Options +FollowSymLinks -MultiViews
+# Turn mod_rewrite on
+RewriteEngine On
+RewriteBase /
+
+RewriteRule ^/(.*)$ /WebApp/$1 [L,NC,R=302]
