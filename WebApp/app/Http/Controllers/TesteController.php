@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
+use Auth;
 
-class HomeController extends Controller
+
+class TesteController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -13,7 +16,6 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
     }
 
     /**
@@ -23,6 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('logged.home');
+        $results = DB::select('SHOW TABLES');
+        $user = Auth::user();
+        var_dump($user);
+
+        return view('teste');
     }
 }
