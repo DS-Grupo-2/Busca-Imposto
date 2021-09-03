@@ -1,6 +1,9 @@
-@extends('layouts.app')
+@extends('unlogged.layout.app')
 
 @section('content')
+
+<link href="{{ asset('assetsUnlogged/css/customAuth.css') }}" rel="stylesheet">
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
