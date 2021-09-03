@@ -48,7 +48,7 @@
                     <span class="icon-bar bar2"></span>
                     <span class="icon-bar bar3"></span>
                 </button>
-                <a href="http://127.0.0.1:8000/" class="navbar-brand">
+                <a href="http://127.0.0.1:8000/" class="navbar-brand" id="buscaimposto">
                     Busca imposto
                 </a>
             </div>

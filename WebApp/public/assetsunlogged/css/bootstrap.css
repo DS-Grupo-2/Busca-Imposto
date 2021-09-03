@@ -6563,3 +6563,16 @@ button.close {
     display: none !important;
   }
 }
+
+
+/*A partir daqui são codigos adicionados*/
+
+
+#buscaimposto{
+  position: relative;
+  z-index: 1;
+}
+
+#buscaimposto:hover{
+  transform: scale(1.1); /*aumentar o icone em 1.1 de seu tamanho original, dando um efeito de grow*/
+}
