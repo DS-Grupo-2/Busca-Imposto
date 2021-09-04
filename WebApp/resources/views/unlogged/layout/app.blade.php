@@ -37,7 +37,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-default navbar-transparent navbar-fixed-top" color-on-scroll="200">
+    <nav class="navbar navbar-default navbar-transparent navbar-fixed-top" color-on-scroll="100">
         <!-- if you want to keep the navbar hidden you can add this class to the navbar "navbar-burger"-->
         <div class="container">
             <div class="navbar-header">
@@ -65,7 +65,7 @@
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Registre-se') }}</a>
                                 </li>
                             @endif
                         @else
