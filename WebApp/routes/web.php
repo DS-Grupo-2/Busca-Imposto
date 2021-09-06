@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Home;
 use App\Http\Controllers\System;
+use App\Http\Controllers\User;
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +16,7 @@ use App\Http\Controllers\System;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,10 +26,17 @@ Route::get('/home2',
     [Home::class, 'index']
 );
 
-Route::get('/system',
-    [System::class, 'index']
-);
+Route::get('/system/user-info',
+    [User::class, 'userInfo']
+)->middleware('auth')->name('user-info');
 
-Auth::routes();
+Route::post('/system/user-info',
+    [User::class, 'saveUserInfo']
+)->middleware('auth')->name('save-user-info');
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+Route::get('/home',
+    [User::class, 'userInfo']
+)->middleware('auth')->name('user-info');;
