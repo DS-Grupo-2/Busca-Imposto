@@ -1,3 +1,21 @@
 .section-header .parallax, .section-header .static-image {
     height: 10vh;
 }
+
+#caixaregistro{
+    position: relative;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 350px;
+}
+
+#caixas{
+    padding: 5%;
+}
+
+#botao{
+    color: black;
+}
+#botao:hover{
+    transform: scale(1.1); /*aumentar o icone em 1.1 de seu tamanho original, dando um efeito de grow*/
+}
