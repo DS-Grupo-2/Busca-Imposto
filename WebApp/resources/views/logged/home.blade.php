@@ -13,7 +13,6 @@
 
 
 
-
     <form method="POST" action="{{ route('save-user-info') }}">
         @csrf
         <label for="email">

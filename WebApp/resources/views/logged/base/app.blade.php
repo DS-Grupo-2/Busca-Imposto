@@ -52,6 +52,12 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="{{ route('products-view') }}">
+                  <i class="ni ni-tv-2 text-primary"></i>
+                  <span class="nav-link-text">Produtos</span>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="{{ route('logged-test') }}">
                   <i class="ni ni-tv-2 text-primary"></i>
                   <span class="nav-link-text">Teste</span>

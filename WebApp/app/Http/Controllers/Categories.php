@@ -51,6 +51,7 @@ class Categories extends Controller
             'list' => $list
         ]);
     }
+
     public function delete($id = NULL)
     {
         if(CategoriesModel::find($id)){
