@@ -39,6 +39,18 @@
                   <span class="nav-link-text">Dashboard</span>
                 </a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('user-info') }}">
+                  <i class="ni ni-tv-2 text-primary"></i>
+                  <span class="nav-link-text">User</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('categories-view') }}">
+                  <i class="ni ni-tv-2 text-primary"></i>
+                  <span class="nav-link-text">Categories</span>
+                </a>
+              </li>
 
             </ul>
             <!-- Divider -->
@@ -305,6 +317,7 @@
           <div class="col">
             <div class="card">
               <!-- Card header -->
+                @include('flash-message')
                 @yield('content')
 
               <!-- Card footer -->
