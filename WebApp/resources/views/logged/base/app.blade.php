@@ -112,7 +112,7 @@
                       <div class="row align-items-center">
                         <div class="col-auto">
                           <!-- Avatar -->
-                          <img alt="Image placeholder" src="../assets/img/theme/team-1.jpg" class="avatar rounded-circle">
+                          <img src="/uploads/avatars/{{ $user->avatar }}"
                         </div>
                         <div class="col ml--2">
                           <div class="d-flex justify-content-between align-items-center">
@@ -226,10 +226,10 @@
             </ul>
             <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
               <li class="nav-item dropdown">
-                <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                   <div class="media align-items-center">
                     <span class="avatar avatar-sm rounded-circle">
-                      <img alt="Image placeholder" src="../assets/img/theme/team-4.jpg">
+                      <img src="/uploads/avatars/{{ Auth::user()->avatar }}" style="width:32px; height:32px; position:relativa; top:10px; left:10px; border-radius:50%">
                     </span>
                     <div class="media-body  ml-2  d-none d-lg-block">
                         @guest
@@ -243,10 +243,10 @@
                   <div class="dropdown-header noti-title">
                     <h6 class="text-overflow m-0">Welcome!</h6>
                   </div>
-                  <a href="#!" class="dropdown-item">
-                    <i class="ni ni-single-02"></i>
-                    <span>My profile</span>
-                  </a>
+                  
+                    
+                   
+                  
                   <div class="dropdown-divider"></div>
                   <a href="{{ route('logout') }}"  class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     <i class="ni ni-user-run"></i>

@@ -5,6 +5,8 @@ use App\Http\Controllers\Home;
 use App\Http\Controllers\System;
 use App\Http\Controllers\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +28,7 @@ Route::get('/home2',
     [Home::class, 'index']
 );
 
+
 Route::get('/system/user-info',
     [User::class, 'userInfo']
 )->middleware('auth')->name('user-info');
@@ -36,7 +39,10 @@ Route::post('/system/user-info',
 
 
 
+Route::post('/home', 'UserController@update_avatar');
+
 
 Route::get('/home',
     [User::class, 'userInfo']
 )->middleware('auth')->name('user-info');;
+
