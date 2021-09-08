@@ -22,9 +22,7 @@ class User extends Controller
     public function userInfo()
     {
         $uId = Auth::id();
-
         $user = UserModel::where("id", $uId)->first();
-
         return view('logged.home',  ['user' => $user]);
     }
 
