@@ -59,6 +59,9 @@
                         {{-- <a href="#gaia" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-share-alt"></i> Share
                         </a> --}}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('unlogged-test') }}">Teste</a>
+                        </li>
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

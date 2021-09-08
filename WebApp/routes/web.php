@@ -78,8 +78,18 @@ Auth::routes();
         '/home2',
         [Home::class, 'index']
     );
+    Route::get(
+        '/',
+        [Home::class, 'index']
+    );
 /**End Home Routes */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/**TEST routes */
+
+    Route::get('/system/test', function () {
+        return view('logged.test');
+    })->name('logged-test');
+    Route::get('/home/test', function () {
+        return view('unlogged.test');
+    })->name('unlogged-test');
+/**End TEST Routes */
