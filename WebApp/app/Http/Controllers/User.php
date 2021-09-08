@@ -7,14 +7,17 @@ use Illuminate\Support\Facades\DB;
 use App\User as UserModel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use League\MimeTypeDetection\FinfoMimeTypeDetector;
 
 class User extends Controller
 {
+    
     /**
      * Show a list of all of the application's users.
      *
      * @return \Illuminate\Http\Response
      */
+    
 
     public function userInfo()
     {

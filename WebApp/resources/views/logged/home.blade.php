@@ -90,28 +90,31 @@ type="email" --}}
 
 
 
-    {{-- <div class="card-header border-0">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <div class="card">
-                        <div class="card-header">{{ __('Dashboard') }}</div>
-                        email: {{ $user->email }} <br>
-                        ultimo nome: {{ $user->last_name }} <br>
-                        telefone: {{ $user->cellphone }}<br>
-                        nome: {{ $user->name }}<br>
-                        Criado em: {{ $user->created_at }} <br>
-                        Atualizado em: {{ $user->updated_at }}<br>
+<div class="card-header border-0">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">{{ __('Dashboard') }}</div>
 
-                        <div class="card-body">
-                            @if (session('status'))
-                                <div class="alert alert-success" role="alert">
-                                    {{ session('status') }}
-                                </div>
-                            @endif
+                    {{-- Image avatar  --}}
+                    <img src="/uploads/avatars/{{ $user->avatar }}" style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
+                    <h2>{{ $user->name }} Perfil</h2>
+                    <form enctype="multipart/form-data" action="home" method="post">
+                        <label>Atualizar imagem</label>
+                        <input type="file" name="avatar">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="submit" class="pull-right btn btn-sm btn-primary">
+                    
+                    
+                    email: {{ $user->email }} <br>
+                    ultimo nome: {{ $user->last_name }} <br>
+                    telefone: {{ $user->cellphone }}<br>
+                    nome: {{ $user->name }}<br>
+                    Criado em: {{ $user->created_at }} <br>
+                    Atualizado em: {{ $user->updated_at }}<br>
 
-                            {{ __('You are logged in!') }}
-                        </div>
+                    
                     </div>
                 </div>
             </div>

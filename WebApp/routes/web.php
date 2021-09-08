@@ -7,6 +7,8 @@ use App\Http\Controllers\Categories;
 use App\Http\Controllers\Products;
 use App\Http\Controllers\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -94,6 +96,10 @@ Auth::routes();
 /**End products Routes */
 
 
+Route::get('/system/user-info',
+    [User::class, 'userInfo']
+)->middleware('auth')->name('user-info');
+
 /**Subcategories Routes */
 /**End Subcategories Routes */
 
@@ -109,12 +115,10 @@ Auth::routes();
     );
 /**End Home Routes */
 
-/**TEST routes */
+Route::post('/home', 'UserController@update_avatar');
 
-    Route::get('/system/test', function () {
-        return view('logged.test');
-    })->name('logged-test');
-    Route::get('/home/test', function () {
-        return view('unlogged.test');
-    })->name('unlogged-test');
-/**End TEST Routes */
+
+Route::get('/home',
+    [User::class, 'userInfo']
+)->middleware('auth')->name('user-info');;
+
