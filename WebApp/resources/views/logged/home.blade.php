@@ -2,7 +2,49 @@
 
 @section('content')
 
+<form class = "p-3" method="POST" action="{{ route('save-user-info') }}" > 
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputEmail4">Email</label>
+        <input type="email" class="form-control" id="inputEmail4" placeholder="Email" name="email" value="{{ $user->email }}" required>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPassword4">Senha</label>
+        <input type="password" class="form-control" id="inputPassword4" value="{{ $user->name }}" placeholder="Senha" disabled>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputNome">Nome</label>
+        <input type="text" name="name" value="{{ $user->name }}" required autocomplete="name" class="form-control" id="inputNome" placeholder="Nome">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputSobrenome">Sobrenome</label>
+        <input type="text" class="form-control" id="inputSobrenome" placeholder="Sobrenome" name="last_name" value="{{ $user->last_name }}">
+      </div>
+    </div>
+  <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="inputTelefone">Telefone</label>
+        <input type="text" name="cellphone" value="{{ $user->cellphone }}" class="form-control" id="inputTelefone">
+      </div>
+      <div class="form-group col-md-6">
+        <br>
+        <button type="submit" class="btn btn-primary mt-2">Salvar</button>
+      </div>
+    </div>
+  </form>
 
+  
+{{-- atributo de Nome
+tipo
+valor
+required
+type="email" --}}
+
+
+
+<!-- 
 <form method="POST" action="{{ route('save-user-info') }}" >
     @csrf
             <label for="email"> <tag> email </tag>
@@ -42,7 +84,7 @@
                 </span>
             @enderror
             <button type="submit"> Salvar </button>
-</form>
+</form> -->
 
 
 <div class="card-header border-0">
