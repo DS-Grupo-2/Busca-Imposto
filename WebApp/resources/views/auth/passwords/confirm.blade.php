@@ -1,4 +1,4 @@
-@extends('unlogged.layout.app')
+@extends('unlogged.base.app')
 
 @section('content')
 

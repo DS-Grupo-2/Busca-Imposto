@@ -15,7 +15,7 @@
 
 </style>
 
-@extends('unlogged.layout.app')
+@extends('unlogged.base.app')
 @section('content')
 <link href="{{ asset('assetsUnlogged/css/customAuth.css') }}" rel="stylesheet">
 
