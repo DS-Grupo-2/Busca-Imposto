@@ -9,8 +9,9 @@ use Illuminate\Support\Facades\Auth;
 class Products extends Controller
 {
     public function index(){
+        // return view('logged.products.edit', [
+        // ]);
     }
-
     public function create($id = NULL,  Request $request){
     }
 

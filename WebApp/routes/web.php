@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Home;
 use App\Http\Controllers\System;
 use App\Http\Controllers\Categories;
+use App\Http\Controllers\Products;
 use App\Http\Controllers\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -66,6 +67,30 @@ Auth::routes();
 
 
 /**Products Routes */
+    Route::get(
+        '/system/products',
+        [Products::class, 'index']
+    )->middleware('auth')->name('products-view');
+
+    Route::post(
+        '/system/products/create',
+        [Products::class, 'create']
+    )->middleware('auth')->name('products-create');
+
+    Route::get(
+        '/system/products/edit/{id}',
+        [Products::class, 'edit']
+    )->middleware('auth')->name('products-edit');
+
+    Route::post(
+        '/system/products/edit/{id}',
+        [Products::class, 'edit']
+    )->middleware('auth')->name('products-edit');
+
+    Route::get(
+        '/system/products/delete/{id}',
+        [Products::class, 'delete']
+    )->middleware('auth')->name('products-delete');
 /**End products Routes */
 
 
