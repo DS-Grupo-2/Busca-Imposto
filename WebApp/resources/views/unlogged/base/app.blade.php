@@ -48,7 +48,7 @@
                     <span class="icon-bar bar2"></span>
                     <span class="icon-bar bar3"></span>
                 </button>
-                <a href="http://127.0.0.1:8000/system/user-info" class="navbar-brand" id="buscaimposto">
+                <a href="http://127.0.0.1:8000/" class="navbar-brand" id="buscaimposto">
                     Busca imposto
                 </a>
             </div>
@@ -59,9 +59,6 @@
                         {{-- <a href="#gaia" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-share-alt"></i> Share
                         </a> --}}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('unlogged-test') }}">Teste</a>
-                        </li>
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
