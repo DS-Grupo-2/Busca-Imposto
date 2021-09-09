@@ -39,30 +39,6 @@
                   <span class="nav-link-text">Dashboard</span>
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('user-info') }}">
-                  <i class="ni ni-tv-2 text-primary"></i>
-                  <span class="nav-link-text">User</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('categories-view') }}">
-                  <i class="ni ni-tv-2 text-primary"></i>
-                  <span class="nav-link-text">Categories</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('products-view') }}">
-                  <i class="ni ni-tv-2 text-primary"></i>
-                  <span class="nav-link-text">Produtos</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('logged-test') }}">
-                  <i class="ni ni-tv-2 text-primary"></i>
-                  <span class="nav-link-text">Teste</span>
-                </a>
-              </li>
 
             </ul>
             <!-- Divider -->
@@ -253,7 +229,7 @@
                 <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                   <div class="media align-items-center">
                     <span class="avatar avatar-sm rounded-circle">
-                      <img src="/uploads/avatars/{{ Auth::user()->avatar }}" style="width:32px; height:32px; position:relativa; top:10px; left:10px; border-radius:50%">
+                      <img src="/uploads/avatars/{{ Auth::user()->avatar }}" style="width:34px; height:34px; position:relativa; top:10px; left:10px; border-radius:50%">
                     </span>
                     <div class="media-body  ml-2  d-none d-lg-block">
                         @guest
@@ -329,7 +305,6 @@
           <div class="col">
             <div class="card">
               <!-- Card header -->
-                @include('flash-message')
                 @yield('content')
 
               <!-- Card footer -->
