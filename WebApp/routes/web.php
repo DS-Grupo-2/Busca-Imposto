@@ -37,6 +37,10 @@ Auth::routes();
         '/home',
         [User::class, 'userInfo']
     )->middleware('auth')->name('user-info');;
+    Route::get(
+        '/system/user-delete',
+        [User::class, 'delete']
+    )->middleware('auth')->name('user-delete');;
 /**End USER Routes */
 
 
@@ -114,6 +118,16 @@ Route::get('/system/user-info',
         [Home::class, 'index']
     );
 /**End Home Routes */
+
+/**TEST routes */
+
+Route::get('/system/test', function () {
+    return view('logged.test');
+})->name('logged-test');
+Route::get('/home/test', function () {
+    return view('unlogged.test');
+})->name('unlogged-test');
+/**End TEST Routes */
 
 Route::post('/home', 'UserController@update_avatar');
 

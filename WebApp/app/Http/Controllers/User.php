@@ -11,13 +11,13 @@ use League\MimeTypeDetection\FinfoMimeTypeDetector;
 
 class User extends Controller
 {
-    
+
     /**
      * Show a list of all of the application's users.
      *
      * @return \Illuminate\Http\Response
      */
-    
+
 
     public function userInfo()
     {
@@ -26,7 +26,8 @@ class User extends Controller
         return view('logged.home',  ['user' => $user]);
     }
 
-    public function saveUserInfo(Request $request){
+    public function saveUserInfo(Request $request)
+    {
         $uId = Auth::id();
         UserModel::where('id', $uId)->update([
             'email' => $request->input('email'),
@@ -35,5 +36,14 @@ class User extends Controller
             'cellphone' => $request->input('cellphone')
         ]);
         return redirect('/home');
+    }
+
+    public function delete()
+    {
+        $user = UserModel::find(Auth::user()->id);
+        Auth::logout();
+        if ($user->delete()) {
+             return redirect('home')->with('global', 'Your account has been deleted!');
+        }
     }
 }
