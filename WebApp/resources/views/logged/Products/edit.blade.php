@@ -25,7 +25,6 @@
     <a href="{{ url('products/system/products/edit/'.$item->id) }} " > editar </a>
     <a href="{{ url('/system/products/delete/'.$item->id) }} " data-method="delete" > deletar</a>
 
-
 @endforeach
 {{-- pagination (: --}}
 {{ $list->links() }}

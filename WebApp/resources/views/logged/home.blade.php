@@ -4,7 +4,7 @@
 
 
 
-<form class = "p-3" method="POST" action="{{ route('save-user-info') }}" > 
+<form class = "p-3" method="POST" action="{{ route('save-user-info') }}" >
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="inputEmail4">Email</label>
@@ -37,7 +37,7 @@
     </div>
   </form>
 
-  
+<a class="delete-btn-w-after" href="#" shref="{{ url('/system/user-delete') }}" mthod="GET"> Deletar conta </a>
 {{-- atributo de Nome
 tipo
 valor
@@ -46,7 +46,7 @@ type="email" --}}
 
 
 
-<!-- 
+<!--
 <form method="POST" action="{{ route('save-user-info') }}" >
     @csrf
             <label for="email"> <tag> email </tag>
@@ -105,8 +105,8 @@ type="email" --}}
                         <input type="file" name="avatar">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <input type="submit" class="pull-right btn btn-sm btn-primary">
-                    
-                    
+
+
                     email: {{ $user->email }} <br>
                     ultimo nome: {{ $user->last_name }} <br>
                     telefone: {{ $user->cellphone }}<br>
@@ -114,11 +114,11 @@ type="email" --}}
                     Criado em: {{ $user->created_at }} <br>
                     Atualizado em: {{ $user->updated_at }}<br>
 
-                    
+
                     </div>
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
 
 @endsection

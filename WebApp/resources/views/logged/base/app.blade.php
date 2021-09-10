@@ -39,7 +39,30 @@
                   <span class="nav-link-text">Dashboard</span>
                 </a>
               </li>
-
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('user-info') }}">
+                  <i class="ni ni-tv-2 text-primary"></i>
+                  <span class="nav-link-text">User</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('categories-view') }}">
+                  <i class="ni ni-tv-2 text-primary"></i>
+                  <span class="nav-link-text">Categories</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('products-view') }}">
+                  <i class="ni ni-tv-2 text-primary"></i>
+                  <span class="nav-link-text">Produtos</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('logged-test') }}">
+                  <i class="ni ni-tv-2 text-primary"></i>
+                  <span class="nav-link-text">Teste</span>
+                </a>
+              </li>
             </ul>
             <!-- Divider -->
             <hr class="my-3">
@@ -112,7 +135,7 @@
                       <div class="row align-items-center">
                         <div class="col-auto">
                           <!-- Avatar -->
-                          <img src="/uploads/avatars/{{ $user->avatar }}"
+                          <img src="/uploads/avatars/{{ Auth::user()->avatar }}">
                         </div>
                         <div class="col ml--2">
                           <div class="d-flex justify-content-between align-items-center">
@@ -243,10 +266,10 @@
                   <div class="dropdown-header noti-title">
                     <h6 class="text-overflow m-0">Welcome!</h6>
                   </div>
-                  
-                    
-                   
-                  
+
+
+
+
                   <div class="dropdown-divider"></div>
                   <a href="{{ route('logout') }}"  class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     <i class="ni ni-user-run"></i>
@@ -305,6 +328,7 @@
           <div class="col">
             <div class="card">
               <!-- Card header -->
+                @include('flash-message')
                 @yield('content')
 
               <!-- Card footer -->
@@ -374,6 +398,8 @@
     <script src="{{ asset('assetslogged/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js') }}"></script>
     <!-- Optional JS -->
     <script src="{{ asset('assetslogged/vendor/chart.js/dist/Chart.min.js') }}"></script>
+    <script src="{{ asset('assetslogged/js/sweetalert.js') }}"></script>
+    <script src="{{ asset('common/custom.js') }}"></script>
     <script src="{{ asset('assetslogged/vendor/chart.js/dist/Chart.extension.js') }}"></script>
     <!-- Argon JS -->
     <script src="{{ asset('assetslogged/js/argon.js?v=1.2.0') }}"></script>

@@ -25,7 +25,7 @@
     <a href="{{ url('/system/products/edit/'.$item->id) }} " > editar </a>
     <a href="{{ url('/system/products/delete/'.$item->id) }}" > deletar</a>
 
-
+@endforeach
 @endsection
 
 
