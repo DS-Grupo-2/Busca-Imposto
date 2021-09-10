@@ -17,10 +17,14 @@ class Products extends Controller
     }
     public function create($id = NULL,  Request $request)
     {
+        // var_dump($request->input()); 
+        // return; 
         if($request->isMethod('post')){
             $uId = Auth::id();
             $productId = ProductsModel::create([
                 'NomeProduto' => $request->input('NomeProduto'),
+                'Category_ID' => $request->input('Category_ID'),
+                'SubCategoryID' => $request->input('SubCategoryID'),
             ]);
             return redirect('system/products')->with('success','Product created successfuly!');
         }
@@ -36,7 +40,9 @@ class Products extends Controller
                 return redirect('/system/products')->with('success','Product edited successfuly!');
             }
             else{
+
                 return redirect('/system/products')->with('error','Product not exists!');
+                
             }
         }
 
