@@ -37,7 +37,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-default navbar-transparent navbar-fixed-top" color-on-scroll="100">
+    <nav class="navbar navbar-default navbar-transparent navbar-fixed-top" color-on-scroll="1000">
         <!-- if you want to keep the navbar hidden you can add this class to the navbar "navbar-burger"-->
         <div class="container">
             <div class="navbar-header">
@@ -49,7 +49,8 @@
                     <span class="icon-bar bar3"></span>
                 </button>
                 <a href="http://127.0.0.1:8000/" class="navbar-brand" id="buscaimposto">
-                    Busca imposto
+                    
+                    <img src="assetsunlogged/img/logo4.png" alt="Busca Imposto" width=172 height=86 href="http://127.0.0.1:8000/" id="buscaimposto" >
                 </a>
             </div>
             <div class="collapse navbar-collapse">
@@ -106,9 +107,9 @@
         </div>
     </nav>
     <div class="section section-header">
-        <div class="parallax filter filter-color-red">
+        <div class="parallax">
             <div class="image"
-                style="background-image: url('{{ asset('assetsunlogged/img/header-1.jpeg') }}')">
+                style="background-image: url('{{ asset('assetsunlogged/img/header-1.jpg') }}')">
             </div>
             <div class="container">
                 <div class="content">
