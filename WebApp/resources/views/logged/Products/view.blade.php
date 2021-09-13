@@ -1,6 +1,7 @@
 @extends('logged.base.app')
 @section('content')
 
+<div class="p-3">
 <form method="POST" action="{{ route('products-create') }}">
     @csrf
     <label for="email">
@@ -13,27 +14,56 @@
             <strong></strong>
         </span>
     @enderror
-    <input id="Category" type="text" class="form-control @error('Category') is-invalid @enderror" name="Category_ID"
+    <br>Categoria
+    <input id="Category" type="text" class="form-control mb-2 @error('Category') is-invalid @enderror" name="Category_ID"
             value="" required>
-        
-    <input id="Subcategory" type="text" class="form-control @error('Subcategory') is-invalid @enderror" name="SubCategoryID"
+    Subcategoria    
+    <input id="Subcategory" type="text" class="form-control mb-2 @error('Subcategory') is-invalid @enderror" name="SubCategoryID"
             value="" required>
 
-    <button type="submit"> Salvar </button>
+    <button type="submit" class="btn btn-primary"> Salvar </button>
 </form>
 <hr>
-@foreach($list as $item)
-    
-    <p>This is product {{ $item->id }}</p>
+
+<div class="table-responsive">
+        <table class="table table-hover">
+         <thead>
+           <tr>
+             <th scope="col">ID</th>
+             <th scope="col">Produto</th>
+             <th scope="col">Criado</th>
+             <th scope="col">Atualizado</th>
+             <th scope="col">Categoria</th>
+             <th scope="col">Subcategoria</th>
+             <th scope="col"></th>
+           </tr>
+         </thead>
+         @foreach($list as $item)
+         <tbody>
+            <tr> 
+             <th scope="row">{{ $item->id }}</th>
+                <td>{{ $item->NomeProduto }}</td>
+                <td>{{ $item->created_at }}</td>
+                <td>{{ $item->updated_at }}</td>
+                <td>{{ $item->Category_ID }}</td>
+                <td>{{ $item->SubCategoryID }}</td>
+                <td>
+                <button type="submit" class="btn btn-danger "><a href="{{ url('/system/categories/delete/'.$item->id) }}" class="text-white"> Deletar</a></button> 
+                <button type="submit" class="btn btn-success "><a href="{{ url('/system/categories/edit/'.$item->id) }} " class="text-white" > Editar </a></button></td>
+            </tr>        
+            </tbody>
+         @endforeach  
+        </table>
+</div>
+</div>    
+@endsection
+
+
+    {{-- <p>This is product {{ $item->id }}</p>
     <p>NomeProduto {{ $item->NomeProduto }}</p>
     <p>created_at {{ $item->created_at }}</p>
     <p>updated_at {{ $item->updated_at }}</p>
     <p>Categoria {{ $item->Category_ID }}</p>
     <p>Subcategoria {{ $item->SubCategoryID }}</p>
     <a href="{{ url('/system/products/edit/'.$item->id) }} " > editar </a>
-    <a href="{{ url('/system/products/delete/'.$item->id) }}" > deletar</a>
-
-@endforeach
-@endsection
-
-
+    <a href="{{ url('/system/products/delete/'.$item->id) }}" > deletar</a>--}}
