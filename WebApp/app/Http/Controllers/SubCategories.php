@@ -60,7 +60,7 @@ class SubCategories extends Controller
     {
         if(SubCategoriesModel::find($id)){
             $deletedRows = SubCategoriesModel::destroy($id);
-            return redirect('/system/subcategories')->with('warning','SubCategory edited successfuly!');
+            return redirect('/system/subcategories')->with('warning','SubCategory deleted successfuly!');
         }
         else{
             return redirect('/system/subcategories')->with('error','SubCategory not exists!');
