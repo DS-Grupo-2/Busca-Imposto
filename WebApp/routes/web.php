@@ -5,6 +5,7 @@ use App\Http\Controllers\Home;
 use App\Http\Controllers\System;
 use App\Http\Controllers\Categories;
 use App\Http\Controllers\Products;
+use App\Http\Controllers\SubCategories;
 use App\Http\Controllers\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -105,6 +106,30 @@ Route::get('/system/user-info',
 )->middleware('auth')->name('user-info');
 
 /**Subcategories Routes */
+Route::get(
+    '/system/subcategories',
+    [SubCategories::class, 'index']
+)->middleware('auth')->name('subcategories-view');
+
+Route::post(
+    '/system/subcategories/create',
+    [SubCategories::class, 'create']
+)->middleware('auth')->name('subcategories-create');
+
+Route::get(
+    '/system/subcategories/edit/{id}',
+    [SubCategories::class, 'edit']
+)->middleware('auth')->name('subcategories-edit');
+
+Route::post(
+    '/system/subcategories/edit/{id}',
+    [SubCategories::class, 'edit']
+)->middleware('auth')->name('subcategories-edit');
+
+Route::get(
+    '/system/subcategories/delete/{id}',
+    [SubCategories::class, 'delete']
+)->middleware('auth')->name('subcategories-delete');
 /**End Subcategories Routes */
 
 
