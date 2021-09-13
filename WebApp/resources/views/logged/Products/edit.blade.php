@@ -1,7 +1,7 @@
 @extends('logged.base.app')
 @section('content')
 
-<form method="POST" action="{{ url('products/system/products/edit/'.$item->id) }}">
+<form method="POST" action="{{ url('/system/products/edit/'.$item->id) }}">
     @csrf
     <label for="email">
         <tag> Nome </tag>
