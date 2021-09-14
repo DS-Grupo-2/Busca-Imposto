@@ -25,7 +25,7 @@
         <!-- Brand -->
         <div class="sidenav-header  align-items-center">
           <a class="navbar-brand" href="javascript:void(0)">
-            <img src="../assets/img/brand/blue.png" class="navbar-brand-img" alt="...">
+          <img src="../assets/img/brand/blue.png" class="navbar-brand-img" alt="...">
           </a>
         </div>
         <div class="navbar-inner">
@@ -49,6 +49,12 @@
                 <a class="nav-link" href="{{ route('categories-view') }}">
                   <i class="ni ni-tv-2 text-primary"></i>
                   <span class="nav-link-text">Categories</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('subcategories-view') }}">
+                  <i class="ni ni-tv-2 text-primary"></i>
+                  <span class="nav-link-text">Subcategories</span>
                 </a>
               </li>
               <li class="nav-item">
