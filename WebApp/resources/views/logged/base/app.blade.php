@@ -25,7 +25,7 @@
         <!-- Brand -->
         <div class="sidenav-header  align-items-center">
           <a class="navbar-brand" href="javascript:void(0)">
-            <img src="../assets/img/brand/blue.png" class="navbar-brand-img" alt="...">
+            <img src="/uploads/avatars/1631303095.PNG" class="navbar-brand-img" alt="Card image cap" style="width:150px; height:150px; border-radius:50%; margin-right:25px;">
           </a>
         </div>
         <div class="navbar-inner">
