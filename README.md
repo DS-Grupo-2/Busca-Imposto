@@ -57,19 +57,19 @@ Comandos
 git clone https://github.com/DS-Grupo-2/Busca-Imposto
 ```
 ```bash
-cd ./Busca-Imposto\WebApp<br>
+cd ./Busca-Imposto\WebApp
 ```
 ```bash
-composer require laravel/ui<br>
+composer require laravel/ui
 ```
 ```bash
 git clone https://github.com/DS-Grupo-2/Busca-Imposto
 ```
 ```bash
-composer install<br>
+composer install
 ```
 ```bash
-php artisan serve<br>
+php artisan serve
 ```
 
 
