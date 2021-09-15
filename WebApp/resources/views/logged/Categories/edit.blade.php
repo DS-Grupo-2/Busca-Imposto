@@ -7,15 +7,15 @@
   <img class="card-ig-top ml-3 mt-3" src="../assets/img/brand/blue.png"m alt="Card image cap" style="width:150px; height:150px; border-radius:50%; margin-right:25px;">
   <div class="card-body">
     <form enctype="multipart/form-data" action="home" method="post">
-      
+
       <input type="file" name="avatar">
       <input type="hidden" name="_token" value="ekGgW459wGmMk7r8bMir5NwI7J4NxfOP6KK2Fd8F">
       <input type="submit" class="pull-right btn btn-sm btn-primary">
 
-  
+
   <br> Criado em: 2021-09-10 19:39:17 <br>
   Atualizado em: 2021-09-10 19:44:56<br>
-    </form>  
+    </form>
 </div>
 </div>
 
@@ -40,19 +40,19 @@
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
   </div>
 </form>
-  
-  
-  
-  
 
-    
+
+
+
+
+
 
     @error('NomeCategoria')
         <span class="invalid-feedback" role="alert">
             <strong></strong>
         </span>
     @enderror
-    
+
 
     <button type="submit" class="btn btn-primary">Salvar</button></div>
 </form>
