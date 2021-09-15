@@ -14,12 +14,42 @@
             <strong></strong>
         </span>
     @enderror
-    <br>Categoria
-    <input id="Category" type="text" class="form-control mb-2 @error('Category') is-invalid @enderror" name="Category_ID"
-            value="" required>
-    Subcategoria    
-    <input id="Subcategory" type="text" class="form-control mb-2 @error('Subcategory') is-invalid @enderror" name="SubCategoryID"
-            value="" required>
+    {{-- <br>Categoria
+            <input id="Category" type="text" class="form-control mb-2 @error('Category') is-invalid @enderror"
+                name="Category_ID" value="" required> --}}
+
+                <br> Categoria <br>
+                <select name="categoryId">
+                    <option selected="selected"> --SELECT-- </option>
+
+                    @foreach ($categories as $category)
+                    <option value="{{ $category->id }}"
+
+                    >{{ $category->NomeCategoria }}</option>
+                @endforeach
+                </select>
+
+
+    <br>            
+    {{-- <br>Sub-Categoria
+            <input id="subCategory" type="text" class="form-control mb-2 @error('subCategory') is-invalid @enderror"
+                name="subCategory_ID" value="" required> --}}
+
+                <br> Sub-Categoria <br>
+                <select name="subcategoryId">
+                    <option selected="selected"> --SELECT-- </option>
+
+                    @foreach ($subcategories as $subcategory)
+                    <option value="{{ $subcategory->id }}"
+
+                    >{{ $subcategory->NomeSubCategoria }}</option>
+                @endforeach
+                </select>
+
+
+    <br>
+    <br>
+
 
     <button type="submit" class="btn btn-primary"> Salvar </button>
 </form>
