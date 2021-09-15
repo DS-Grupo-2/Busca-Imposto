@@ -14,12 +14,8 @@
             <strong></strong>
         </span>
     @enderror
-    {{-- <br>Categoria
-            <input id="Category" type="text" class="form-control mb-2 @error('Category') is-invalid @enderror"
-                name="Category_ID" value="" required> --}}
-
                 <br> Categoria <br>
-                <select name="categoryId">
+                <select name="Category_ID">
                     <option selected="selected"> --SELECT-- </option>
 
                     @foreach ($categories as $category)
@@ -31,12 +27,8 @@
 
 
     <br>            
-    {{-- <br>Sub-Categoria
-            <input id="subCategory" type="text" class="form-control mb-2 @error('subCategory') is-invalid @enderror"
-                name="subCategory_ID" value="" required> --}}
-
                 <br> Sub-Categoria <br>
-                <select name="subcategoryId">
+                <select name="SubCategoryID">
                     <option selected="selected"> --SELECT-- </option>
 
                     @foreach ($subcategories as $subcategory)
