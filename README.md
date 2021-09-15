@@ -1,7 +1,7 @@
 
  
 
-<div align="center">
+<div align="left">
    <h1> Busca-Imposto </h1>
 </div>
 
