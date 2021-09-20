@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Products as ProductsModel;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
+
+
+
 
 class Products extends Controller
 {
@@ -19,16 +23,33 @@ class Products extends Controller
     {
         // var_dump($request->input()); 
         // return; 
+        $request->validate([
+            'image' => 'required|mimes:jpg,png,jpeg|max:5048'
+        ]);
+        
+        $newImageName = time() . '-' . $request->name . '.' .
+        $request->image->extension();
+
+        $request->image->move(public_path('/uploads/product/'), $newImageName);
+
+
         if($request->isMethod('post')){
             $uId = Auth::id();
             $productId = ProductsModel::create([
                 'NomeProduto' => $request->input('NomeProduto'),
                 'Category_ID' => $request->input('Category_ID'),
                 'SubCategoryID' => $request->input('SubCategoryID'),
+                'Preco' => $request->input('Preco'),
+                'image' => $newImageName
             ]);
-            return redirect('system/products')->with('success','Product created successfuly!');
         }
+        $list = ProductsModel::simplePaginate(15);
+        return view('logged\Products\view', ['list' => $list,]);
+        
+     
+        
     }
+    
 
     public function edit($id= NULL, Request $request)
     {
@@ -64,4 +85,6 @@ class Products extends Controller
             return redirect('/system/products')->with('error','Product not exists!');
         }
     }
+
+    
 }

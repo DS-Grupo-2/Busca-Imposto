@@ -1,11 +1,12 @@
 @extends('logged.base.app')
 @section('content')
 
-<form method="POST" action="{{ url('/system/products/edit/'.$item->id) }}">
+<form method="POST" enctype="multipart/form-data" action="{{ url('/system/products/edit/'.$item->id) }}">
     @csrf
     <div class="form">
   <img class="card-ig-top ml-3 mt-3" src="../assets/img/brand/blue.png"m alt="Card image cap" style="width:150px; height:150px; border-radius:50%; margin-right:25px;">
   <div class="card-body">
+    {{-- Modificação :: --}}
     <form enctype="multipart/form-data" action="home" method="post">
       
       <input type="file" name="avatar">
@@ -13,8 +14,7 @@
       <input type="submit" class="pull-right btn btn-sm btn-primary">
 
   
-  <br> Criado em: 2021-09-10 19:39:17 <br>
-  Atualizado em: 2021-09-10 19:44:56<br>
+ 
     </form>  
 </div>
 </div>

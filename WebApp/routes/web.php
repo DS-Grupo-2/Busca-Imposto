@@ -155,6 +155,7 @@ Route::get('/home/test', function () {
 /**End TEST Routes */
 
 Route::post('/home', 'UserController@update_avatar');
+// Route::post('/system/products', 'Products@update_product');
 
 
 Route::get('/home',
