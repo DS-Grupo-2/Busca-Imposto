@@ -37,7 +37,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-default navbar-transparent navbar-fixed-top" color-on-scroll="1000">
+    <nav class="navbar navbar-default navbar-transparent navbar-fixed-top" color-on-scroll="100">
         <!-- if you want to keep the navbar hidden you can add this class to the navbar "navbar-burger"-->
         <div class="container">
             <div class="navbar-header">
@@ -48,7 +48,7 @@
                     <span class="icon-bar bar2"></span>
                     <span class="icon-bar bar3"></span>
                 </button>
-                <a href="http://127.0.0.1:8000/" class="navbar-brand" id="buscaimposto">
+                <a href="http://127.0.0.1:8000/" class="navbar-brand " id="buscaimposto" style="margin-bottom: 50%">
                     
                     <img src="assetsunlogged/img/logo4.png" alt="Busca Imposto" width=172 height=86 href="http://127.0.0.1:8000/" id="buscaimposto" >
                 </a>
@@ -96,7 +96,7 @@
                                 <a href="#"><i class="fa fa-twitter"></i> Twitter</a>
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-instagram"></i> Instagram</a>
+                                <a href="#"><i class="fa fa-instagram"></i>Instagram</a>
                             </li>
                         </ul>
                     </li>
@@ -106,28 +106,28 @@
             <!-- /.navbar-collapse -->
         </div>
     </nav>
-    <div class="section section-header">
-        <div class="parallax">
+    <div class="section section-header"> 
+         <div class="parallax">
             <div class="image"
                 style="background-image: url('{{ asset('assetsunlogged/img/header-1.jpg') }}')">
             </div>
-            <div class="container">
+             <div class="container">
                 <div class="content">
                     <div class="title-area">
-                        <p>Free Demo</p>
-                        <h1 class="title-modern">Gaia</h1>
-                        <h3>Probably the most stylish bootstrap template in the world!</h2>
+                        <h2>Compare preços</h2>
+                        <h1 class="title-modern"></h1>
+                        <h3></h2>
                         <div class="separator line-separator">♦</div>
                     </div>
 
                     <div class="button-get-started">
-                        <a href="http://www.creative-tim.com/product/gaia-bootstrap-template" target="_blank" class="btn btn-white btn-fill btn-lg ">
-                            Download Demo
+                        <a href="http://www.creative-tim.com/product/gaia-bootstrap-template" target="_blank" class="btn btn-white btn-fill btn-lg text">
+                         Saiba mais   
                         </a>
                     </div>
                 </div>
 
-            </div>
+            </div> 
         </div>
     </div>
 

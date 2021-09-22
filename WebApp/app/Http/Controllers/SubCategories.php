@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\SubCategories as SubCategoriesModel;
+use App\Categories as CategoriesModel;
 use Illuminate\Support\Facades\Auth;
 
 class SubCategories extends Controller
@@ -15,6 +16,7 @@ class SubCategories extends Controller
 
         return view('logged.subcategories.view', [
             'list' => $list,
+            'categories' => CategoriesModel::all()
         ]);
     }
 
@@ -26,6 +28,8 @@ class SubCategories extends Controller
             $uId = Auth::id();
             $categoryId = SubCategoriesModel::create([
                 'NomeSubCategoria' => $request->input('NomeSubCategoria'),
+                'categoryId' => $request->input('categoryId'),
+
             ]);
             return redirect('system/subcategories')->with('success','Category created successfuly!');
         }
@@ -39,6 +43,7 @@ class SubCategories extends Controller
             if(SubCategoriesModel::find($id)){
                 $subcategoryId = SubCategoriesModel::where('id', $id)->update([
                     'NomeSubCategoria' => $request->input('NomeSubCategoria'),
+                    'categoryId' => $request->input('categoryId'),
                 ]);
                 return redirect('/system/subcategories')->with('success','SubCategory edited successfuly!');
             }
@@ -52,7 +57,9 @@ class SubCategories extends Controller
 
         return view('logged.subcategories.edit', [
             'item' => $subcategory,
-            'list' => $list
+            'list' => $list,
+            'categories' => CategoriesModel::all()
+
         ]);
     }
 

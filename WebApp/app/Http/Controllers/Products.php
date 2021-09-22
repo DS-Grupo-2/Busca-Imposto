@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Products as ProductsModel;
 use Illuminate\Support\Facades\Auth;
+use App\Categories as CategoriesModel;
+use App\SubCategories as SubCategoriesModel;
 
 class Products extends Controller
 {
@@ -13,6 +15,8 @@ class Products extends Controller
 
         return view('logged.products.view', [
             'list' => $list,
+            'categories' => CategoriesModel::all(),
+            'subcategories' => SubCategoriesModel::all()
         ]);
     }
     public function create($id = NULL,  Request $request)
