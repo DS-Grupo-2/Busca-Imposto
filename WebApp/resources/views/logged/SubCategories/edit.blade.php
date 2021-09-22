@@ -1,84 +1,72 @@
-@extends('logged.base.app')
+  @extends('logged.base.app')
 @section('content')
 
-    <div class="p-3">
-        <form method="POST" action="{{ url('/system/subcategories/edit/'. $item->id) }}">
-            @csrf
-            <label for="NomeSubCategoria">
-                <tag> Nome </tag>
-                <input id="NomeSubCategoria" type="text" class="form-control @error('NomeSubCategoria') is-invalid @enderror"
-                    name="NomeSubCategoria" value="{{ $item->NomeSubCategoria }}" required>
-            </label>
-            @error('NomeSubCategoria')
-                <span class="invalid-feedback" role="alert">
-                    <strong></strong>
-                </span>
-            @enderror
-            {{-- <br>Categoria
-            <input id="Category" type="text" class="form-control mb-2 @error('Category') is-invalid @enderror"
-                name="Category_ID" value="" required> --}}
+<form method="POST" action="{{ url('/system/subcategories/edit/'.$item->id) }}">
+    @csrf
+    <div class="form">
+  <img class="card-ig-top ml-3 mt-3" src="/uploads/avatars/User.jpg"m alt="Card image cap" style="width:150px; height:150px; border-radius:50%; margin-right:25px;">
+  <div class="card-body">
+    <form enctype="multipart/form-data" action="home" method="post">
+      
+      <input type="file" name="avatar">
+      <input type="hidden" name="_token" value="ekGgW459wGmMk7r8bMir5NwI7J4NxfOP6KK2Fd8F">
+      <input type="submit" class="pull-right btn btn-sm btn-primary">
 
-                <br> Categoria <br>
-                <select name="categoryId">
-                    <option selected="selected"> --SELECT-- </option>
-                    @foreach ($categories as $category)
+  
 
-                    <option value="{{ $category->id }}"
-                        @if ($category->id == $item->categoryId)
-                            selected="selected"
-                        @endif
-                    >{{ $category->NomeCategoria }}</option>
-                @endforeach
-                </select>
+    </form>  
+    
+</div>
 
-                <br>
-                <br>
-            <button type="submit" class="btn btn-primary"> Salvar </button>
-        </form>
-        <hr>
+</div>
 
-        <div class="table-responsive">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">SubCategoria</th>
-                        <th scope="col">Criado</th>
-                        <th scope="col">Atualizado</th>
-                        <th scope="col"></th>
-
-                    </tr>
-                </thead>
-                @foreach ($list as $item)
-                    <tbody>
-                        <tr>
-                            <th scope="row">{{ $item->id }}</th>
-                            <td>{{ $item->NomeSubCategoria }}</td>
-                            <td>{{ $item->created_at }}</td>
-                            <td>{{ $item->updated_at }}</td>
-
-                            <td>
-                                <button type="submit" class="btn btn-danger "><a
-                                        href="{{ url('/system/subcategories/delete/' . $item->id) }}" class="text-white">
-                                        Deletar</a></button>
-                                <button type="submit" class="btn btn-success "><a
-                                        href="{{ url('/system/subcategories/edit/' . $item->id) }} " class="text-white">
-                                        Editar </a></button>
-                            </td>
-                        </tr>
-                    </tbody>
-                @endforeach
-            </table>
-        </div>
+<div class="col-10" >
+    <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="NomeProduto">Nome</label>
+      <input id="NomeSubCategoria" type="text" class="form-control @error('NomeSubCategoria') is-invalid @enderror" name="NomeSubCategoria"
+            value="{{ $item->NomeSubCategoria }}" required autocomplete="text" autofocus>
     </div>
+    <div class="form-group col-md-6">
+      <label for="NomeCategoria">Categoria</label>
+      <input type="text" class="form-control" id="NomeCategoria" value="{{ $item->Category_ID }}" >
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="SubCategoryID">Subcategoria</label>
+    <input type="text" class="form-control" id="SubCategoryID" value="{{ $item->SubCategoryID }}">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Descrição</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+</form>
+  
+  
+  
+  
+
+    
+
+    @error('NomeProduto')
+        <span class="invalid-feedback" role="alert">
+            <strong></strong>
+        </span>
+    @enderror
+    
+
+    <button type="submit" class="btn btn-primary">Salvar</button></div>
+</form>
+<hr>
+@foreach($list as $item)
+
+
+
+
+
+
+@endforeach
+{{-- pagination (: --}}
+{{ $list->links() }}
 @endsection
 
-
-{{-- <p>This is product {{ $item->id }}</p>
-    <p>NomeProduto {{ $item->NomeProduto }}</p>
-    <p>created_at {{ $item->created_at }}</p>
-    <p>updated_at {{ $item->updated_at }}</p>
-    <p>Categoria {{ $item->Category_ID }}</p>
-    <p>Subcategoria {{ $item->SubCategoryID }}</p>
-    <a href="{{ url('/system/products/edit/'.$item->id) }} " > editar </a>
-    <a href="{{ url('/system/products/delete/'.$item->id) }}" > deletar</a> --}}
