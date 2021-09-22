@@ -109,7 +109,7 @@
     <div class="section section-header"> 
          <div class="parallax">
             <div class="image"
-                style="background-image: url('{{ asset('assetsunlogged/img/header-1.jpg') }}')">
+                style="background-image: url('{{ asset('assetsunlogged/img/header-6.jpg') }}')">
             </div>
              <div class="container">
                 <div class="content">
