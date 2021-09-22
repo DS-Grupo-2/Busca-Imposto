@@ -1,10 +1,10 @@
-@extends('logged.base.app')
+  @extends('logged.base.app')
 @section('content')
 
 <form method="POST" action="{{ url('/system/subcategories/edit/'.$item->id) }}">
     @csrf
     <div class="form">
-  <img class="card-ig-top ml-3 mt-3" src="../assets/img/brand/blue.png"m alt="Card image cap" style="width:150px; height:150px; border-radius:50%; margin-right:25px;">
+  <img class="card-ig-top ml-3 mt-3" src="/uploads/avatars/User.jpg"m alt="Card image cap" style="width:150px; height:150px; border-radius:50%; margin-right:25px;">
   <div class="card-body">
     <form enctype="multipart/form-data" action="home" method="post">
       
@@ -13,27 +13,28 @@
       <input type="submit" class="pull-right btn btn-sm btn-primary">
 
   
-  <br> Criado em: 2021-09-10 19:39:17 <br>
-  Atualizado em: 2021-09-10 19:44:56<br>
+
     </form>  
+    
 </div>
+
 </div>
 
 <div class="col-10" >
     <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputEmail4">Nome</label>
+      <label for="NomeProduto">Nome</label>
       <input id="NomeSubCategoria" type="text" class="form-control @error('NomeSubCategoria') is-invalid @enderror" name="NomeSubCategoria"
-            value="{{ $item->NomeSubCategoria }}" required autocomplete="email" autofocus>
+            value="{{ $item->NomeSubCategoria }}" required autocomplete="text" autofocus>
     </div>
     <div class="form-group col-md-6">
-      <label for="inputPassword4">Sub Categoria</label>
-      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+      <label for="NomeCategoria">Categoria</label>
+      <input type="text" class="form-control" id="NomeCategoria" value="{{ $item->Category_ID }}" >
     </div>
   </div>
   <div class="form-group">
-    <label for="inputAddress">Preço</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+    <label for="SubCategoryID">Subcategoria</label>
+    <input type="text" class="form-control" id="SubCategoryID" value="{{ $item->SubCategoryID }}">
   </div>
   <div class="form-group">
     <label for="exampleFormControlTextarea1">Descrição</label>
@@ -47,7 +48,7 @@
 
     
 
-    @error('NomeSubCategoria')
+    @error('NomeProduto')
         <span class="invalid-feedback" role="alert">
             <strong></strong>
         </span>
@@ -61,12 +62,7 @@
 
 
 
-    <p>This is category id {{ $item->id }}</p>
-    <p>name {{ $item->NomeSubCategoria }}</p>
-    <p>created_at {{ $item->created_at }}</p>
-    <p>updated_at {{ $item->updated_at }}</p>
-    <a href="{{ url('/system/subcategories/edit/'.$item->id) }} " > editar </a>
-    <a href="{{ url('/system/subcategories/delete/'.$item->id) }} " data-method="delete" > deletar</a>
+
 
 
 @endforeach
