@@ -3,47 +3,57 @@
 
 
 <div class="p-3">
-<div class="jumbotron">
     <form method="POST" enctype="multipart/form-data" action="{{ route('products-create') }}">
-        {{ csrf_field() }}
-        <label for="email"></label>
-        {{-- <input type="file" name="image" class="form-control"> --}}
-    
-            {{-- Product image --}}
-            
-            
+        @csrf
+        <label for="email">
+
             <label>Imagem</label>
-            
-            
             <input type="file" name="image" class="form-control" required>
-            
-           
-         
-    
+
             <tag> Nome </tag>
-            <input minlength="5" id="NomeProduto" type="text" class="form-control @error('NomeProduto') is-invalid @enderror" name="NomeProduto"
+            <input id="NomeProduto" type="text" class="form-control @error('NomeProduto') is-invalid @enderror" name="NomeProduto"
                 value="" required>
+
+            <br>Preço<br>
+            <input id="Preco" type="text" class="form-control mb-2 @error('Preco') is-invalid @enderror" name="Preco" value="" required>
+
         </label>
         @error('NomeProduto')
             <span class="invalid-feedback" role="alert">
                 <strong></strong>
             </span>
         @enderror
-        <br>Preço
-        <input id="Preco" type="text" class="form-control mb-2 @error('Preco') is-invalid @enderror" name="Preco"
-                value="" required>
-
-        <br>Categoria
-        <input id="Category" type="text" class="form-control mb-2 @error('Category') is-invalid @enderror" name="Category_ID"
-                value="" required>
-        
-        Subcategoria    
-        <input id="Subcategory" type="text" class="form-control mb-2 @error('Subcategory') is-invalid @enderror" name="SubCategoryID"
-                value="" required>
-        
-        <button type="submit" name="submit" class="btn btn-primary btn-lg"> Salvar </button>
+        <br> Categoria <br>
+        <select name="Category_ID">
+        <option selected="selected"> --SELECT-- </option>
+    
+        @foreach ($categories as $category)
+            <option value="{{ $category->id }}"
+    
+            >{{ $category->NomeCategoria }}</option>
+        @endforeach
+        </select>
+    
+    
+        <br>            
+        <br> Sub-Categoria <br>
+        <select name="SubCategoryID">
+        <option selected="selected"> --SELECT-- </option>
+    
+        @foreach ($subcategories as $subcategory)
+            <option value="{{ $subcategory->id }}"
+    
+            >{{ $subcategory->NomeSubCategoria }}</option>
+        @endforeach
+        </select>
+    
+    
+        <br>
+        <br>
+    
+    
+        <button type="submit" class="btn btn-primary"> Salvar </button>
     </form>
-</div>
 <hr>
 
 <div class="table-responsive">
@@ -54,7 +64,6 @@
              <th scope="col">ID</th>
              <th scope="col">Produto</th>
              <th scope="col">Image</th>
-             <th scope="col">Preço</th>
              <th scope="col">Criado</th>
              <th scope="col">Atualizado</th>
              <th scope="col">Categoria</th>
@@ -67,7 +76,7 @@
             <tr> 
              <th scope="row">{{ $item->id }}</th>
              <td>{{ $item->NomeProduto }}</td>
-                <td><img height="40px" src="{{ asset('uploads/product/' . $item->image) }}"></td>
+                <td><img height="50px" src="{{ asset('uploads/product/' . $item->image) }}"></td>
                 
                 <td>{{ $item->Preco }}</td>
                 <td>{{ $item->created_at }}</td>
@@ -94,3 +103,14 @@
     <p>Subcategoria {{ $item->SubCategoryID }}</p>
     <a href="{{ url('/system/products/edit/'.$item->id) }} " > editar </a>
     <a href="{{ url('/system/products/delete/'.$item->id) }}" > deletar</a>--}}
+
+    {{-- vou usar --}}
+    {{-- <br>Preço<br>
+        <input id="Preco" type="text" class="form-control mb-2 @error('Preco') is-invalid @enderror" name="Preco"
+                value="" required> --}}
+
+
+    {{-- <label>Imagem</label>
+    <input type="file" name="image" class="form-control" required> --}}
+
+    {{-- <form method="POST" enctype="multipart/form-data" action="{{ route('products-create') }}"> --}}

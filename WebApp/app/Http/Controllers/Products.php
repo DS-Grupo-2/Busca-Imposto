@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\Products as ProductsModel;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
-
+use App\Categories as CategoriesModel;
+use App\SubCategories as SubCategoriesModel;
 
 
 
@@ -17,6 +18,8 @@ class Products extends Controller
 
         return view('logged.products.view', [
             'list' => $list,
+            'categories' => CategoriesModel::all(),
+            'subcategories' => SubCategoriesModel::all()
         ]);
     }
     public function create($id = NULL,  Request $request)
