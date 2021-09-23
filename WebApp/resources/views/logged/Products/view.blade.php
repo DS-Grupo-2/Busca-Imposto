@@ -8,14 +8,14 @@
         <label for="email">
 
             <label>Imagem</label>
-            <input type="file" name="image" class="form-control" required>
+            <input type="file" name="image" class="form-control">
 
             <tag> Nome </tag>
             <input id="NomeProduto" type="text" class="form-control @error('NomeProduto') is-invalid @enderror" name="NomeProduto"
                 value="" required>
 
-            <br>Preço<br>
-            <input id="Preco" type="text" class="form-control mb-2 @error('Preco') is-invalid @enderror" name="Preco" value="" required>
+            {{-- <br>Preço<br>
+            <input id="Preco" type="text" class="form-control mb-2 @error('Preco') is-invalid @enderror" name="Preco" value="" required> --}}
 
         </label>
         @error('NomeProduto')
@@ -28,9 +28,9 @@
         <option selected="selected"> --SELECT-- </option>
     
         @foreach ($categories as $category)
-            <option value="{{ $category->id }}"
+        <option value="{{ $category->id }}"
     
-            >{{ $category->NomeCategoria }}</option>
+        >{{ $category->NomeCategoria }}</option>
         @endforeach
         </select>
     
@@ -78,7 +78,7 @@
              <td>{{ $item->NomeProduto }}</td>
                 <td><img height="50px" src="{{ asset('uploads/product/' . $item->image) }}"></td>
                 
-                <td>{{ $item->Preco }}</td>
+                {{-- <td>{{ $item->Preco }}</td> --}}
                 <td>{{ $item->created_at }}</td>
                 <td>{{ $item->updated_at }}</td>
                 <td>{{ $item->Category_ID }}</td>

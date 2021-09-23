@@ -19,7 +19,7 @@ class Products extends Controller
         return view('logged.products.view', [
             'list' => $list,
             'categories' => CategoriesModel::all(),
-            'subcategories' => SubCategoriesModel::all()
+            'subcategories' => SubCategoriesModel::all(),
         ]);
     }
     public function create($id = NULL,  Request $request)
