@@ -50,6 +50,11 @@
                   <i class="ni ni-tv-2 text-primary"></i>
                   <span class="nav-link-text">Categories</span>
                 </a>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ route('subcategories-view') }}">
+                    <i class="ni ni-tv-2 text-primary"></i>
+                    <span class="nav-link-text">SubCategorias</span>
+                  </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('subcategories-view') }}">
