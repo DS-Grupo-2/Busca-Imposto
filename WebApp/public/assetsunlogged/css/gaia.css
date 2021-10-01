@@ -242,10 +242,10 @@ a:hover {
 }
 
 .separator-danger {
-  color: #e78b90;
+  color: #ffbacb;
 }
 .separator-danger:before, .separator-danger:after {
-  border-color: #e78b90;
+  border-color: #ffbacb;
 }
 
 p.description {
