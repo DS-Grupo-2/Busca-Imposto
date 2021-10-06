@@ -47,7 +47,14 @@ class Products extends Controller
             ]);
         }
         $list = ProductsModel::simplePaginate(15);
-        return view('logged\Products\view', ['list' => $list,]);
+        $categories = CategoriesModel::all();
+        $subcategories = SubCategoriesModel::all();
+        return view('logged\Products\view', [
+            'list' => $list,
+            'categories' => $categories,
+            'subcategories' => $subcategories 
+        
+        ]);
         
      
         
@@ -72,10 +79,14 @@ class Products extends Controller
 
         $product = ProductsModel::where("id", $id)->first();
         $list = ProductsModel::simplePaginate(15);
+        $categories = CategoriesModel::all();
+        $subcategories = SubCategoriesModel::all();
 
         return view('logged.products.edit', [
             'item' => $product,
-            'list' => $list
+            'list' => $list,
+            
+
         ]);
     }
     public function delete($id = NULL)
