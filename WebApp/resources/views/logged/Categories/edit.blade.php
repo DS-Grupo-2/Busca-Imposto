@@ -14,13 +14,15 @@
 <form method="POST" action="{{ url('/system/categories/edit/'.$item->id) }}">
     @csrf
 
-<div class="col-7" >
+  <div class="col-12" >
     <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="NomeProduto">Nome</label>
-      <input id="NomeProduto" type="text" class="form-control @error('NomeProduto') is-invalid @enderror" name="NomeProduto"
+      <div class="form-group col-md-6">
+        <label for="NomeProduto">Nome</label>
+        <input id="NomeProduto" type="text" class="form-control @error('NomeProduto') is-invalid @enderror" name="NomeProduto"
             value="{{ $item->NomeCategoria }}" required autocomplete="text" autofocus>
+      </div>
     </div>
+<div>
 </form>
   
   
@@ -37,16 +39,16 @@
    </thead>
    @foreach($list as $item)         
    <tbody>
-      <tr> 
-       <th scope="row">{{ $item->id }}</th>
+      <tr>
           <td>{{ $item->NomeCategoria }}</td>
           <td>{{ $item->created_at }}</td>
           <td>{{ $item->updated_at }}</td>
           <td scope="col">
-          <button type="submit" class="btn btn-danger float-right"><a href="{{ url('/system/categories/delete/'.$item->id) }}" class="text-white"> Deletar</a></button> 
-          <button type="submit" class="btn btn-success float-right"><a href="{{ url('/system/categories/edit/'.$item->id) }} " class="text-white" > Editar </a></button></td>
-      </tr>        
-      </tbody>
+            <button type="submit" class="btn btn-danger float-right"><a href="{{ url('/system/categories/delete/'.$item->id) }}" class="text-white"> Deletar</a></button> 
+            <button type="submit" class="btn btn-success float-right"><a href="{{ url('/system/categories/edit/'.$item->id) }} " class="text-white" > Editar </a></button>
+          </td>
+      </tr>      
+    </tbody>
    @endforeach  {{ $list->links() }}
  </table>
 </div>    
