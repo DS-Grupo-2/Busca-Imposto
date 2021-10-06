@@ -42,6 +42,16 @@ Auth::routes();
         '/system/user-delete',
         [User::class, 'delete']
     )->middleware('auth')->name('user-delete');;
+
+    Route::get('/system/user-info',
+    [User::class, 'userInfo']
+    )->middleware('auth')->name('user-info');
+
+    Route::post('/home', 'UserController@update_avatar');
+
+    Route::get('/home',
+        [User::class, 'userInfo']
+    )->middleware('auth')->name('user-info');;
 /**End USER Routes */
 
 
@@ -70,6 +80,8 @@ Auth::routes();
         '/system/categories/delete/{id}',
         [Categories::class, 'delete']
     )->middleware('auth')->name('categories-delete');
+
+    Route::post('/categories/edit', 'CategoriesController@update_picture');
 /**End Categories Routes */
 
 
@@ -100,10 +112,6 @@ Auth::routes();
     )->middleware('auth')->name('products-delete');
 /**End products Routes */
 
-
-Route::get('/system/user-info',
-    [User::class, 'userInfo']
-)->middleware('auth')->name('user-info');
 
 /**Subcategories Routes */
 Route::get(
@@ -153,11 +161,4 @@ Route::get('/home/test', function () {
     return view('unlogged.test');
 })->name('unlogged-test');
 /**End TEST Routes */
-
-Route::post('/home', 'UserController@update_avatar');
-
-
-Route::get('/home',
-    [User::class, 'userInfo']
-)->middleware('auth')->name('user-info');;
 
