@@ -26,9 +26,7 @@
                 </select>
 
 
-            <br>SubCategoria
-            <input id="Subcategory" type="text" class="form-control mb-2 @error('Subcategory') is-invalid @enderror"
-                name="SubCategoryID" value="" required>
+            <br><br>
 
             <button type="submit" class="btn btn-primary"> Salvar </button>
         </form>

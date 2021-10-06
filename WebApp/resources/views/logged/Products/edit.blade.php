@@ -37,13 +37,30 @@
             value="{{ $item->NomeProduto }}" required autocomplete="text" autofocus>
     </div>
     <div class="form-group col-md-6">
-      <label for="NomeCategoria">Categoria</label>
-      <input type="text" class="form-control" id="NomeCategoria" value="{{ $item->Category_ID }}" >
+    
+                <br> Categoria <br>
+                <select name="Category_ID">
+                    <option selected="selected"> --SELECT-- </option>
+
+                    @foreach ($categories as $category)
+                    <option value="{{ $category->id }}"
+
+                    >{{ $category->NomeCategoria }}</option>
+                @endforeach
+                </select>
     </div>
   </div>
   <div class="form-group">
-    <label for="SubCategoryID">Subcategoria</label>
-    <input type="text" class="form-control" id="SubCategoryID" value="{{ $item->SubCategoryID }}">
+    <br> Sub-Categoria <br>
+                <select name="SubCategoryID">
+                    <option selected="selected"> --SELECT-- </option>
+
+                    @foreach ($subcategories as $subcategory)
+                    <option value="{{ $subcategory->id }}"
+
+                    >{{ $subcategory->NomeSubCategoria }}</option>
+                @endforeach
+                </select>
   </div>
   <div class="form-group">
     <label for="exampleFormControlTextarea1">Descrição</label>
