@@ -4,8 +4,8 @@
 <form method="POST" action="{{ url('/system/subcategories/edit/'.$item->id) }}">
     @csrf
     <div class="form">
-  <img class="card-ig-top ml-3 mt-3" src="/uploads/avatars/User.jpg"m alt="Card image cap" style="width:150px; height:150px; border-radius:50%; margin-right:25px;">
-  <div class="card-body">
+  <img class="card-ig-top ml-3 mt-3" src="/uploads/avatars/default.jpg"m alt="Card image cap" style="width:150px; height:150px; border-radius:50%; margin-right:25px;">
+  <div class="card-body"> 
     <form enctype="multipart/form-data" action="home" method="post">
       
       <input type="file" name="avatar">
@@ -41,7 +41,6 @@
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
   </div>
 </form>
-  
   
   
   

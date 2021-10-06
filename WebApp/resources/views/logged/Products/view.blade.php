@@ -83,9 +83,10 @@
                 <td>{{ $item->updated_at }}</td>
                 <td>{{ $item->Category_ID }}</td>
                 <td>{{ $item->SubCategoryID }}</td>
-                <td>
-                <button type="submit" class="btn btn-danger "><a href="{{ url('/system/products/delete/'.$item->id) }}" class="text-white"> Deletar</a></button> 
-                <button type="submit" class="btn btn-success "><a href="{{ url('/system/products/edit/'.$item->id) }} " class="text-white" > Editar </a></button></td>
+                <td> 
+                <button type="submit" class="btn btn-success "><a href="{{ url('/system/products/edit/'.$item->id) }} " class="text-white" > Editar </a></button>
+                <button type="submit" class="btn btn-danger "><a href="{{ url('/system/products/delete/'.$item->id) }}" class="text-white"> Deletar</a></button>
+            </td>
             </tr>        
             </tbody>
          @endforeach  

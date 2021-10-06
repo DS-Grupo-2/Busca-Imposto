@@ -56,7 +56,7 @@ class Categories extends Controller
     {
         if(CategoriesModel::find($id)){
             $deletedRows = CategoriesModel::destroy($id);
-            return redirect('/system/categories')->with('warning','Category edited successfuly!');
+            return redirect('/system/categories')->with('warning','Category deleted successfuly!');
         }
         else{
             return redirect('/system/categories')->with('error','Category not exists!');
