@@ -21,8 +21,8 @@ class Products extends Controller
     }
     public function create($id = NULL,  Request $request)
     {
-        // var_dump($request->input()); 
-        // return; 
+        // var_dump($request->input());
+        // return;
         if($request->isMethod('post')){
             $uId = Auth::id();
             $productId = ProductsModel::create([
@@ -46,7 +46,7 @@ class Products extends Controller
             else{
 
                 return redirect('/system/products')->with('error','Product not exists!');
-                
+
             }
         }
 
@@ -55,6 +55,9 @@ class Products extends Controller
 
         return view('logged.products.edit', [
             'item' => $product,
+
+            'categories' => CategoriesModel::all(),
+            'subcategories' => SubCategoriesModel::all(),
             'list' => $list
         ]);
     }

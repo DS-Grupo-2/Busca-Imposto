@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
     <meta name="author" content="Creative Tim">
-    <title>Argon Dashboard - Free Dashboard for Bootstrap 4</title>
+    <title>Busca imposto</title>
     <!-- Favicon -->
-    <link rel="icon" href="{{ asset('assetslogged/img/brand/favicon.png') }}" type="image/png">
+    {{-- <link rel="icon" href="{{ asset('assetslogged/img/brand/favicon.png') }}" type="image/png"> --}}
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
@@ -55,12 +55,6 @@
                     <i class="ni ni-tv-2 text-primary"></i>
                     <span class="nav-link-text">SubCategorias</span>
                   </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('subcategories-view') }}">
-                  <i class="ni ni-tv-2 text-primary"></i>
-                  <span class="nav-link-text">Subcategories</span>
-                </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('products-view') }}">

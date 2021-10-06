@@ -20,7 +20,7 @@
   {{-- Telefone: {{ $user->cellphone }}<br> --}}
   <br> Criado em: {{ $user->created_at }} <br>
   Atualizado em: {{ $user->updated_at }}<br>
-    </form>  
+    </form>
 </div>
 </div>
 
@@ -57,6 +57,8 @@
   </div> --}}
 
 <form class = "p-3" method="POST" action="{{ route('save-user-info') }}" >
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="inputNome">Nome</label>
