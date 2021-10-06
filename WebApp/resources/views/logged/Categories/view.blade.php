@@ -1,6 +1,25 @@
 @extends('logged.base.app')
 @section('content')
 
+<form method="POST" action="">
+    @csrf
+    <div class="form">
+  <img class="card-ig-top ml-3 mt-3" src="/uploads/avatars/User.jpg"m alt="Card image cap" style="width:150px; height:150px; border-radius:50%; margin-right:25px;">
+  <div class="card-body">
+    <form enctype="multipart/form-data" action="home" method="post">
+      
+      <input type="file" name="avatar">
+      <input type="hidden" name="_token" value="ekGgW459wGmMk7r8bMir5NwI7J4NxfOP6KK2Fd8F">
+      <input type="submit" class="pull-right btn btn-sm btn-primary">
+
+  
+
+    </form>  
+    
+</div>
+
+</div>
+
 <div class="p-3">
     <form method="POST" action="{{ route('categories-create') }}">
         @csrf
