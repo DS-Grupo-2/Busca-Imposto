@@ -52,10 +52,15 @@ class Products extends Controller
 
         $product = ProductsModel::where("id", $id)->first();
         $list = ProductsModel::simplePaginate(15);
+        $categories = CategoriesModel::all();
+        $subcategories = SubCategoriesModel::all();
 
         return view('logged.products.edit', [
             'item' => $product,
-            'list' => $list
+            'list' => $list,
+            'categories' => $categories,
+            'subcategories' => $subcategories
+
         ]);
     }
     public function delete($id = NULL)

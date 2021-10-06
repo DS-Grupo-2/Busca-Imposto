@@ -1,53 +1,59 @@
 @extends('logged.base.app')
 @section('content')
 
+<form enctype="multipart/form-data" action="{{ url('categories/edit') }}" method="post" id="imagem">
+    <div class="form">
+    <img class="card-img-top ml-3 mt-3" src="/uploads/pictures/{{ $item->picture }}" alt="Card image cap" style="width:150px; height:150px; border-radius:50%; margin-right:25px;">
+      <input type="file" name="picture" form="imagem">
+      <input type="hidden" name="idCategoria" value="{{ $item->id }}">
+      <input type="hidden" name="_token" form="imagem" value="{{ csrf_token() }}">
+      <button type="submit" form="imagem" class="pull-right btn btn-sm btn-primary">Enviar</button>
+    <div class="card-body">
+
+  </form>  
 <form method="POST" action="{{ url('/system/categories/edit/'.$item->id) }}">
     @csrf
-    <div class="form">
-  <img class="card-ig-top ml-3 mt-3" src="/uploads/avatars/User.jpg"m alt="Card image cap" style="width:150px; height:150px; border-radius:50%; margin-right:25px;">
-  <div class="card-body">
-    <form enctype="multipart/form-data" action="home" method="post">
-      
-      <input type="file" name="avatar">
-      <input type="hidden" name="_token" value="ekGgW459wGmMk7r8bMir5NwI7J4NxfOP6KK2Fd8F">
-      <input type="submit" class="pull-right btn btn-sm btn-primary">
 
-  
-
-    </form>  
-    
-</div>
-
-</div>
-
-<div class="col-10" >
+<div class="col-7" >
     <div class="form-row">
     <div class="form-group col-md-6">
       <label for="NomeProduto">Nome</label>
       <input id="NomeProduto" type="text" class="form-control @error('NomeProduto') is-invalid @enderror" name="NomeProduto"
-            value="{{ $item->NomeProduto }}" required autocomplete="text" autofocus>
+            value="{{ $item->NomeCategoria }}" required autocomplete="text" autofocus>
     </div>
-    <div class="form-group col-md-6">
-      <label for="NomeCategoria">Categoria</label>
-      <input type="text" class="form-control" id="NomeCategoria" value="{{ $item->NomeCategoria }}" >
-    </div>
-  </div>
-  <div class="form-group">
-    <label for="SubCategoryID">Subcategoria</label>
-    <input type="text" class="form-control" id="SubCategoryID" value="{{ $item->SubCategoryID }}">
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Descrição</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-  </div>
 </form>
   
   
-  
+<div class="table-responsive">
+  <table class="table table-hover">
+   <thead>
+     <tr>
+       <th scope="col">ID</th>
+       <th scope="col">Categoria</th>
+       <th scope="col">Criado</th>
+       <th scope="col">Atualizado</th>
+       <th scope="col"></th>
+     </tr>
+   </thead>
+   @foreach($list as $item)         
+   <tbody>
+      <tr> 
+       <th scope="row">{{ $item->id }}</th>
+          <td>{{ $item->NomeCategoria }}</td>
+          <td>{{ $item->created_at }}</td>
+          <td>{{ $item->updated_at }}</td>
+          <td scope="col">
+          <button type="submit" class="btn btn-danger float-right"><a href="{{ url('/system/categories/delete/'.$item->id) }}" class="text-white"> Deletar</a></button> 
+          <button type="submit" class="btn btn-success float-right"><a href="{{ url('/system/categories/edit/'.$item->id) }} " class="text-white" > Editar </a></button></td>
+      </tr>        
+      </tbody>
+   @endforeach  {{ $list->links() }}
+ </table>
+</div>    
   
 
     
-
+<form>
     @error('NomeProduto')
         <span class="invalid-feedback" role="alert">
             <strong></strong>
@@ -55,9 +61,13 @@
     @enderror
     
 
-    <button type="submit" class="btn btn-primary">Salvar</button></div>
+    <div class="form-group col-md-6">
+      <br>
+      <button type="submit" class="btn btn-primary mt-2">Salvar</button>
+    </div>
+  </div>
 </form>
-<hr>
+<div>
 @foreach($list as $item)
 
 
