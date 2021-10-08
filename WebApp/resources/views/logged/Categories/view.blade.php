@@ -33,6 +33,11 @@
                 <strong></strong>
             </span>
         @enderror
+        
+          <div class="mb-2" style="width: 190px">
+            <label for="inputPorcentagem">Porcentagem</label>
+            <input type="number" name="percentage" value="" class="form-control" id="inputPorcentagem">
+          </div>
 
         <button type="submit" class="btn btn-primary"> Salvar </button>
     </form>
@@ -76,5 +81,3 @@
     
    
 @endsection
-
-
