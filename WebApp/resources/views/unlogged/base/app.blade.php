@@ -35,6 +35,7 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href="{{ asset('assetsUnlogged/css/fonts/pe-icon-7-stroke.css') }}" rel="stylesheet">
     <link href="{{ asset('assetsunlogged/css/fonts/custom.css') }}" rel="stylesheet" />
+    <script src="{{ asset('assetsUnlogged/js/jquery.min.js') }}" type="text/javascript"></script>
 
 
 </head>
@@ -89,8 +90,9 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                         document.getElementById('logout-form').submit();">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                                             document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
 
@@ -153,7 +155,7 @@
                 style="background-image: url('{{ asset('assetsunlogged/img/header-6.jpg') }}')">
             </div>
             <div class="container" id="banner">
-                <div class="content" >
+                <div class="content">
                     <div class="title-area">
                         <h2>Compare preços</h2>
                         <h1 class="title-modern"></h1>
