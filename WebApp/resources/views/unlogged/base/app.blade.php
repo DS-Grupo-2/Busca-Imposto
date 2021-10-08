@@ -35,6 +35,7 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href="{{ asset('assetsUnlogged/css/fonts/pe-icon-7-stroke.css') }}" rel="stylesheet">
     <link href="{{ asset('assetsunlogged/css/fonts/custom.css') }}" rel="stylesheet" />
+    <script src="{{ asset('assetsUnlogged/js/jquery.min.js') }}" type="text/javascript"></script>
 
 
 </head>
@@ -52,12 +53,12 @@
                     <span class="icon-bar bar3"></span>
                 </button>
                 <a href="http://127.0.0.1:8000/" class="navbar-brand " id="buscaimposto" style="margin-bottom:15%;">
-                    
+
                     <img src="assetsunlogged/img/logo4.png" alt="Busca Imposto" width=172 height=86 href="http://127.0.0.1:8000/" id="buscaimposto" >
                 </a>
             </div>
             <div class="collapse navbar-collapse">
-                
+
                 <ul class="nav navbar-nav navbar-right navbar-uppercase">
 
                     <li style="margin-right:50px">
@@ -96,7 +97,7 @@
                                         @csrf
                                     </form>
 
-                                    
+
                                 </div>
                             </li>
                         @endguest
@@ -117,7 +118,7 @@
             </div>
             <!-- /.navbar-collapse -->
         </div>
-        
+
             <div class="collapse navbar-collapse" id="navbarSupportedContent" style="background-color: #8391d8">
               <ul class="navbar-nav mr-auto" style="list-style-type: none; margin:5px">
                 <li class="nav-item">
@@ -143,7 +144,7 @@
               </ul>
             </div>
     </nav>
-    <div class="section section-header"> 
+    <div class="section section-header">
          <div class="parallax" id="parallax">
             <div class="image"
                 style="background-image: url('{{ asset('assetsunlogged/img/header-6.jpg') }}')">
@@ -159,12 +160,12 @@
 
                     <div class="button-get-started">
                         <a  href="http://www.creative-tim.com/product/gaia-bootstrap-template" target="_blank" class="btn btn-white btn-fill btn-lg text">
-                         Saiba mais   
+                         Saiba mais
                         </a>
                     </div>
                 </div>
 
-            </div> 
+            </div>
         </div>
     </div>
 
@@ -253,9 +254,8 @@
     </body>
 
     <!--   core js files    -->
-    <script src="{{ asset('assetsUnlogged/js/jquery.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assetsUnlogged/js/bootstrap.js') }}" type="text/javascript"></script>
-
+    <script src="{{ asset('assetsUnlogged/js/chart.js') }}" type="text/javascript"></script>
     <!--  js library for devices recognition -->
     <script type="text/javascript" src="{{ asset('assetsUnlogged/js/modernizr.js') }}"></script>
 
