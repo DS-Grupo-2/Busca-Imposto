@@ -39,8 +39,8 @@
 
 </head>
 
-<body>
-    <nav class="navbar navbar-default navbar-transparent navbar-fixed-top"  style="background-color: #9babf1">
+<body style="background-color: #9babf1">
+    <nav class="navbar navbar-default navbar-transparent navbar-fixed-top" style="background-color: #9babf1">
         <!-- if you want to keep the navbar hidden you can add this class to the navbar "navbar-burger"-->
         <div class="container">
             <div class="navbar-header">
@@ -52,119 +52,125 @@
                     <span class="icon-bar bar3"></span>
                 </button>
                 <a href="http://127.0.0.1:8000/" class="navbar-brand " id="buscaimposto" style="margin-bottom:15%;">
-                    
-                    <img src="assetsunlogged/img/logo4.png" alt="Busca Imposto" width=172 height=86 href="http://127.0.0.1:8000/" id="buscaimposto" >
+
+                    <img src="assetsunlogged/img/logo4.png" alt="Busca Imposto" width=172 height=86
+                        href="http://127.0.0.1:8000/" id="buscaimposto">
                 </a>
             </div>
             <div class="collapse navbar-collapse">
-                
+
                 <ul class="nav navbar-nav navbar-right navbar-uppercase">
 
                     <li style="margin-right:50px">
                         <form class="form-inline" style="margin-top: 5%">
-                            <input class="form-control" style="width: 110%" type="search" placeholder="Pesquisar" aria-label="Search">
+                            <input class="form-control" style="width: 110%" type="search" placeholder="Pesquisar"
+                                aria-label="Search">
                         </form>
                     </li>
 
                     <li class="dropdown">
+                    <li class="nav-item">
+                        <a class="nav-link " href="{{ route('unlogged-test') }}">Teste</a>
+                    </li>
+                    @guest
                         <li class="nav-item">
-                            <a class="nav-link " href="{{ route('unlogged-test') }}">Teste</a>
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
-                        @guest
+                        @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Registre-se') }}</a>
                             </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Registre-se') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                        @endif
+                    @else
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                                         document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    class="d-none">
+                                    @csrf
+                                </form>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
 
-                                    
-                                </div>
-                            </li>
-                        @endguest
-                        <ul class="dropdown-menu dropdown-danger">
-                            <li>
-                                <a href="#"><i class="fa fa-facebook-square"></i> Facebook</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-twitter"></i> Twitter</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-instagram"></i>Instagram</a>
-                            </li>
-                        </ul>
+                            </div>
+                        </li>
+                    @endguest
+                    <ul class="dropdown-menu dropdown-danger">
+                        <li>
+                            <a href="#"><i class="fa fa-facebook-square"></i> Facebook</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-twitter"></i> Twitter</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-instagram"></i>Instagram</a>
+                        </li>
+                    </ul>
                     </li>
 
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
-        
-            <div class="collapse navbar-collapse" id="navbarSupportedContent" style="background-color: #8391d8">
-              <ul class="navbar-nav mr-auto" style="list-style-type: none; margin:5px">
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="background-color: #8391d8">
+            <ul class="navbar-nav mr-auto" style="list-style-type: none; margin:5px">
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="#">Link</a>
                 </li>
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </div>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Disabled</a>
+                    <a class="nav-link" href="#">Disabled</a>
                 </li>
-              </ul>
-            </div>
+            </ul>
+        </div>
     </nav>
-    <div class="section section-header"> 
-         <div class="parallax" id="parallax">
+    <div class="section section-header" style="background-color:#9babf1">
+        <div class="parallax" id="parallax">
             <div class="image"
                 style="background-image: url('{{ asset('assetsunlogged/img/header-6.jpg') }}')">
             </div>
-             <div class="container" id="banner">
-                <div class="content">
+            <div class="container" id="banner">
+                <div class="content" >
                     <div class="title-area">
                         <h2>Compare preços</h2>
                         <h1 class="title-modern"></h1>
-                        <h3></h2>
-                        <div class="separator line-separator">♦</div>
+                        <h3>
+                            </h2>
+                            <div class="separator line-separator">♦</div>
                     </div>
 
                     <div class="button-get-started">
-                        <a  href="http://www.creative-tim.com/product/gaia-bootstrap-template" target="_blank" class="btn btn-white btn-fill btn-lg text">
-                         Saiba mais   
+                        <a href="http://www.creative-tim.com/product/gaia-bootstrap-template" target="_blank"
+                            class="btn btn-white btn-fill btn-lg text">
+                            Saiba mais
                         </a>
                     </div>
                 </div>
 
-            </div> 
+            </div>
         </div>
     </div>
 
@@ -212,7 +218,8 @@
                             <ul>
                                 <li>
                                     <a href="#">
-                                        <i class="fa fa-twitter"></i> <b>Get Shit Done</b> The best kit in the market is
+                                        <i class="fa fa-twitter"></i> <b>Get Shit Done</b> The best kit in the market
+                                        is
                                         here, just give it a try and let us...
                                         <hr class="hr-small">
                                     </a>
@@ -250,16 +257,16 @@
         </div>
     </footer>
 
-    </body>
+</body>
 
-    <!--   core js files    -->
-    <script src="{{ asset('assetsUnlogged/js/jquery.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('assetsUnlogged/js/bootstrap.js') }}" type="text/javascript"></script>
+<!--   core js files    -->
+<script src="{{ asset('assetsUnlogged/js/jquery.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assetsUnlogged/js/bootstrap.js') }}" type="text/javascript"></script>
 
-    <!--  js library for devices recognition -->
-    <script type="text/javascript" src="{{ asset('assetsUnlogged/js/modernizr.js') }}"></script>
+<!--  js library for devices recognition -->
+<script type="text/javascript" src="{{ asset('assetsUnlogged/js/modernizr.js') }}"></script>
 
-    <!--   file where we handle all the script from the Gaia - Bootstrap Template   -->
-    <script type="text/javascript" src="{{ asset('assetsUnlogged/js/gaia.js') }}"></script>
+<!--   file where we handle all the script from the Gaia - Bootstrap Template   -->
+<script type="text/javascript" src="{{ asset('assetsUnlogged/js/gaia.js') }}"></script>
 
-    </html>
+</html>
