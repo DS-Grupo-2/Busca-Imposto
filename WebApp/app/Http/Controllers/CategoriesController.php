@@ -22,6 +22,7 @@ class CategoriesController extends Controller
             if(CategoriesModel::find($id)){
                 $categoryId = CategoriesModel::where('id', $id)->update([
                     'picture' => $filename,
+                    
                 ]);
                 return redirect('/system/categories')->with('success','Category edited successfuly!');
             }
