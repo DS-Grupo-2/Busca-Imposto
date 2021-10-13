@@ -37,10 +37,16 @@
     <link href="{{ asset('assetsunlogged/css/fonts/custom.css') }}" rel="stylesheet" />
     <script src="{{ asset('assetsUnlogged/js/jquery.min.js') }}" type="text/javascript"></script>
 
+    <style>
+        #conteudo {
+            background-image: url('{{ asset('assetsunlogged/img/header-7.jpg') }}');
+        }
+
+    </style>
 
 </head>
 
-<body style="background-color: #9babf1">
+<body>
     <nav class="navbar navbar-default navbar-transparent navbar-fixed-top" style="background-color: #9babf1">
         <!-- if you want to keep the navbar hidden you can add this class to the navbar "navbar-burger"-->
         <div class="container">
@@ -92,7 +98,7 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
-                                                                             document.getElementById('logout-form').submit();">
+                                                                                 document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
 
@@ -149,11 +155,8 @@
             </ul>
         </div>
     </nav>
-    <div class="section section-header" style="background-color:#9babf1">
+    <div class="section section-header" id="conteudo">
         <div class="parallax" id="parallax">
-            <div class="image"
-                style="background-image: url('{{ asset('assetsunlogged/img/header-6.jpg') }}')">
-            </div>
             <div class="container" id="banner">
                 <div class="content">
                     <div class="title-area">
