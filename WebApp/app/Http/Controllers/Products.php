@@ -32,7 +32,6 @@ class Products extends Controller
         
         $newImageName = time() . '-' . $request->name . '.' .
         $request->image->extension();
-
         $request->image->move(public_path('/uploads/product/'), $newImageName);
 
 
@@ -63,10 +62,25 @@ class Products extends Controller
 
     public function edit($id= NULL, Request $request)
     {
+        $post = ProductsModel::where('id',$id)->first();
+        $post->image = $request->get('image');
+        
+      
+        if ($request->hasFile('image')) {
+
+            $image = $request->file('image');
+            $input['image'] = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/uploads/product/');
+            $image->move($destinationPath, $input['image']);
+            $post->image = $input['image'];
+        }
+        $post->save();
+
         if($request->isMethod('post')){
             if(ProductsModel::find($id)){
                 $productId = ProductsModel::where('id', $id)->update([
                     'NomeProduto' => $request->input('NomeProduto'),
+                    
                 ]);
                 return redirect('/system/products')->with('success','Product edited successfuly!');
             }
@@ -75,6 +89,7 @@ class Products extends Controller
                 return redirect('/system/products')->with('error','Product not exists!');
                 
             }
+            
         }
 
         $product = ProductsModel::where("id", $id)->first();
@@ -85,6 +100,8 @@ class Products extends Controller
         return view('logged.products.edit', [
             'item' => $product,
             'list' => $list,
+            'categories' => $categories,
+            'subcategories' => $subcategories 
             
 
         ]);

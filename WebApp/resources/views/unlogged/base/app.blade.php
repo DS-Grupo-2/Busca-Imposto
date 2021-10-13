@@ -132,10 +132,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent" style="background-color: #8391d8">
             <ul class="navbar-nav mr-auto" style="list-style-type: none; margin:5px">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="/categories">Categorias</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -267,6 +267,7 @@
 <!--   core js files    -->
 <script src="{{ asset('assetsUnlogged/js/jquery.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('assetsUnlogged/js/bootstrap.js') }}" type="text/javascript"></script>
+<script type="text/javascript" src="{{ asset('assetsUnlogged/js/chart.js') }}"></script>
 
 <!--  js library for devices recognition -->
 <script type="text/javascript" src="{{ asset('assetsUnlogged/js/modernizr.js') }}"></script>

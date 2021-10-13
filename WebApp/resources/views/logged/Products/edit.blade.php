@@ -3,31 +3,7 @@
 
 <form method="POST" enctype="multipart/form-data" action="{{ url('/system/products/edit/'.$item->id) }}">
     @csrf
-    <div class="form">
-  <img class="card-ig-top ml-3 mt-3" src="/uploads/avatars/User.jpg"m alt="Card image cap" style="width:150px; height:150px; border-radius:50%; margin-right:25px;">
-  <div class="card-body">
-    {{-- Modificação :: --}}
-    <form enctype="multipart/form-data" action="home" method="post">
-      
-      <input type="file" name="avatar">
-      <input type="hidden" name="_token" value="ekGgW459wGmMk7r8bMir5NwI7J4NxfOP6KK2Fd8F">
-      <input type="submit" class="pull-right btn btn-sm btn-primary">
-
-  
-<<<<<<< HEAD
-<<<<<<< HEAD
- 
-=======
-
->>>>>>> 34b0527a37a04d62ec6aff00f27314679038d662
-=======
-
->>>>>>> b83213f76f35886ee6bfc30e1cdcda302c4e50ea
-    </form>  
-    
-</div>
-
-</div>
+   
 
 <div class="col-10" >
     <div class="form-row">
@@ -49,6 +25,10 @@
                 @endforeach
                 </select>
     </div>
+  </div>
+  <div>
+    <label>Imagem</label>
+            <input type="file" name="image" class="form-control">
   </div>
   <div class="form-group">
     <br> Sub-Categoria <br>
