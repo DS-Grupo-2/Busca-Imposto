@@ -20,6 +20,8 @@
         <label for="NomeProduto">Nome</label>
         <input id="NomeProduto" type="text" class="form-control @error('NomeProduto') is-invalid @enderror" name="NomeProduto"
             value="{{ $item->NomeCategoria }}" required autocomplete="text" autofocus>
+            <br>Imposto<br>
+        <input id="taxPercentage" type="text" class="form-control mb-2 @error('taxPercentage') is-invalid @enderror" name="taxPercentage" value="" required>
       </div>
     </div>
 <div>
@@ -32,6 +34,7 @@
      <tr>
        <th scope="col">ID</th>
        <th scope="col">Categoria</th>
+       <th scope="col">Imposto</th>
        <th scope="col">Criado</th>
        <th scope="col">Atualizado</th>
        <th scope="col"></th>
@@ -41,6 +44,7 @@
    <tbody>
       <tr>
           <td>{{ $item->NomeCategoria }}</td>
+          <td>{{ $item->taxPercentage }}</td>
           <td>{{ $item->created_at }}</td>
           <td>{{ $item->updated_at }}</td>
           <td scope="col">

@@ -33,6 +33,8 @@
                 <strong></strong>
             </span>
         @enderror
+        <br>Imposto<br>
+        <input id="taxPercentage" type="text" class="form-control mb-2 @error('taxPercentage') is-invalid @enderror" name="taxPercentage" value="" required>
 
         <button type="submit" class="btn btn-primary"> Salvar </button>
     </form>
@@ -45,6 +47,7 @@
                <tr>
                  <th scope="col">ID</th>
                  <th scope="col">Categoria</th>
+                 <th scope="col">Imposto</th>
                  <th scope="col">Criado</th>
                  <th scope="col">Atualizado</th>
                  <th scope="col"></th>
@@ -55,6 +58,7 @@
                 <tr> 
                  <th scope="row">{{ $item->id }}</th>
                     <td>{{ $item->NomeCategoria }}</td>
+                    <td>{{ $item->taxPercentage }}</td>
                     <td>{{ $item->created_at }}</td>
                     <td>{{ $item->updated_at }}</td>
                     <td scope="col">
