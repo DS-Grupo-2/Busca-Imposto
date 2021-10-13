@@ -82,6 +82,11 @@ Auth::routes();
     )->middleware('auth')->name('categories-delete');
 
     Route::post('/categories/edit', 'CategoriesController@update_picture');
+
+    Route::get(
+        '/categories',
+        [Categories::class, 'pag_categorias']
+    );
 /**End Categories Routes */
 
 

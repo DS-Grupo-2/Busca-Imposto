@@ -82,4 +82,13 @@ class Categories extends Controller
             return redirect('/system/categories')->with('error','Category not exists!');
         }
     }
+
+    public function pag_categorias()
+    {
+        $list = CategoriesModel::simplePaginate(15);
+
+        return view('categories', [
+            'list' => $list,
+        ]);
+    }
 }
