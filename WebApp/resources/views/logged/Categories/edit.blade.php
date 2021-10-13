@@ -21,13 +21,18 @@
     <div class="card-body">
   <div class="col-12" >
     <div class="form-row">
-      <div class="form-group col-md-6">
+      <div class="form-group">
         <label for="NomeProduto">Nome</label>
         <input id="NomeProduto" type="text" class="form-control @error('NomeProduto') is-invalid @enderror" name="NomeProduto"
             value="{{ $item->NomeCategoria }}" required autocomplete="text" autofocus>
       </div>
     </div>
-</div>
+<div>
+  <div class="mb-2" style="width: 190px">
+    <label for="inputPorcentagem">Porcentagem</label>
+    <input type="number" name="percentage" value="" class="form-control" id="inputPorcentagem">
+    <br><button type="submit" class="btn btn-primary"> Salvar </button>
+  </div>
 </form>
   
   

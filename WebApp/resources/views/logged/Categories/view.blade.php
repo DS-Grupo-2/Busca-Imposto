@@ -8,8 +8,24 @@
       <label>Imagem</label>
       <input type="file" name="picture" class="form-control">
 
-      <tag> Nome </tag>
-      <input id="NomeCategoria" type="text" class="form-control @error('NomeCategoria') is-invalid @enderror" name="NomeCategoria" value="" required>
+<div class="p-3">
+    <form method="POST" action="{{ route('categories-create') }}">
+        @csrf
+        <label for="email">
+            <tag> Nome </tag>
+            <input id="NomeCategoria" type="text" class="form-control @error('NomeCategoria') is-invalid @enderror" name="NomeCategoria"
+                value="" required autocomplete="email" autofocus>
+        </label>
+        @error('NomeCategoria')
+            <span class="invalid-feedback" role="alert">
+                <strong></strong>
+            </span>
+        @enderror
+        
+          <div class="mb-2" style="width: 190px">
+            <label for="inputPorcentagem">Porcentagem</label>
+            <input type="number" name="percentage" value="" class="form-control" id="inputPorcentagem">
+          </div>
 
     </label>
     @error('NomeCategoria')
@@ -61,5 +77,3 @@
 </div>
    
 @endsection
-
-
