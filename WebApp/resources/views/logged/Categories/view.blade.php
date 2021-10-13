@@ -21,11 +21,10 @@
                 <strong></strong>
             </span>
         @enderror
-        
-          <div class="mb-2" style="width: 190px">
-            <label for="inputPorcentagem">Porcentagem</label>
-            <input type="number" name="percentage" value="" class="form-control" id="inputPorcentagem">
-          </div>
+        <div class="mb-2" style="width: 190px">
+          <label for="inputPorcentagem">Porcentagem</label>
+          <input type="number" name="taxPercentage" value="" class="form-control" id="taxPercentage">
+        </div>
 
     </label>
     @error('NomeCategoria')
@@ -35,9 +34,7 @@
      @enderror
 
     <br>
-    <br>
-    
-    
+    <br>   
     <button type="submit" class="btn btn-primary"> Salvar </button>
   </form>
   <hr>
@@ -49,6 +46,7 @@
              
           <th scope="col">ID</th>
           <th scope="col">Categoria</th>
+          <th scope="col">Porcentagem</th>
           <th scope="col">ImageM</th>
           <th scope="col">Criado</th>
           <th scope="col">Atualizado</th>
@@ -60,6 +58,7 @@
           <tr> 
             <th scope="row">{{ $item->id }}</th>
             <td>{{ $item->NomeCategoria }}</td>
+            <td>{{ $item->taxPercentage }}</td>
             <td><img height="50px" src="{{ asset('uploads/pictures/' . $item->picture) }}"></td>
                 
                 {{-- <td>{{ $item->Preco }}</td> --}}

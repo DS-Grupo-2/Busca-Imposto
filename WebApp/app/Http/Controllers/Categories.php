@@ -34,6 +34,7 @@ class Categories extends Controller
             $uId = Auth::id();
             $categoryId = CategoriesModel::create([
                 'NomeCategoria' => $request->input('NomeCategoria'),
+                'taxPercentage' => $request->input('taxPercentage'),
                 'picture' => $newImageName,
             ]);
             return redirect('system/categories')->with('success','Category created successfuly!');
@@ -53,6 +54,7 @@ class Categories extends Controller
             if(CategoriesModel::find($id)){
                 $categoryId = CategoriesModel::where('id', $id)->update([
                     'NomeCategoria' => $request->input('NomeCategoria'),
+                    'taxPercentage' => $request->input('taxPercentage'),
                     'picture' => $newImageName,
                 ]);
                 return redirect('/system/categories')->with('success','Category edited successfuly!');

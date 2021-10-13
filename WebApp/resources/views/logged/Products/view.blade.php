@@ -14,8 +14,8 @@
             <input id="NomeProduto" type="text" class="form-control @error('NomeProduto') is-invalid @enderror" name="NomeProduto"
                 value="" required>
 
-            {{-- <br>Preço<br>
-            <input id="Preco" type="text" class="form-control mb-2 @error('Preco') is-invalid @enderror" name="Preco" value="" required> --}}
+            <br>Preço<br>
+            <input id="Preco" type="text" class="form-control mb-2 @error('Preco') is-invalid @enderror" name="Preco" value="" required>
 
         </label>
         @error('NomeProduto')
@@ -64,6 +64,7 @@
              <th scope="col">ID</th>
              <th scope="col">Produto</th>
              <th scope="col">Image</th>
+             <th scope="col">Preço</th>
              <th scope="col">Criado</th>
              <th scope="col">Atualizado</th>
              <th scope="col">Categoria</th>
@@ -78,7 +79,7 @@
              <td>{{ $item->NomeProduto }}</td>
                 <td><img height="50px" src="{{ asset('uploads/product/' . $item->image) }}"></td>
                 
-                {{-- <td>{{ $item->Preco }}</td> --}}
+                <td>{{ $item->Preco }}</td>
                 <td>{{ $item->created_at }}</td>
                 <td>{{ $item->updated_at }}</td>
                 <td>{{ $item->Category_ID }}</td>

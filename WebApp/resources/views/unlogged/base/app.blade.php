@@ -264,6 +264,7 @@
 <!--   core js files    -->
 <script src="{{ asset('assetsUnlogged/js/jquery.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('assetsUnlogged/js/bootstrap.js') }}" type="text/javascript"></script>
+<script type="text/javascript" src="{{ asset('assetsUnlogged/js/chart.js') }}"></script>
 
 <!--  js library for devices recognition -->
 <script type="text/javascript" src="{{ asset('assetsUnlogged/js/modernizr.js') }}"></script>
