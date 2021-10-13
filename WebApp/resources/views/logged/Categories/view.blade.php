@@ -1,24 +1,12 @@
 @extends('logged.base.app')
 @section('content')
-
-<form method="POST" action="">
+<div class="p-3">
+  <form method="POST" enctype="multipart/form-data" action="{{ route('categories-create') }}">
     @csrf
-    <div class="form">
-  <img class="card-ig-top ml-3 mt-3" src="/uploads/avatars/User.jpg"m alt="Card image cap" style="width:150px; height:150px; border-radius:50%; margin-right:25px;">
-  <div class="card-body">
-    <form enctype="multipart/form-data" action="home" method="post">
-      
-      <input type="file" name="avatar">
-      <input type="hidden" name="_token" value="ekGgW459wGmMk7r8bMir5NwI7J4NxfOP6KK2Fd8F">
-      <input type="submit" class="pull-right btn btn-sm btn-primary">
+    <label for="email">
 
-  
-
-    </form>  
-    
-</div>
-
-</div>
+      <label>Imagem</label>
+      <input type="file" name="picture" class="form-control">
 
 <div class="p-3">
     <form method="POST" action="{{ route('categories-create') }}">
@@ -33,52 +21,58 @@
                 <strong></strong>
             </span>
         @enderror
-        <br>Imposto<br>
-        <input id="taxPercentage" type="text" class="form-control mb-2 @error('taxPercentage') is-invalid @enderror" name="taxPercentage" value="" required>
+        <div class="mb-2" style="width: 190px">
+          <label for="inputPorcentagem">Porcentagem</label>
+          <input type="number" name="taxPercentage" value="" class="form-control" id="taxPercentage">
+        </div>
 
-        <button type="submit" class="btn btn-primary"> Salvar </button>
-    </form>
-    <hr>
+    </label>
+    @error('NomeCategoria')
+    <span class="invalid-feedback" role="alert">
+      <strong></strong>
+    </span>
+     @enderror
 
-    
-    <div class="table-responsive">
-            <table class="table table-hover">
-             <thead>
-               <tr>
-                 <th scope="col">ID</th>
-                 <th scope="col">Categoria</th>
-                 <th scope="col">Imposto</th>
-                 <th scope="col">Criado</th>
-                 <th scope="col">Atualizado</th>
-                 <th scope="col"></th>
-               </tr>
-             </thead>
-             @foreach($list as $item)         
-             <tbody>
-                <tr> 
-                 <th scope="row">{{ $item->id }}</th>
-                    <td>{{ $item->NomeCategoria }}</td>
-                    <td>{{ $item->taxPercentage }}</td>
-                    <td>{{ $item->created_at }}</td>
-                    <td>{{ $item->updated_at }}</td>
-                    <td scope="col">
-                    <button type="submit" class="btn btn-danger float-right"><a href="{{ url('/system/categories/delete/'.$item->id) }}" class="text-white"> Deletar</a></button> 
-                    <button type="submit" class="btn btn-success float-right"><a href="{{ url('/system/categories/edit/'.$item->id) }} " class="text-white" > Editar </a></button></td>
-                </tr>        
-                </tbody>
-             @endforeach  {{ $list->links() }}
-           </table>
-    </div>    
+    <br>
+    <br>   
+    <button type="submit" class="btn btn-primary"> Salvar </button>
+  </form>
+  <hr>
+
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+             
+          <th scope="col">ID</th>
+          <th scope="col">Categoria</th>
+          <th scope="col">Porcentagem</th>
+          <th scope="col">ImageM</th>
+          <th scope="col">Criado</th>
+          <th scope="col">Atualizado</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      @foreach($list as $item)
+        <tbody>
+          <tr> 
+            <th scope="row">{{ $item->id }}</th>
+            <td>{{ $item->NomeCategoria }}</td>
+            <td>{{ $item->taxPercentage }}</td>
+            <td><img height="50px" src="{{ asset('uploads/pictures/' . $item->picture) }}"></td>
+                
+                {{-- <td>{{ $item->Preco }}</td> --}}
+                <td>{{ $item->created_at }}</td>
+                <td>{{ $item->updated_at }}</td>
+                <td> 
+                <button type="submit" class="btn btn-success "><a href="{{ url('/system/categories/edit/'.$item->id) }} " class="text-white" > Editar </a></button>
+                <button type="submit" class="btn btn-danger "><a href="{{ url('/system/categories/delete/'.$item->id) }}" class="text-white"> Deletar</a></button>
+            </td>
+            </tr>        
+          </tbody>
+      @endforeach  
+    </table>
+  </div>
 </div>
-        {{-- <p>This is category{{ $item->id }} </p>
-        <p>NomeCategoria {{ $item->NomeCategoria }}</p> 
-        <p>created_at {{ $item->created_at }}</p>
-        <p>updated_at {{ $item->updated_at }}</p>
-        <button type="submit" class="btn btn-success"><a href="{{ url('/system/categories/edit/'.$item->id) }} " class="text-white" > Editar </a></button>
-        <button type="submit" class="btn btn-danger"><a href="{{ url('/system/categories/delete/'.$item->id) }}" class="text-white"> Deletar</a></button>  --}}
-
-    
    
 @endsection
-
-
