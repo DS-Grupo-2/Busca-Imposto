@@ -25,7 +25,7 @@
             <br><br>
             <label>
                 <tag> Porcentagem </tag>
-                <input id="PorcentagemSubCategoria" type="number" class="form-control" name="PorcentagemSubCategoria"
+                <input id="taxPercentage" type="number" class="form-control" name="taxPercentage"
                     value="" required>
             </label>
             <br><br>
@@ -40,6 +40,7 @@
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">SubCategoria</th>
+                        <th scope="col">Porcentagem</th>
                         <th scope="col">Criado</th>
                         <th scope="col">Atualizado</th>
                         <th scope="col"></th>
@@ -51,6 +52,7 @@
                         <tr>
                             <th scope="row">{{ $item->id }}</th>
                             <td>{{ $item->NomeSubCategoria }}</td>
+                            <td>{{ $item->taxPercentage }}</td>
                             <td>{{ $item->created_at }}</td>
                             <td>{{ $item->updated_at }}</td>
 

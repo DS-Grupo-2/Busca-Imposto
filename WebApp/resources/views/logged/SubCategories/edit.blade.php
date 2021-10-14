@@ -23,7 +23,8 @@
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="">Porcentagem</label>
-                        <input type="number" class="form-control" id="">
+                        <input id="taxPercentage" type="number" step="0.01" class="form-control" name="taxPercentage"
+                    value="" >
                     </div>
                     <div class="ml-2"> Categoria<br>
                         <select name="Category_ID">
@@ -53,6 +54,7 @@
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">SubCategoria</th>
+                    <th scope="col">Porcentagem</th>
                     <th scope="col">Criado</th>
                     <th scope="col">Atualizado</th>
                     <th scope="col"></th>
@@ -64,6 +66,7 @@
                     <tr>
                         <th scope="row">{{ $item->id }}</th>
                         <td>{{ $item->NomeSubCategoria }}</td>
+                        <td>{{ $item->taxPercentage }}</td>
                         <td>{{ $item->created_at }}</td>
                         <td>{{ $item->updated_at }}</td>
 

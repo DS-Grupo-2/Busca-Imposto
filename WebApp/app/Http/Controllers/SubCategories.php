@@ -29,6 +29,7 @@ class SubCategories extends Controller
             $categoryId = SubCategoriesModel::create([
                 'NomeSubCategoria' => $request->input('NomeSubCategoria'),
                 'categoryId' => $request->input('categoryId'),
+                'taxPercentage' => $request->input('taxPercentage'),
 
             ]);
             return redirect('system/subcategories')->with('success','Category created successfuly!');
@@ -44,6 +45,7 @@ class SubCategories extends Controller
                 $subcategoryId = SubCategoriesModel::where('id', $id)->update([
                     'NomeSubCategoria' => $request->input('NomeSubCategoria'),
                     'categoryId' => $request->input('categoryId'),
+                    'taxPercentage' => $request->input('taxPercentage'),
                 ]);
                 return redirect('/system/subcategories')->with('success','SubCategory edited successfuly!');
             }

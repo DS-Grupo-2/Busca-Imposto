@@ -14,24 +14,21 @@
         <label for="email">
             <tag> Nome </tag>
             <input id="NomeCategoria" type="text" class="form-control @error('NomeCategoria') is-invalid @enderror" name="NomeCategoria"
-                value="" required autocomplete="email" autofocus>
+                value=""  autocomplete="email" autofocus>
         </label>
         @error('NomeCategoria')
             <span class="invalid-feedback" role="alert">
                 <strong></strong>
             </span>
         @enderror
-        <div class="mb-2" style="width: 190px">
-          <label for="inputPorcentagem">Porcentagem</label>
-          <input type="number" name="taxPercentage" value="" class="form-control" id="taxPercentage">
-        </div>
+        <br> 
+      <label>
+          <tag> Porcentagem </tag>
+          <input id="taxPercentage" type="number" step="0.01" class="form-control" name="taxPercentage"
+              value="" >
+      </label>
 
     </label>
-    @error('NomeCategoria')
-    <span class="invalid-feedback" role="alert">
-      <strong></strong>
-    </span>
-     @enderror
 
     <br>
     <br>   
@@ -61,7 +58,7 @@
             <td>{{ $item->taxPercentage }}</td>
             <td><img height="50px" src="{{ asset('uploads/pictures/' . $item->picture) }}"></td>
                 
-                {{-- <td>{{ $item->Preco }}</td> --}}
+               
                 <td>{{ $item->created_at }}</td>
                 <td>{{ $item->updated_at }}</td>
                 <td> 

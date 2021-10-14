@@ -43,6 +43,7 @@ class Categories extends Controller
 
     public function edit($id= NULL, Request $request)
     {   
+      
         if($request->isMethod('post')){
             $request->validate([
                 'picture' => 'required|mimes:jpg,png,jpeg|max:5048'
