@@ -82,6 +82,11 @@ Auth::routes();
     )->middleware('auth')->name('categories-delete');
 
     Route::post('/categories/edit', 'CategoriesController@update_picture');
+
+    Route::get(
+        '/categories',
+        [Categories::class, 'pag_categorias']
+    );
 /**End Categories Routes */
 
 
@@ -110,6 +115,11 @@ Auth::routes();
         '/system/products/delete/{id}',
         [Products::class, 'delete']
     )->middleware('auth')->name('products-delete');
+
+    Route::get(
+        'search-by-product',
+        [Products::class, 'getMatchedProducts']
+    )->name('search-by-product');
 /**End products Routes */
 
 

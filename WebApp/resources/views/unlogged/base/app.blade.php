@@ -34,13 +34,23 @@
     <link href='https://fonts.googleapis.com/css?family=Cambo|Poppins:400,600' rel='stylesheet' type='text/css'>
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href="{{ asset('assetsUnlogged/css/fonts/pe-icon-7-stroke.css') }}" rel="stylesheet">
-    <link href="{{ asset('assetsunlogged/css/fonts/custom.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assetsunlogged/css/custom.css') }}" rel="stylesheet" />
     <script src="{{ asset('assetsUnlogged/js/jquery.min.js') }}" type="text/javascript"></script>
+    <script>
+        const base_url = "{{ url('') }}"
+    </script>
+    <script src="{{ asset('assetsUnlogged/js/custom.js') }}" type="text/javascript"></script>
 
+    <style>
+        #conteudo {
+            background-image: url('{{ asset('assetsunlogged/img/header-7.jpg') }}');
+        }
+
+    </style>
 
 </head>
 
-<body style="background-color: #9babf1">
+<body>
     <nav class="navbar navbar-default navbar-transparent navbar-fixed-top" style="background-color: #9babf1">
         <!-- if you want to keep the navbar hidden you can add this class to the navbar "navbar-burger"-->
         <div class="container">
@@ -52,10 +62,10 @@
                     <span class="icon-bar bar2"></span>
                     <span class="icon-bar bar3"></span>
                 </button>
-                <a href="http://127.0.0.1:8000/" class="navbar-brand " id="buscaimposto" style="margin-bottom:15%;">
+                <a href="{{ url('') }}" class="navbar-brand " id="buscaimposto" style="margin-bottom:15%;">
 
                     <img src="assetsunlogged/img/logo4.png" alt="Busca Imposto" width=172 height=86
-                        href="http://127.0.0.1:8000/" id="buscaimposto">
+                        href="{{ url('') }}" id="buscaimposto">
                 </a>
             </div>
             <div class="collapse navbar-collapse">
@@ -64,9 +74,22 @@
 
                     <li style="margin-right:50px">
                         <form class="form-inline" style="margin-top: 5%">
-                            <input class="form-control" style="width: 110%" type="search" placeholder="Pesquisar"
+                            <input class="form-control searchInput" url="{{ route('search-by-product') }}"
+                                customInMethod="GET" style="width: 110%" type="search" placeholder="Pesquisar Produto"
                                 aria-label="Search">
                         </form>
+
+                        <ul class="list-group search-custom">
+                            <li class="list-group-item list-group-item-bic">
+                                <span class="text-center" >
+                                    <img src="https://www.online-image-editor.com/online-image-editor-logo.png" style="height:50px; width:50px" class="rounded" alt="...">
+                                </span>
+                                <span class="search-item-name-bic">
+                                    Cras justo odio
+                                </span>
+                            </li>
+
+                        </ul>
                     </li>
 
                     <li class="dropdown">
@@ -92,7 +115,7 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
-                                                                             document.getElementById('logout-form').submit();">
+                                                                                 document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
 
@@ -126,10 +149,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent" style="background-color: #8391d8">
             <ul class="navbar-nav mr-auto" style="list-style-type: none; margin:5px">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="/categories">Categorias</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -149,11 +172,8 @@
             </ul>
         </div>
     </nav>
-    <div class="section section-header" style="background-color:#9babf1">
+    <div class="section section-header" id="conteudo">
         <div class="parallax" id="parallax">
-            <div class="image"
-                style="background-image: url('{{ asset('assetsunlogged/img/header-6.jpg') }}')">
-            </div>
             <div class="container" id="banner">
                 <div class="content">
                     <div class="title-area">
@@ -271,5 +291,6 @@
 
 <!--   file where we handle all the script from the Gaia - Bootstrap Template   -->
 <script type="text/javascript" src="{{ asset('assetsUnlogged/js/gaia.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assetsUnlogged/js/chart.js') }}"></script>
 
 </html>

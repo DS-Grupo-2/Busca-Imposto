@@ -1,0 +1,30 @@
+
+ #buscaimposto{
+    padding: 1px;
+    height: 48px;
+    width: 96px;
+    /* original height: 86px width:172px */
+}
+#parallax{
+    height: 700px;
+}
+
+#banner{
+    height: 120%;
+}
+
+
+.search-custom{
+    position:absolute;
+    width:500px;
+}
+
+.list-group-item-bic{
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.search-item-name-bic{
+    margin-top: 10px;
+    margin-left: 15px;
+}
