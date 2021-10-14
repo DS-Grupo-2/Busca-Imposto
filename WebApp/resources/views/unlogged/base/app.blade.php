@@ -41,9 +41,16 @@
     </script>
     <script src="{{ asset('assetsUnlogged/js/custom.js') }}" type="text/javascript"></script>
 
+    <style>
+        #conteudo {
+            background-image: url('{{ asset('assetsunlogged/img/header-7.jpg') }}');
+        }
+
+    </style>
+
 </head>
 
-<body style="background-color: #9babf1">
+<body>
     <nav class="navbar navbar-default navbar-transparent navbar-fixed-top" style="background-color: #9babf1">
         <!-- if you want to keep the navbar hidden you can add this class to the navbar "navbar-burger"-->
         <div class="container">
@@ -142,10 +149,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent" style="background-color: #8391d8">
             <ul class="navbar-nav mr-auto" style="list-style-type: none; margin:5px">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="/categories">Categorias</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -165,11 +172,8 @@
             </ul>
         </div>
     </nav>
-    <div class="section section-header" style="background-color:#9babf1">
+    <div class="section section-header" id="conteudo">
         <div class="parallax" id="parallax">
-            <div class="image"
-                style="background-image: url('{{ asset('assetsunlogged/img/header-6.jpg') }}')">
-            </div>
             <div class="container" id="banner">
                 <div class="content">
                     <div class="title-area">
@@ -280,6 +284,7 @@
 <!--   core js files    -->
 <script src="{{ asset('assetsUnlogged/js/jquery.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('assetsUnlogged/js/bootstrap.js') }}" type="text/javascript"></script>
+<script type="text/javascript" src="{{ asset('assetsUnlogged/js/chart.js') }}"></script>
 
 <!--  js library for devices recognition -->
 <script type="text/javascript" src="{{ asset('assetsUnlogged/js/modernizr.js') }}"></script>
