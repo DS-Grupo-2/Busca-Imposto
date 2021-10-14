@@ -4,6 +4,9 @@
 
 {{-- content goes here --}}
 <canvas id="myChart" width="400" height="400"></canvas>
+
+
+
 <script>
 
 $(document).ready(function(){

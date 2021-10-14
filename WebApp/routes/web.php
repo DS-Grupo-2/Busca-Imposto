@@ -110,6 +110,11 @@ Auth::routes();
         '/system/products/delete/{id}',
         [Products::class, 'delete']
     )->middleware('auth')->name('products-delete');
+
+    Route::get(
+        'search-by-product',
+        [Products::class, 'getMatchedProducts']
+    )->name('search-by-product');
 /**End products Routes */
 
 

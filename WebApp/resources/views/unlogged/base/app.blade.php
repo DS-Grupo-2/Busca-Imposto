@@ -34,9 +34,12 @@
     <link href='https://fonts.googleapis.com/css?family=Cambo|Poppins:400,600' rel='stylesheet' type='text/css'>
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href="{{ asset('assetsUnlogged/css/fonts/pe-icon-7-stroke.css') }}" rel="stylesheet">
-    <link href="{{ asset('assetsunlogged/css/fonts/custom.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assetsunlogged/css/custom.css') }}" rel="stylesheet" />
     <script src="{{ asset('assetsUnlogged/js/jquery.min.js') }}" type="text/javascript"></script>
-
+    <script>
+        const base_url = "{{ url('') }}"
+    </script>
+    <script src="{{ asset('assetsUnlogged/js/custom.js') }}" type="text/javascript"></script>
 
 </head>
 
@@ -52,10 +55,10 @@
                     <span class="icon-bar bar2"></span>
                     <span class="icon-bar bar3"></span>
                 </button>
-                <a href="http://127.0.0.1:8000/" class="navbar-brand " id="buscaimposto" style="margin-bottom:15%;">
+                <a href="{{ url('') }}" class="navbar-brand " id="buscaimposto" style="margin-bottom:15%;">
 
                     <img src="assetsunlogged/img/logo4.png" alt="Busca Imposto" width=172 height=86
-                        href="http://127.0.0.1:8000/" id="buscaimposto">
+                        href="{{ url('') }}" id="buscaimposto">
                 </a>
             </div>
             <div class="collapse navbar-collapse">
@@ -64,9 +67,22 @@
 
                     <li style="margin-right:50px">
                         <form class="form-inline" style="margin-top: 5%">
-                            <input class="form-control" style="width: 110%" type="search" placeholder="Pesquisar"
+                            <input class="form-control searchInput" url="{{ route('search-by-product') }}"
+                                customInMethod="GET" style="width: 110%" type="search" placeholder="Pesquisar Produto"
                                 aria-label="Search">
                         </form>
+
+                        <ul class="list-group search-custom">
+                            <li class="list-group-item list-group-item-bic">
+                                <span class="text-center" >
+                                    <img src="https://www.online-image-editor.com/online-image-editor-logo.png" style="height:50px; width:50px" class="rounded" alt="...">
+                                </span>
+                                <span class="search-item-name-bic">
+                                    Cras justo odio
+                                </span>
+                            </li>
+
+                        </ul>
                     </li>
 
                     <li class="dropdown">
@@ -92,7 +108,7 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
-                                                                             document.getElementById('logout-form').submit();">
+                                                                                 document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
 
@@ -270,5 +286,6 @@
 
 <!--   file where we handle all the script from the Gaia - Bootstrap Template   -->
 <script type="text/javascript" src="{{ asset('assetsUnlogged/js/gaia.js') }}"></script>
+<script type="text/javascript" src="{{ asset('assetsUnlogged/js/chart.js') }}"></script>
 
 </html>
