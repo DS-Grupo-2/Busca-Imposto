@@ -1,58 +1,3 @@
-{{-- @extends('unlogged.base.app')
-@section('content')
-<link href="{{ asset('assetsUnlogged/css/customAuth.css') }}" rel="stylesheet"> --}}
-
-{{-- content goes here --}}
-<<<<<<< HEAD
-{{-- <canvas id="myChart" width="400" height="400"></canvas>
-=======
-<canvas id="myChart" width="400" height="400"></canvas>
-
-
-
->>>>>>> 21db22a67f27ceba499dd92bbf8ea3c4a1f5e2f5
-<script>
-
-$(document).ready(function(){
-    var ctx = document.getElementById('myChart');
-    var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
-});
-</script> --}}
-{{-- end of content --}}
-
 <!DOCTYPE html>
 <html>
 
@@ -73,80 +18,131 @@ $(document).ready(function(){
     <!-- Argon CSS -->
     <link rel="stylesheet" href="{{ asset('assetslogged/css/argon.css?v=1.2.0') }}" type="text/css">
 </head>
+
+<style>
+    body {
+        background-color: #9BABF1;
+    }
+
+    .bg-white {
+        background-color: #9BABF1 !important;
+    }
+
+    .navbar-vertical.navbar-light {
+        border-color: rgb(0 0 0 / 0%);
+        background-color: #f6f9fc;
+    }
+
+    .navbar-vertical {
+        padding-top: 0;
+        border-width: 0 0 1px 0;
+        border-style: solid;
+        box-shadow: 0 0 2rem 0 rgb(136 152 170 / 0%);
+    }
+
+    .header.bg-primary {
+        background-color: #5e72e400 !important;
+    }
+
+    .card.home {
+        height: 100%;
+    }
+
+    .card.principal {
+        margin-top: 25px;
+        border-top-left-radius: 40px;
+        height: 100vh;
+        margin-bottom: 00px;
+        margin-top: 25px;
+        border-top-left-radius: 40px;
+
+    }
+
+    .navbar-vertical .navbar-brand-img,
+    .navbar-vertical .navbar-brand>img {
+        max-width: 100%;
+        max-height: 5rem;
+    }
+
+    .bg-primary.customNav {
+        background-color: #5e72e400 !important;
+        margin-top: 24px;
+    }
+
+    .input-group-alternative,
+    .focused.input-group-alternative {
+        /* transition: box-shadow .15s ease; */
+        /* border: 0; */
+        box-shadow: 0px 0px 0px 2px rgb(119 119 119), 0 1px 0 rgb(0 0 0);
+        border-color: black !important;
+        border-radius: unset;
+    }
+
+    .focused .input-group-alternative {
+        box-shadow: 0px 0px 0px 2px rgb(129 129 129), 0 1px 3px rgb(0 0 0 / 8%) !important;
+    }
+
+    .content.custom {
+        margin-top: 50px
+    }
+    .card{
+  overflow: hidden;
+}
+
+.card-text{
+  word-wrap: break-word;
+}
+</style>
+
 <body>
     <!-- Sidenav -->
-    <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light" style="background-color: #9BABF1" id="sidenav-main">
-      <div class="scrollbar-inner">
-        <!-- Brand -->
-        <div class="sidenav-header  align-items-center">
-          <a class="navbar-brand" href="javascript:void(0)">
-          <img src="assetsunlogged/img/logo4.png" class="navbar-brand-img" alt="...">
-          </a>
+    <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
+        <div class="scrollbar-inner">
+            <!-- Brand -->
+            <div class="sidenav-header  align-items-center">
+                <a class="navbar-brand" href="javascript:void(0)">
+                    <img src="{{ url('') }}/assetsunlogged/img/logo4.png" style="height:200px;"
+                        class="navbar-brand-img" alt="...">
+                </a>
+            </div>
+            <div class="navbar-inner">
+                <!-- Collapse -->
+                <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+                    <!-- Nav items -->
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="dashboard.html">
+                                <i class="ni ni-tv-2 text-primary"></i>
+                                <span class="nav-link-text">Dashboard</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                    <!-- Divider -->
+                    <hr class="my-3">
+                    <!-- Heading -->
+                    <h6 class="navbar-heading p-0 text-muted">
+                        <span class="docs-normal">Documentation</span>
+                    </h6>
+                    <!-- Navigation -->
+                    <ul class="navbar-nav mb-md-3">
+                        <li class="nav-item">
+                            <a class="nav-link"
+                                href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html"
+                                target="_blank">
+                                <i class="ni ni-spaceship"></i>
+                                <span class="nav-link-text">Getting started</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="navbar-inner">
-          <!-- Collapse -->
-          <div class="collapse navbar-collapse" id="sidenav-collapse-main">
-            <!-- Nav items -->
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link btn text-center" style="background-color: #7399F6;border-left-width: 0px;border-right-width: 0px;margin-left: 20px;margin-right: 20px;" href="dashboard.html">
-                  <i class="ni ni-tv-2 text-white"></i>
-                  <span class="nav-link-text text-white">Eletrônicos</span>
-                </a>
-              </li>
-              {{-- <li class="nav-item">
-                <a class="nav-link" href="{{ route('user-info') }}">
-                  <i class="ni ni-tv-2 text-primary"></i>
-                  <span class="nav-link-text">Usuário</span>
-                </a> --}}
-              </li>
-              {{-- <li class="nav-item">
-                <a class="nav-link" href="{{ route('categories-view') }}">
-                  <i class="ni ni-tv-2 text-primary"></i>
-                  <span class="nav-link-text">Categorias</span>
-                </a>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ route('subcategories-view') }}">
-                    <i class="ni ni-tv-2 text-primary"></i>
-                    <span class="nav-link-text">SubCategorias</span>
-                  </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('products-view') }}">
-                  <i class="ni ni-tv-2 text-primary"></i>
-                  <span class="nav-link-text">Produtos</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('logged-test') }}">
-                  <i class="ni ni-tv-2 text-primary"></i>
-                  <span class="nav-link-text">Teste</span>
-                </a>
-              </li> --}}
-            </ul>
-            <!-- Divider -->
-            <hr class="my-3">
-            <!-- Heading -->
-            {{-- <h6 class="navbar-heading p-0 text-muted">
-              <span class="docs-normal">Documentation</span>
-            </h6> --}}
-            <!-- Navigation -->
-            <ul class="navbar-nav mb-md-3">
-              <li class="nav-item">
-                <a class="nav-link btn text-center" style="background-color: #7399F6;border-left-width: 0px;border-right-width: 0px;margin-left: 20px;margin-right: 20px;" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html" target="_blank">
-                  <i class="ni ni-bold-left text-white"></i>
-                  <span class="nav-link-text text-white">Sair</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
     </nav>
     <!-- Main content -->
     <div class="main-content" id="panel">
-      <!-- Topnav -->
-      <nav class="navbar navbar-top navbar-expand navbar-dark border-bottom" style="background-color: #9BABF1">
+        <!-- Topnav -->
+        {{-- <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
         <div class="container-fluid">
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Search form -->
@@ -156,7 +152,7 @@ $(document).ready(function(){
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-search"></i></span>
                   </div>
-                  <input class="form-control" placeholder="Search" type="text">
+                  <input class="form-control" placeholder="Pesquisar" type="text">
                 </div>
               </div>
               <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
@@ -175,7 +171,7 @@ $(document).ready(function(){
                   </div>
                 </div>
               </li>
-              {{-- <li class="nav-item d-sm-none">
+              <li class="nav-item d-sm-none">
                 <a class="nav-link" href="#" data-action="search-show" data-target="#navbar-search-main">
                   <i class="ni ni-zoom-split-in"></i>
                 </a>
@@ -193,10 +189,7 @@ $(document).ready(function(){
                   <div class="list-group list-group-flush">
                     <a href="#!" class="list-group-item list-group-item-action">
                       <div class="row align-items-center">
-                        <div class="col-auto">
-                          <!-- Avatar -->
-                          <img src="/uploads/avatars/{{ Auth::user()->avatar }}">
-                        </div>
+
                         <div class="col ml--2">
                           <div class="d-flex justify-content-between align-items-center">
                             <div>
@@ -305,41 +298,28 @@ $(document).ready(function(){
                     </a>
                   </div>
                 </div>
-              </li> --}}
+              </li>
             </ul>
-            {{-- <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
+            <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
               <li class="nav-item dropdown">
                 <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                  <div class="media align-items-center">
-                    <span class="avatar avatar-sm rounded-circle">
-                      <img src="/uploads/avatars/{{ Auth::user()->avatar }}" style="width:34px; height:34px; position:relativa; top:10px; left:10px; border-radius:50%">
-                    </span>
-                    <div class="media-body  ml-2  d-none d-lg-block">
-                        @guest
-                            @else
-                            <span class="mb-0 text-sm  font-weight-bold">{{ Auth::user()->name }}</span>
-                        @endguest
-                    </div>
-                  </div>
+
                 </a>
                 <div class="dropdown-menu  dropdown-menu-right ">
                   <div class="dropdown-header noti-title">
                     <h6 class="text-overflow m-0">Welcome!</h6>
                   </div>
 
-
-
-
-                  <div class="dropdown-divider"></div>
+<div class="dropdown-divider"></div>
                   <a href="{{ route('logout') }}"  class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     <i class="ni ni-user-run"></i>
                     <span>{{ __('Logout') }}</span>
 
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                     </form>
 
-                  </a>
+</a>
                   @guest
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -351,105 +331,338 @@ $(document).ready(function(){
                     @endif
                     @else
 
-                @endguest
+@endguest
                 </div>
               </li>
-            </ul> --}}
+            </ul>
           </div>
         </div>
-      </nav>
-      <!-- Header -->
-      <!-- Header -->
-      {{-- <div class="header bg-primary pb-6">
-        <div class="container-fluid">
-          <div class="header-body">
-            <div class="row align-items-center py-4">
-              <div class="col-lg-6 col-7">
-                <h6 class="h2 text-white d-inline-block mb-0">Categorias</h6> --}}
-                {{-- <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-                  <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                    <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                    <li class="breadcrumb-item"><a href="#">Tables</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Tables</li>
-                  </ol>
-                </nav> --}}
-              {{-- </div>
-              <div class="col-lg-6 col-5 text-right">
-                <a href="#" class="btn btn-sm btn-neutral">New</a>
-                <a href="#" class="btn btn-sm btn-neutral">Filters</a>
-              </div>
+      </nav> --}}
+        <!-- Header -->
+        <!-- Header -->
+        <!-- Card header -->
+        @include('flash-message')
+        @yield('content')
+
+
+        <div class="card principal">
+            <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary customNav border-bottom"
+                style="color:black">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <!-- Search form -->
+                        <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
+                            <div class="form-group mb-0">
+                                <div class="input-group input-group-alternative input-group-merge">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                    </div>
+                                    <input class="form-control" placeholder="Pesquisar" type="text">
+                                </div>
+                            </div>
+                            <button type="button" class="close" data-action="search-close"
+                                data-target="#navbar-search-main" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </form>
+                        <!-- Navbar links -->
+                        <ul class="navbar-nav align-items-center  ml-md-auto ">
+                            <li class="nav-item d-xl-none">
+                                <!-- Sidenav toggler -->
+                                <div class="pr-3 sidenav-toggler sidenav-toggler-dark active" data-action="sidenav-pin"
+                                    data-target="#sidenav-main">
+                                    <div class="sidenav-toggler-inner">
+                                        <i class="sidenav-toggler-line"></i>
+                                        <i class="sidenav-toggler-line"></i>
+                                        <i class="sidenav-toggler-line"></i>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item d-sm-none">
+                                <a class="nav-link" href="#" data-action="search-show"
+                                    data-target="#navbar-search-main">
+                                    <i class="ni ni-zoom-split-in"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    <i class="ni ni-bell-55"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-xl  dropdown-menu-right  py-0 overflow-hidden">
+                                    <!-- Dropdown header -->
+                                    <div class="px-3 py-3">
+                                        <h6 class="text-sm text-muted m-0">You have <strong
+                                                class="text-primary">13</strong> notifications.</h6>
+                                    </div>
+                                    <!-- List group -->
+                                    <div class="list-group list-group-flush">
+                                        <a href="#!" class="list-group-item list-group-item-action">
+                                            <div class="row align-items-center">
+                                                <div class="col-auto">
+                                                    <!-- Avatar -->
+                                                    <img src="/uploads/avatars/default.jpg">
+                                                </div>
+                                                <div class="col ml--2">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <div>
+                                                            <h4 class="mb-0 text-sm">John Snow</h4>
+                                                        </div>
+                                                        <div class="text-right text-muted">
+                                                            <small>2 hrs ago</small>
+                                                        </div>
+                                                    </div>
+                                                    <p class="text-sm mb-0">Let's meet at Starbucks at 11:30. Wdyt?
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#!" class="list-group-item list-group-item-action">
+                                            <div class="row align-items-center">
+                                                <div class="col-auto">
+                                                    <!-- Avatar -->
+                                                    <img alt="Image placeholder" src="../assets/img/theme/team-2.jpg"
+                                                        class="avatar rounded-circle">
+                                                </div>
+                                                <div class="col ml--2">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <div>
+                                                            <h4 class="mb-0 text-sm">John Snow</h4>
+                                                        </div>
+                                                        <div class="text-right text-muted">
+                                                            <small>3 hrs ago</small>
+                                                        </div>
+                                                    </div>
+                                                    <p class="text-sm mb-0">A new issue has been reported for Argon.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#!" class="list-group-item list-group-item-action">
+                                            <div class="row align-items-center">
+                                                <div class="col-auto">
+                                                    <!-- Avatar -->
+                                                    <img alt="Image placeholder" src="../assets/img/theme/team-3.jpg"
+                                                        class="avatar rounded-circle">
+                                                </div>
+                                                <div class="col ml--2">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <div>
+                                                            <h4 class="mb-0 text-sm">John Snow</h4>
+                                                        </div>
+                                                        <div class="text-right text-muted">
+                                                            <small>5 hrs ago</small>
+                                                        </div>
+                                                    </div>
+                                                    <p class="text-sm mb-0">Your posts have been liked a lot.</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#!" class="list-group-item list-group-item-action">
+                                            <div class="row align-items-center">
+                                                <div class="col-auto">
+                                                    <!-- Avatar -->
+                                                    <img alt="Image placeholder" src="../assets/img/theme/team-4.jpg"
+                                                        class="avatar rounded-circle">
+                                                </div>
+                                                <div class="col ml--2">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <div>
+                                                            <h4 class="mb-0 text-sm">John Snow</h4>
+                                                        </div>
+                                                        <div class="text-right text-muted">
+                                                            <small>2 hrs ago</small>
+                                                        </div>
+                                                    </div>
+                                                    <p class="text-sm mb-0">Let's meet at Starbucks at 11:30. Wdyt?
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#!" class="list-group-item list-group-item-action">
+                                            <div class="row align-items-center">
+                                                <div class="col-auto">
+                                                    <!-- Avatar -->
+                                                    <img alt="Image placeholder" src="../assets/img/theme/team-5.jpg"
+                                                        class="avatar rounded-circle">
+                                                </div>
+                                                <div class="col ml--2">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <div>
+                                                            <h4 class="mb-0 text-sm">John Snow</h4>
+                                                        </div>
+                                                        <div class="text-right text-muted">
+                                                            <small>3 hrs ago</small>
+                                                        </div>
+                                                    </div>
+                                                    <p class="text-sm mb-0">A new issue has been reported for Argon.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <!-- View all -->
+                                    <a href="#!"
+                                        class="dropdown-item text-center text-primary font-weight-bold py-3">View
+                                        all</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    <i class="ni ni-ungroup"></i>
+                                </a>
+                                <div
+                                    class="dropdown-menu dropdown-menu-lg dropdown-menu-dark bg-default  dropdown-menu-right ">
+                                    <div class="row shortcuts px-4">
+                                        <a href="#!" class="col-4 shortcut-item">
+                                            <span class="shortcut-media avatar rounded-circle bg-gradient-red">
+                                                <i class="ni ni-calendar-grid-58"></i>
+                                            </span>
+                                            <small>Calendar</small>
+                                        </a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    <div class="media align-items-center">
+                                        <span class="avatar avatar-sm rounded-circle">
+                                            <img src="/uploads/avatars/default.jpg"
+                                                style="width:34px; height:34px; position:relativa; top:10px; left:10px; border-radius:50%">
+                                        </span>
+                                        <div class="media-body text-dark ml-2  d-none d-lg-block">
+                                            <span class="mb-0 text-sm  font-weight-bold">usuario</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu  dropdown-menu-right ">
+                                    <div class="dropdown-header noti-title">
+                                        <h6 class="text-overflow m-0">Welcome!</h6>
+                                    </div>
+
+
+
+
+                                    <div class="dropdown-divider"></div>
+                                    <a href="http://localhost:8000/logout" class="dropdown-item"
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        <i class="ni ni-user-run"></i>
+                                        <span>Logout</span>
+
+                                        <form id="logout-form" action="http://localhost:8000/logout" method="POST"
+                                            class="d-none">
+                                            <input type="hidden" name="_token"
+                                                value="GjdsMGl3g5mmhZTc587uNHZNeieUN3HtMzCe7pD8">
+                                        </form>
+
+                                    </a>
+
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="content custom ml-6 mr-3 mb-6">
+                <div class="row mb-6">
+                    <div class="col-12">
+                        <h1> <b>
+                            Teste
+                        </b> </h1>
+                        Todos as descrições das pessoas são sobre a humanidade do atendimento, a pessoa pega no pulso,
+                        examina, olha
+                        com carinho. Então eu acho que vai ter outra coisa, que os médicos cubanos trouxeram pro brasil,
+                        um alto
+                        grau de humanidade.
+
+                        Eu dou dinheiro pra minha filha. Eu dou dinheiro pra ela viajar, então é... é... Já vivi muito
+                        sem dinheiro,
+                        já vivi muito com dinheiro. -Jornalista: Coloca esse dinheiro na poupança que a senhora ganha
+                        R$10 mil por
+                        mês. -Dilma: O que que é R$10 mil?
+
+                        No meu xinélo da humildade eu gostaria muito de ver o Neymar e o Ganso. Por que eu acho que....
+                        11 entre 10
+                        brasileiros gostariam. Você veja, eu já vi, parei de ver. Voltei a ver, e acho que o Neymar e o
+                        Ganso têm
+                        essa capacidade de fazer a gente olhar.
+
+                        No meu xinélo da humildade eu gostaria muito de ver o Neymar e o Ganso. Por que eu acho que....
+                        11 entre 10
+                        brasileiros gostariam. Você veja, eu já vi, parei de ver. Voltei a ver, e acho que o Neymar e o
+                        Ganso têm
+                        essa capacidade de fazer a gente olhar.
+
+                        Eu dou dinheiro pra minha filha. Eu dou dinheiro pra ela viajar, então é... é... Já vivi muito
+                        sem dinheiro,
+                        já vivi muito com dinheiro. -Jornalista: Coloca esse dinheiro na poupança que a senhora ganha
+                        R$10 mil por
+                        mês. -Dilma: O que que é R$10 mil?
+
+                        Se hoje é o dia das crianças... Ontem eu disse: o dia da criança é o dia da mãe, dos pais, das
+                        professoras,
+                        mas também é o dia dos animais, sempre que você olha uma criança, há sempre uma figura oculta,
+                        que é um
+                        cachorro atrás. O que é algo muito importante!
+                    </div>
+                </div>
+
+                <div class="row mb-6">
+                    <div class="col-12">
+                        <h1> <b>
+                            Card
+                        </b> </h1>
+
+                        <div class="main-section2">
+                            <div class="container">
+                                <div class="row">
+                                  <div class="col-sm">
+                                    One of three columns
+                                  </div>
+                                  <div class="col-sm">
+                                    One of three columns
+                                  </div>
+                                  <div class="col-sm">
+                                    One of three columns
+                                  </div>
+                                  <div class="col-sm">
+                                    One of three columns
+                                  </div>
+                                </div>
+                              </div>
+
+                        </div>
+
+                    </div>
+                </div>
             </div>
-          </div>
+
         </div>
-      </div> --}}
+        {{-- <div class="header bg-primary pb-6">
+
+      </div>
       <!-- Page content -->
       <div class="container-fluid mt--6">
         <div class="row">
           <div class="col">
-            <div class="card">
+            <div class="card home ">
               <!-- Card header -->
                 @include('flash-message')
                 @yield('content')
 
-              <!-- Card footer -->
-              {{-- <div class="card-footer py-4"> --}}
-              {{--
-                <nav aria-label="...">
-                  <ul class="pagination justify-content-end mb-0">
-                    <li class="page-item disabled">
-                      <a class="page-link" href="#" tabindex="-1">
-                        <i class="fas fa-angle-left"></i>
-                        <span class="sr-only">Previous</span>
-                      </a>
-                    </li>
-                    <li class="page-item active">
-                      <a class="page-link" href="#">1</a>
-                    </li>
-                    <li class="page-item">
-                      <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                      <a class="page-link" href="#">
-                        <i class="fas fa-angle-right"></i>
-                        <span class="sr-only">Next</span>
-                      </a>
-                    </li>
-                  </ul>
-                </nav>
-               --}}
-            {{-- </div> --}}
-            </div>
-          </div>
-        </div>
 
-        <!-- Footer -->
-        {{-- <footer class="footer pt-0">
-          <div class="row align-items-center justify-content-lg-between">
-            <div class="col-lg-6">
-              <div class="copyright text-center  text-lg-left  text-muted">
-                &copy; 2020 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Creative Tim</a>
-              </div>
+              <div class="card-footer py-4">
+
             </div>
-            <div class="col-lg-6">
-              <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About Us</a>
-                </li>
-                <li class="nav-item">
-                  <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md" class="nav-link" target="_blank">MIT License</a>
-                </li>
-              </ul>
             </div>
           </div>
-        </footer> --}}
-      </div>
+        </div> --}}
+
     </div>
     <script src="{{ asset('assetslogged/vendor/jquery/dist/jquery.min.js') }}"></script>
     <script src="{{ asset('assetslogged/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
@@ -466,5 +679,3 @@ $(document).ready(function(){
 </body>
 
 </html>
-
-{{-- @endsection --}}

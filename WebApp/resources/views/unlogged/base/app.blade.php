@@ -42,7 +42,7 @@
     <script src="{{ asset('assetsUnlogged/js/custom.js') }}" type="text/javascript"></script>
 
     <style>
-        #conteudo {
+        .conteudo {
             background-image: url('{{ asset('assetsunlogged/img/header-7.jpg') }}');
         }
 
@@ -172,7 +172,7 @@
             </ul>
         </div>
     </nav>
-    <div class="section section-header" id="conteudo">
+    <div class="section section-header conteudo">
         <div class="parallax" id="parallax">
             <div class="container" id="banner">
                 <div class="content">
