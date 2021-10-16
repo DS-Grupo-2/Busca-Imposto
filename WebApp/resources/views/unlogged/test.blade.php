@@ -3,14 +3,7 @@
 <link href="{{ asset('assetsUnlogged/css/customAuth.css') }}" rel="stylesheet"> --}}
 
 {{-- content goes here --}}
-<<<<<<< HEAD
 {{-- <canvas id="myChart" width="400" height="400"></canvas>
-=======
-<canvas id="myChart" width="400" height="400"></canvas>
-
-
-
->>>>>>> 21db22a67f27ceba499dd92bbf8ea3c4a1f5e2f5
 <script>
 
 $(document).ready(function(){
