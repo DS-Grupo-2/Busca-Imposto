@@ -55,6 +55,7 @@
         margin-bottom: 00px;
         margin-top: 25px;
         border-top-left-radius: 40px;
+        background-color:#F6F5F8;
 
     }
 
@@ -83,15 +84,21 @@
     }
 
     .content.custom {
-        margin-top: 50px
-    }
-    .card{
-  overflow: hidden;
-}
+        margin-top: 50px;
 
-.card-text{
-  word-wrap: break-word;
-}
+    }
+
+    .card {
+        overflow: hidden;
+    }
+
+    .card-text {
+        word-wrap: break-word;
+    }
+    .btn:hover{
+	  background-color:#7399F6;
+    }
+
 </style>
 
 <body>
@@ -99,39 +106,47 @@
     <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
         <div class="scrollbar-inner">
             <!-- Brand -->
-            <div class="sidenav-header  align-items-center">
-                <a class="navbar-brand" href="javascript:void(0)">
-                    <img src="{{ url('') }}/assetsunlogged/img/logo4.png" style="height:200px;"
-                        class="navbar-brand-img" alt="...">
+            <div class="sidenav-header  align-items-center mb-5">
+                <a class="navbar-brand" style="width:70% ; height:70%;" href="http://127.0.0.1:8000/">
+                    <img src="{{ url('') }}/assetsunlogged/img/logo4.png" class="navbar-brand-img" alt="...">
                 </a>
             </div>
             <div class="navbar-inner">
                 <!-- Collapse -->
                 <div class="collapse navbar-collapse" id="sidenav-collapse-main">
                     <!-- Nav items -->
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav mb-2" style="margin-left:2px;margin-right:2px">
                         <li class="nav-item">
-                            <a class="nav-link" href="dashboard.html">
-                                <i class="ni ni-tv-2 text-primary"></i>
-                                <span class="nav-link-text">Dashboard</span>
+                            <a class="nav-link text-white btn" href="http://127.0.0.1:8000/">
+                                <i class="ni ni-cart"></i>
+                                <span class="nav-link-text">Página inicial</span>
                             </a>
                         </li>
-
                     </ul>
                     <!-- Divider -->
-                    <hr class="my-3">
+                    {{-- <hr class="my-3"> --}}
                     <!-- Heading -->
-                    <h6 class="navbar-heading p-0 text-muted">
-                        <span class="docs-normal">Documentation</span>
-                    </h6>
+                    {{-- <h6 class="navbar-heading p-0 text-muted">
+                        <span class="docs-normal">Usuário</span>
+                    </h6> --}}
                     <!-- Navigation -->
-                    <ul class="navbar-nav mb-md-3">
+                    <ul class="navbar-nav md-3 mb-2"style="margin-left:2px;margin-right:2px">
                         <li class="nav-item">
-                            <a class="nav-link"
+                            <a class="nav-link text-white btn"
                                 href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html"
                                 target="_blank">
-                                <i class="ni ni-spaceship"></i>
-                                <span class="nav-link-text">Getting started</span>
+                                <i class="ni ni-single-02"></i>
+                                <span class="nav-link-text">Login</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav md-3"style="margin-left:2px;margin-right:2px">
+                        <li class="nav-item">
+                            <a class="nav-link text-white btn"
+                                href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html"
+                                target="_blank">
+                                <i class="ni ni-single-02"></i>
+                                <span class="nav-link-text">Registrar</span>
                             </a>
                         </li>
                     </ul>
@@ -357,7 +372,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fas fa-search"></i></span>
                                     </div>
-                                    <input class="form-control" placeholder="Pesquisar" type="text">
+                                    <input class="form-control" placeholder="Pesquisar Produtos" type="text">
                                 </div>
                             </div>
                             <button type="button" class="close" data-action="search-close"
@@ -387,7 +402,7 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link" href="#" role="button" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
-                                    <i class="ni ni-bell-55"></i>
+                                    <i class="ni ni-bell-55 text-dark"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-xl  dropdown-menu-right  py-0 overflow-hidden">
                                     <!-- Dropdown header -->
@@ -510,7 +525,7 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link" href="#" role="button" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
-                                    <i class="ni ni-ungroup"></i>
+                                    <i class="ni ni-ungroup text-dark"></i>
                                 </a>
                                 <div
                                     class="dropdown-menu dropdown-menu-lg dropdown-menu-dark bg-default  dropdown-menu-right ">
@@ -535,7 +550,7 @@
                                                 style="width:34px; height:34px; position:relativa; top:10px; left:10px; border-radius:50%">
                                         </span>
                                         <div class="media-body text-dark ml-2  d-none d-lg-block">
-                                            <span class="mb-0 text-sm  font-weight-bold">usuario</span>
+                                            <span class="mb-0 text-sm  font-weight-bold text-dark">usuario</span>
                                         </div>
                                     </div>
                                 </a>
@@ -568,82 +583,120 @@
                 </div>
             </nav>
 
-            <div class="content custom ml-6 mr-3 mb-6">
+            <div class="content custom ml-6 mr-3">
                 <div class="row mb-6">
                     <div class="col-12">
-                        <h1> <b>
-                            Teste
-                        </b> </h1>
-                        Todos as descrições das pessoas são sobre a humanidade do atendimento, a pessoa pega no pulso,
-                        examina, olha
-                        com carinho. Então eu acho que vai ter outra coisa, que os médicos cubanos trouxeram pro brasil,
-                        um alto
-                        grau de humanidade.
-
-                        Eu dou dinheiro pra minha filha. Eu dou dinheiro pra ela viajar, então é... é... Já vivi muito
-                        sem dinheiro,
-                        já vivi muito com dinheiro. -Jornalista: Coloca esse dinheiro na poupança que a senhora ganha
-                        R$10 mil por
-                        mês. -Dilma: O que que é R$10 mil?
-
-                        No meu xinélo da humildade eu gostaria muito de ver o Neymar e o Ganso. Por que eu acho que....
-                        11 entre 10
-                        brasileiros gostariam. Você veja, eu já vi, parei de ver. Voltei a ver, e acho que o Neymar e o
-                        Ganso têm
-                        essa capacidade de fazer a gente olhar.
-
-                        No meu xinélo da humildade eu gostaria muito de ver o Neymar e o Ganso. Por que eu acho que....
-                        11 entre 10
-                        brasileiros gostariam. Você veja, eu já vi, parei de ver. Voltei a ver, e acho que o Neymar e o
-                        Ganso têm
-                        essa capacidade de fazer a gente olhar.
-
-                        Eu dou dinheiro pra minha filha. Eu dou dinheiro pra ela viajar, então é... é... Já vivi muito
-                        sem dinheiro,
-                        já vivi muito com dinheiro. -Jornalista: Coloca esse dinheiro na poupança que a senhora ganha
-                        R$10 mil por
-                        mês. -Dilma: O que que é R$10 mil?
-
-                        Se hoje é o dia das crianças... Ontem eu disse: o dia da criança é o dia da mãe, dos pais, das
-                        professoras,
-                        mas também é o dia dos animais, sempre que você olha uma criança, há sempre uma figura oculta,
-                        que é um
-                        cachorro atrás. O que é algo muito importante!
-                    </div>
-                </div>
-
-                <div class="row mb-6">
-                    <div class="col-12">
-                        <h1> <b>
-                            Card
-                        </b> </h1>
+                        <h1 class="ml-4 mb-4"> <b>
+                                Categorias
+                            </b> </h1>
 
                         <div class="main-section2">
                             <div class="container">
-                                <div class="row">
-                                  <div class="col-sm">
-                                    One of three columns
-                                  </div>
-                                  <div class="col-sm">
-                                    One of three columns
-                                  </div>
-                                  <div class="col-sm">
-                                    One of three columns
-                                  </div>
-                                  <div class="col-sm">
-                                    One of three columns
-                                  </div>
+                                    <div class="row">
+
+                                        <div class="card "
+                                            style="width: 13rem;margin: 10px; border-radius:10%">
+                                            <img class="card-img-top" style="margin:5%"
+                                                src="assetsunlogged/img/new_logo.png" alt="Card image cap">
+                                            <div class="card-body">
+                                                <a href="">
+                                                    <h5 class="card-title">Produto</h5>
+                                                </a>
+                                                <p class="card-text">$PREÇO$.</p>
+
+                                            </div>
+                                        </div>
+                                        <div class="card "
+                                            style="width: 13rem; margin: 10px;border-radius:10%">
+                                            <img class="card-img-top" style="margin:5%"
+                                                src="assetsunlogged/img/new_logo.png" alt="Card image cap">
+                                            <div class="card-body">
+                                                <a href="">
+                                                    <h5 class="card-title">Produto</h5>
+                                                </a>
+                                                <p class="card-text">$PREÇO$.</p>
+
+                                            </div>
+                                        </div>
+                                        <div class="card"
+                                            style="width: 13rem; margin: 10px;border-radius:10%">
+                                            <img class="card-img-top" style="margin:5%"
+                                                src="assetsunlogged/img/new_logo.png" alt="Card image cap">
+                                            <div class="card-body">
+                                                <a href="">
+                                                    <h5 class="card-title">Produto</h5>
+                                                </a>
+                                                <p class="card-text">$PREÇO$.</p>
+                                            </div>
+                                        </div>
+                                        <div class="card"
+                                            style="width: 13rem; margin:10px;border-radius:10%">
+                                            <img class="card-img-top" style="margin: 5%"
+                                                src="assetsunlogged/img/new_logo.png" alt="Card image cap">
+                                            <div class="card-body">
+                                                <a href="">
+                                                    <h5 class="card-title">Produto</h5>
+                                                </a>
+                                                <p class="card-text">$PREÇO$.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
-                              </div>
 
+                            </div>
                         </div>
-
                     </div>
-                </div>
-            </div>
 
+                    <div class="row">
+                      <div class="col-12">
+                          <h1 class="ml-4 mb-4"> <b>
+                                  Produtos
+                              </b> </h1>
+  
+                          <div class="main-section2">
+                              <div class="container">
+                                      <div class="row">
+  
+                                          <div class="card produtos"
+                                              style="width: 56rem;margin: 10px; ;border-radius:20px">
+                                              <div class="card-body">
+                                                <table class="table table-hover">
+                                                  <thead>
+                                                      <tr>
+                                                          <th scope="col">ID</th>
+                                                          <th scope="col">Categoria</th>
+                                                          <th scope="col">Imagem</th>
+                                                          <th scope="col">Criado</th>
+                                                          <th scope="col">Atualizado</th>
+                                                          <th scope="col"></th>
+                                                      </tr>
+                                                  </thead>
+                                                  {{-- @foreach($list as $item) --}}
+                                                  <tbody>
+                                                      <tr> 
+                                                          <th scope="row">{{-- {{  $item->id  }} --}}</th>
+                                                          <td>{{-- {{  $item->NomeCategoria  }} --}}</td>
+                                                          <td>{{-- <img height="50px" src="{{ asset('uploads/pictures/'  . $item->picture ) }}"> --}}</td>
+                                                          {{-- <td>{{ $item->Preco }}</td> --}}
+                                                          <td>{{-- {{  $item->created_at  }} --}}</td>
+                                                          <td>{{-- {{  $item->updated_at  }} --}}</td>
+                                                      </tr>        
+                                                  </tbody>
+                                                  {{-- @endforeach   --}}
+                                              </table>
+                                              </div>
+                                          </div>             
+                                      </div>
+  
+                                  </div>
+  
+                              </div>
+                          </div>
+                      </div>
+                </div>
         </div>
-        {{-- <div class="header bg-primary pb-6">
+                {{-- <div class="header bg-primary pb-6">
 
       </div>
       <!-- Page content -->
@@ -663,19 +716,19 @@
           </div>
         </div> --}}
 
-    </div>
-    <script src="{{ asset('assetslogged/vendor/jquery/dist/jquery.min.js') }}"></script>
-    <script src="{{ asset('assetslogged/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assetslogged/vendor/js-cookie/js.cookie.js') }}"></script>
-    <script src="{{ asset('assetslogged/vendor/jquery.scrollbar/jquery.scrollbar.min.js') }}"></script>
-    <script src="{{ asset('assetslogged/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js') }}"></script>
-    <!-- Optional JS -->
-    <script src="{{ asset('assetslogged/vendor/chart.js/dist/Chart.min.js') }}"></script>
-    <script src="{{ asset('assetslogged/js/sweetalert.js') }}"></script>
-    <script src="{{ asset('common/custom.js') }}"></script>
-    <script src="{{ asset('assetslogged/vendor/chart.js/dist/Chart.extension.js') }}"></script>
-    <!-- Argon JS -->
-    <script src="{{ asset('assetslogged/js/argon.js?v=1.2.0') }}"></script>
+            </div>
+            <script src="{{ asset('assetslogged/vendor/jquery/dist/jquery.min.js') }}"></script>
+            <script src="{{ asset('assetslogged/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+            <script src="{{ asset('assetslogged/vendor/js-cookie/js.cookie.js') }}"></script>
+            <script src="{{ asset('assetslogged/vendor/jquery.scrollbar/jquery.scrollbar.min.js') }}"></script>
+            <script src="{{ asset('assetslogged/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js') }}"></script>
+            <!-- Optional JS -->
+            <script src="{{ asset('assetslogged/vendor/chart.js/dist/Chart.min.js') }}"></script>
+            <script src="{{ asset('assetslogged/js/sweetalert.js') }}"></script>
+            <script src="{{ asset('common/custom.js') }}"></script>
+            <script src="{{ asset('assetslogged/vendor/chart.js/dist/Chart.extension.js') }}"></script>
+            <!-- Argon JS -->
+            <script src="{{ asset('assetslogged/js/argon.js?v=1.2.0') }}"></script>
 </body>
 
 </html>
