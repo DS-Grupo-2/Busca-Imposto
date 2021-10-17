@@ -167,20 +167,12 @@ Route::get(
 Route::get('/system/test', function () {
     return view('logged.test');
 })->name('logged-test');
-// Route::get('/home/test', function () {
-//     return view('unlogged.test');
-// })->name('unlogged-test');
-
-
-
-Route::get(
-    '/home/test',
-    [Products::class, 'get_data']
-)->name('unlogged-test');
+Route::get('/home/test', function () {
+    return view('unlogged.test');
+})->name('unlogged-test');
 /**End TEST Routes */
 
 Route::post('/home', 'UserController@update_avatar');
-
 // Route::post('/system/products', 'Products@update_product');
 
 
