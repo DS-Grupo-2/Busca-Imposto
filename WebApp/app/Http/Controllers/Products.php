@@ -58,7 +58,7 @@ class Products extends Controller
     {
         if(ProductsModel::find($id)){
             $deletedRows = ProductsModel::destroy($id);
-            return redirect('/system/products')->with('warning','Product deleted successfuly!');
+            return redirect('/system/products')->with('warning','Product edited successfuly!');
         }
         else{
             return redirect('/system/products')->with('error','Product not exists!');
