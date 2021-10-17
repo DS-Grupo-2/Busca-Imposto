@@ -517,6 +517,20 @@
                                         </a>
                                     </div>
                                     <!-- View all -->
+
+                                    <tr>
+                                        <th scope="col">Preço</th>
+                                        
+                                    </tr>
+                                </thead>
+                    
+                             
+
+
+
+
+
+
                                     <a href="#!"
                                         class="dropdown-item text-center text-primary font-weight-bold py-3">View
                                         all</a>

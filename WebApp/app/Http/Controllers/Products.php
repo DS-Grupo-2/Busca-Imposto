@@ -133,5 +133,17 @@ class Products extends Controller
         echo json_encode($array);
         return;
     }
+    
+    public function get_data($id = NULL,Request $request){
+        if(ProductsModel::find($id)){
+            $productId = ProductsModel::where('id', $id)->first([
+                'Preco' => $request->get('Preco'),
 
+            ]);
+
+        return view('unlogged.test',[
+            'list' => $productId
+        ]); 
+        }
+    }
 }
