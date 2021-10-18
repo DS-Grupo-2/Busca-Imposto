@@ -101,6 +101,7 @@ Auth::routes();
         [Products::class, 'create']
     )->middleware('auth')->name('products-create');
 
+
     Route::get(
         '/system/products/edit/{id}',
         [Products::class, 'edit']
@@ -118,6 +119,10 @@ Auth::routes();
 
     Route::get(
         'search-by-product',
+        [Products::class, 'getMatchedProducts']
+    )->name('search-by-product');
+        Route::get(
+        '/search',
         [Products::class, 'getMatchedProducts']
     )->name('search-by-product');
 /**End products Routes */

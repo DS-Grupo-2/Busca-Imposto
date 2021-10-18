@@ -8,13 +8,24 @@ use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
 use App\Categories as CategoriesModel;
 use App\SubCategories as SubCategoriesModel;
-
-
+use Illuminate\Support\Facades\DB;
 
 class Products extends Controller
 {
-    public function index(){
-        $list = ProductsModel::simplePaginate(15);
+    public function index(Request $request){
+        $list = [];
+
+        if($request->input('search', '')){
+            $name = $request->input('search', '');
+            $list = ProductsModel::where('NomeProduto', 'like', '%'.$name.'%')->take(5)->get();
+        }else if($_GET['orderby'] != null && $_GET['orderby'] == 'value' && $request->input('search', '') == ''){
+            $list = DB::table('Product')
+                ->orderBy('Preco', 'desc')
+                ->take(15)
+                ->get();
+        }else{
+            $list = ProductsModel::simplePaginate(15);
+        }
 
         return view('logged.products.view', [
             'list' => $list,
@@ -126,12 +137,27 @@ class Products extends Controller
         }
     }
 
-    public function getMatchedProducts(Request $request){
+    /*public function getMatchedProducts(Request $request){
         $name = $request->input('item', '');
-        $array = ProductsModel::where('NomeProduto', 'like', '%'.$name.'%')->take(5)->get();
+        $list = ProductsModel::where('NomeProduto', 'like', '%'.$name.'%')->take(5)->get();
 
-        echo json_encode($array);
+        //echo json_encode($list);
+
+        return view('search', [
+            'list' => $list,
+            'categories' => CategoriesModel::all(),
+            'subcategories' => SubCategoriesModel::all(),
+        ]);
         return;
-    }
+    }*/
+    public function getMatchedProducts(Request $request){
+        $name = $request->input('search', '');
+        $list = ProductsModel::where('NomeProduto', 'like', '%'.$name.'%')->take(5)->get();
 
+        return view('search', [
+            'list' => $list,
+            'categories' => CategoriesModel::all(),
+            'subcategories' => SubCategoriesModel::all(),
+        ]);
+    }
 }
