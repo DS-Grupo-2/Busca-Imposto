@@ -133,6 +133,7 @@ class Products extends Controller
         echo json_encode($array);
         return;
     }
+<<<<<<< HEAD
     
     public function get_data($id = NULL, Request $request){
         $categories = CategoriesModel::all();
@@ -148,4 +149,7 @@ class Products extends Controller
         ]); 
     }
     
+=======
+
+>>>>>>> 079fe353a1c59bc43723f82a4eb618f61fb897c3
 }
