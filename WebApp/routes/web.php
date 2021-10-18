@@ -173,7 +173,6 @@ Route::get(
 Route::get('/system/test', function () {
     return view('logged.test');
 })->name('logged-test');
-<<<<<<< HEAD
 
 Route::get(
     '/home/test/',
@@ -184,11 +183,6 @@ Route::get(
     '/home/test/{id}',
     [Products::class, 'get_data']
 )->name('data-test');
-=======
-Route::get('/home/test', function () {
-    return view('unlogged.test');
-})->name('unlogged-test');
->>>>>>> 079fe353a1c59bc43723f82a4eb618f61fb897c3
 /**End TEST Routes */
 
 Route::post('/home', 'UserController@update_avatar');
