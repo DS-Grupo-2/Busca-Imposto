@@ -161,10 +161,16 @@ Route::get(
         '/home2',
         [Home::class, 'index']
     );
+
     Route::get(
         '/',
         [Home::class, 'index']
     );
+
+    Route::get(
+        '/',
+        [Categories::class, 'show']
+    )->name('data-show');
 /**End Home Routes */
 
 /**TEST routes */
@@ -172,9 +178,16 @@ Route::get(
 Route::get('/system/test', function () {
     return view('logged.test');
 })->name('logged-test');
-Route::get('/home/test', function () {
-    return view('unlogged.test');
-})->name('unlogged-test');
+
+Route::get(
+    '/home/test/',
+    [Products::class, 'get_data']
+)->name('unlogged-test');
+
+Route::get(
+    '/home/test/{id}',
+    [Products::class, 'get_data']
+)->name('data-test');
 /**End TEST Routes */
 
 Route::post('/home', 'UserController@update_avatar');

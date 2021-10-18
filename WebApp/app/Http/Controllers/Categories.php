@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Categories as CategoriesModel;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
+use App\Products as ProductsModel;
 
 
 
@@ -92,6 +93,17 @@ class Categories extends Controller
 
         return view('categories', [
             'list' => $list,
+        ]);
+    }
+
+    public function show()
+    {
+        $list = CategoriesModel::simplePaginate(15);
+        $item = ProductsModel::simplePaginate(15);
+        
+        return view('unlogged.home', [
+            'list' => $list,
+            'item' => $item,
         ]);
     }
 }

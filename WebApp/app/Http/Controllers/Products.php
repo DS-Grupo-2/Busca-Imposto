@@ -150,6 +150,7 @@ class Products extends Controller
         ]);
         return;
     }*/
+
     public function getMatchedProducts(Request $request){
         $name = $request->input('search', '');
         $list = ProductsModel::where('NomeProduto', 'like', '%'.$name.'%')->take(5)->get();
@@ -160,4 +161,19 @@ class Products extends Controller
             'subcategories' => SubCategoriesModel::all(),
         ]);
     }
+    
+    public function get_data($id = NULL, Request $request){
+        $categories = CategoriesModel::all();
+        $productId = [];
+        $categoryId = [];
+        if(ProductsModel::find($id)){
+            $productId = ProductsModel::where('id', $id)->first();
+            $categoryId = CategoriesModel::where('id', $productId['Category_ID'])->first();   
+        }
+        return view('unlogged.test',[
+            'list' => $productId,
+            'item' => $categoryId,
+        ]); 
+    }
+    
 }
