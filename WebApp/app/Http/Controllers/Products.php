@@ -134,16 +134,18 @@ class Products extends Controller
         return;
     }
     
-    public function get_data($id = NULL,Request $request){
+    public function get_data($id = NULL, Request $request){
+        $categories = CategoriesModel::all();
+        $productId = [];
+        $categoryId = [];
         if(ProductsModel::find($id)){
-            $productId = ProductsModel::where('id', $id)->first([
-                'Preco' => $request->get('Preco'),
-
-            ]);
-
-        return view('unlogged.test',[
-            'list' => $productId
-        ]); 
+            $productId = ProductsModel::where('id', $id)->first();
+            $categoryId = CategoriesModel::where('id', $productId['Category_ID'])->first();   
         }
+        return view('unlogged.test',[
+            'list' => $productId,
+            'item' => $categoryId,
+        ]); 
     }
+    
 }
