@@ -173,6 +173,17 @@ Route::get(
     )->name('data-show');
 /**End Home Routes */
 
+
+/**Imposto routes */
+
+Route::get(
+    '/imposto/{id}',
+    [Products::class, 'get_data']
+)->name('data-imposto');
+
+/**End Home Routes */
+
+
 /**TEST routes */
 
 Route::get('/system/test', function () {
@@ -188,6 +199,7 @@ Route::get(
     '/home/test/{id}',
     [Products::class, 'get_data']
 )->name('data-test');
+
 /**End TEST Routes */
 
 Route::post('/home', 'UserController@update_avatar');
