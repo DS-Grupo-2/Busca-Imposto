@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
     <meta name="author" content="Creative Tim">
-    <title>Argon Dashboard - Free Dashboard for Bootstrap 4</title>
+    <title>Busca Imposto</title>
     <!-- Favicon -->
-    <link rel="icon" href="{{ asset('assetslogged/img/brand/favicon.png') }}" type="image/png">
+    <link rel="icon" href="{{ asset('assetsunlogged/img/logo4.png') }}" type="image/png">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
@@ -17,89 +17,90 @@
         type="text/css">
     <!-- Argon CSS -->
     <link rel="stylesheet" href="{{ asset('assetslogged/css/argon.css?v=1.2.0') }}" type="text/css">
+
+    <style>
+        body {
+            background-color: #9BABF1;
+        }
+
+        .bg-white {
+            background-color: #9BABF1 !important;
+        }
+
+        .navbar-vertical.navbar-light {
+            border-color: rgb(0 0 0 / 0%);
+            background-color: #f6f9fc;
+        }
+
+        .navbar-vertical {
+            padding-top: 0;
+            border-width: 0 0 1px 0;
+            border-style: solid;
+            box-shadow: 0 0 2rem 0 rgb(136 152 170 / 0%);
+        }
+
+        .header.bg-primary {
+            background-color: #5e72e400 !important;
+        }
+
+        .card.home {
+            height: 100%;
+        }
+
+        .card.principal {
+            margin-top: 25px;
+            border-top-left-radius: 40px;
+            height: 700px;
+            margin-bottom: 00px;
+            margin-top: 25px;
+            border-top-left-radius: 40px;
+            background-color: #F6F5F8;
+
+        }
+
+        .navbar-vertical .navbar-brand-img,
+        .navbar-vertical .navbar-brand>img {
+            max-width: 100%;
+            max-height: 5rem;
+        }
+
+        .bg-primary.customNav {
+            background-color: #5e72e400 !important;
+            margin-top: 24px;
+        }
+
+        .input-group-alternative,
+        .focused.input-group-alternative {
+            /* transition: box-shadow .15s ease; */
+            /* border: 0; */
+            box-shadow: 0px 0px 0px 2px rgb(119 119 119), 0 1px 0 rgb(0 0 0);
+            border-color: black !important;
+            border-radius: unset;
+        }
+
+        .focused .input-group-alternative {
+            box-shadow: 0px 0px 0px 2px rgb(129 129 129), 0 1px 3px rgb(0 0 0 / 8%) !important;
+        }
+
+        .content.custom {
+            margin-top: 50px;
+
+        }
+
+        .card {
+            overflow: hidden;
+        }
+
+        .card-text {
+            word-wrap: break-word;
+        }
+
+        .btn:hover {
+            background-color: #7399F6;
+        }
+
+    </style>
 </head>
-
-<style>
-    body {
-        background-color: #9BABF1;
-    }
-
-    .bg-white {
-        background-color: #9BABF1 !important;
-    }
-
-    .navbar-vertical.navbar-light {
-        border-color: rgb(0 0 0 / 0%);
-        background-color: #f6f9fc;
-    }
-
-    .navbar-vertical {
-        padding-top: 0;
-        border-width: 0 0 1px 0;
-        border-style: solid;
-        box-shadow: 0 0 2rem 0 rgb(136 152 170 / 0%);
-    }
-
-    .header.bg-primary {
-        background-color: #5e72e400 !important;
-    }
-
-    .card.home {
-        height: 100%;
-    }
-
-    .card.principal {
-        margin-top: 25px;
-        border-top-left-radius: 40px;
-        height: 100vh;
-        margin-bottom: 00px;
-        margin-top: 25px;
-        border-top-left-radius: 40px;
-        background-color:#F6F5F8;
-
-    }
-
-    .navbar-vertical .navbar-brand-img,
-    .navbar-vertical .navbar-brand>img {
-        max-width: 100%;
-        max-height: 5rem;
-    }
-
-    .bg-primary.customNav {
-        background-color: #5e72e400 !important;
-        margin-top: 24px;
-    }
-
-    .input-group-alternative,
-    .focused.input-group-alternative {
-        /* transition: box-shadow .15s ease; */
-        /* border: 0; */
-        box-shadow: 0px 0px 0px 2px rgb(119 119 119), 0 1px 0 rgb(0 0 0);
-        border-color: black !important;
-        border-radius: unset;
-    }
-
-    .focused .input-group-alternative {
-        box-shadow: 0px 0px 0px 2px rgb(129 129 129), 0 1px 3px rgb(0 0 0 / 8%) !important;
-    }
-
-    .content.custom {
-        margin-top: 50px;
-
-    }
-
-    .card {
-        overflow: hidden;
-    }
-
-    .card-text {
-        word-wrap: break-word;
-    }
-    .btn:hover{
-	  background-color:#7399F6;
-    }
-
-</style>
 
 <body>
     <!-- Sidenav -->
@@ -123,6 +124,30 @@
                             </a>
                         </li>
                     </ul>
+                    <ul class="navbar-nav mb-2" style="margin-left: 2px;margin-right:2px">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-white btn" href="#" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                <i class="ni ni-chart-bar-32"></i>
+                                <span class="nav-link-text">Imposto</span>
+                            </a>
+                            <div class="dropdown-menu " style="background-color: #f6f5f8"
+                                aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="ni ni-laptop"></i>
+                                    <span class="nav-link-text">Categorias</span>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="ni ni-laptop"></i>
+                                    <span class="nav-link-text">Subcategorias</span>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="ni ni-laptop"></i>
+                                    <span class="nav-link-text">Produtos</span>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
                     <!-- Divider -->
                     {{-- <hr class="my-3"> --}}
                     <!-- Heading -->
@@ -130,23 +155,19 @@
                         <span class="docs-normal">Usuário</span>
                     </h6> --}}
                     <!-- Navigation -->
-                    <ul class="navbar-nav md-3 mb-2"style="margin-left:2px;margin-right:2px">
+                    <ul class="navbar-nav md-3 mb-2" style="margin-left:2px;margin-right:2px">
                         <li class="nav-item">
-                            <a class="nav-link text-white btn"
-                                href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html"
-                                target="_blank">
+                            <a class="nav-link text-white btn" href="{{ route('login') }}" {{-- target="_blank" --}}>
                                 <i class="ni ni-single-02"></i>
                                 <span class="nav-link-text">Login</span>
                             </a>
                         </li>
                     </ul>
-                    <ul class="navbar-nav md-3"style="margin-left:2px;margin-right:2px">
+                    <ul class="navbar-nav md-3" style="margin-left:2px;margin-right:2px">
                         <li class="nav-item">
-                            <a class="nav-link text-white btn"
-                                href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html"
-                                target="_blank">
+                            <a class="nav-link text-white btn" href="{{ route('register') }}" {{-- target="_blank" --}}>
                                 <i class="ni ni-single-02"></i>
-                                <span class="nav-link-text">Registrar</span>
+                                <span class="nav-link-text">Registre-se</span>
                             </a>
                         </li>
                     </ul>
@@ -586,117 +607,136 @@
             <div class="content custom ml-6 mr-3">
                 <div class="row mb-6">
                     <div class="col-12">
-                        <h1 class="ml-4 mb-4"> <b>
+                        <h1 class="ml-4 mb-4" style="color: black"> <b>
                                 Categorias
                             </b> </h1>
 
                         <div class="main-section2">
                             <div class="container">
-                                    <div class="row">
+                                <div class="row">
 
-                                        <div class="card "
-                                            style="width: 13rem;margin: 10px; border-radius:10%">
-                                            <img class="card-img-top" style="margin:5%"
-                                                src="assetsunlogged/img/new_logo.png" alt="Card image cap">
-                                            <div class="card-body">
-                                                <a href="">
-                                                    <h5 class="card-title">Produto</h5>
-                                                </a>
-                                                <p class="card-text">$PREÇO$.</p>
-
-                                            </div>
-                                        </div>
-                                        <div class="card "
-                                            style="width: 13rem; margin: 10px;border-radius:10%">
-                                            <img class="card-img-top" style="margin:5%"
-                                                src="assetsunlogged/img/new_logo.png" alt="Card image cap">
-                                            <div class="card-body">
-                                                <a href="">
-                                                    <h5 class="card-title">Produto</h5>
-                                                </a>
-                                                <p class="card-text">$PREÇO$.</p>
-
-                                            </div>
-                                        </div>
-                                        <div class="card"
-                                            style="width: 13rem; margin: 10px;border-radius:10%">
-                                            <img class="card-img-top" style="margin:5%"
-                                                src="assetsunlogged/img/new_logo.png" alt="Card image cap">
-                                            <div class="card-body">
-                                                <a href="">
-                                                    <h5 class="card-title">Produto</h5>
-                                                </a>
-                                                <p class="card-text">$PREÇO$.</p>
-                                            </div>
-                                        </div>
-                                        <div class="card"
-                                            style="width: 13rem; margin:10px;border-radius:10%">
-                                            <img class="card-img-top" style="margin: 5%"
-                                                src="assetsunlogged/img/new_logo.png" alt="Card image cap">
-                                            <div class="card-body">
-                                                <a href="">
-                                                    <h5 class="card-title">Produto</h5>
-                                                </a>
-                                                <p class="card-text">$PREÇO$.</p>
-                                            </div>
+                                    <div class="card"
+                                        style="height:170px;width: 200px; margin:10px;border-radius:10%">
+                                        <img class="card-img-top" style="margin-left: 7%; margin-top:2%;width:70px;height:70px"
+                                            src="http://127.0.0.1:8000/assetsunlogged/img/new_logo.png"
+                                            alt="Card image cap">
+                                        <div class="card-body">
+                                            <a href="">
+                                                <h5 class="card-title">Produto</h5>
+                                            </a>
+                                            <p class="card-text">$PREÇO$.</p>
                                         </div>
                                     </div>
-
+                                    <div class="card"
+                                        style="height:170px;width: 200px; margin:10px;border-radius:10%">
+                                        <img class="card-img-top" style="margin-left: 7%; margin-top:2%;width:70px;height:70px"
+                                            src="http://127.0.0.1:8000/assetsunlogged/img/new_logo.png"
+                                            alt="Card image cap">
+                                        <div class="card-body">
+                                            <a href="">
+                                                <h5 class="card-title">Produto</h5>
+                                            </a>
+                                            <p class="card-text">$PREÇO$.</p>
+                                        </div>
+                                    </div>
+                                    <div class="card"
+                                        style="height:170px;width: 200px; margin:10px;border-radius:10%">
+                                        <img class="card-img-top" style="margin-left: 7%; margin-top:2%;width:70px;height:70px"
+                                            src="http://127.0.0.1:8000/assetsunlogged/img/new_logo.png"
+                                            alt="Card image cap">
+                                        <div class="card-body">
+                                            <a href="">
+                                                <h5 class="card-title">Produto</h5>
+                                            </a>
+                                            <p class="card-text">$PREÇO$.</p>
+                                        </div>
+                                    </div>
+                                    <div class="card"
+                                        style="height:170px;width: 200px; margin:10px;border-radius:10%">
+                                        <img class="card-img-top" style="margin-left: 7%; margin-top:2%;width:70px;height:70px"
+                                            src="http://127.0.0.1:8000/assetsunlogged/img/new_logo.png"
+                                            alt="Card image cap">
+                                        <div class="card-body">
+                                            <a href="">
+                                                <h5 class="card-title">Produto</h5>
+                                            </a>
+                                            <p class="card-text">$PREÇO$.</p>
+                                        </div>
+                                    </div>
                                 </div>
 
                             </div>
+
                         </div>
                     </div>
-
-                    <div class="row">
-                      <div class="col-12">
-                          <h1 class="ml-4 mb-4"> <b>
-                                  Produtos
-                              </b> </h1>
-  
-                          <div class="main-section2">
-                              <div class="container">
-                                      <div class="row">
-  
-                                          <div class="card produtos"
-                                              style="width: 56rem;margin: 10px; ;border-radius:20px">
-                                              <div class="card-body">
-                                                <table class="table table-hover">
-                                                  <thead>
-                                                      <tr>
-                                                          <th scope="col">ID</th>
-                                                          <th scope="col">Categoria</th>
-                                                          <th scope="col">Imagem</th>
-                                                          <th scope="col">Criado</th>
-                                                          <th scope="col">Atualizado</th>
-                                                          <th scope="col"></th>
-                                                      </tr>
-                                                  </thead>
-                                                  {{-- @foreach($list as $item) --}}
-                                                  <tbody>
-                                                      <tr> 
-                                                          <th scope="row">{{-- {{  $item->id  }} --}}</th>
-                                                          <td>{{-- {{  $item->NomeCategoria  }} --}}</td>
-                                                          <td>{{-- <img height="50px" src="{{ asset('uploads/pictures/'  . $item->picture ) }}"> --}}</td>
-                                                          {{-- <td>{{ $item->Preco }}</td> --}}
-                                                          <td>{{-- {{  $item->created_at  }} --}}</td>
-                                                          <td>{{-- {{  $item->updated_at  }} --}}</td>
-                                                      </tr>        
-                                                  </tbody>
-                                                  {{-- @endforeach   --}}
-                                              </table>
-                                              </div>
-                                          </div>             
-                                      </div>
-  
-                                  </div>
-  
-                              </div>
-                          </div>
-                      </div>
                 </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <h1 class="ml-4 mb-4" style="color: black"> <b>
+                                Produtos
+                            </b> </h1>
+
+                        <div class="main-section2">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="card produtos" style="width: 56rem;margin: 10px; ;border-radius:20px">
+                                        <div class="card-body">
+                                            <div class="container">
+                                                <div class="table-responsive">
+                                                    <table class="table table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">ID</th>
+                                                                <th scope="col">Categoria</th>
+                                                                <th scope="col">Imagem</th>
+                                                                <th scope="col">Criado</th>
+                                                                <th scope="col">Atualizado</th>
+                                                                <th scope="col"></th>
+                                                            </tr>
+                                                        </thead>
+                                                        @foreach ($list as $item)
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th scope="row">{{ $item->id }}</th>
+                                                                    <td>{{ $item->NomeCategoria }}</td>
+                                                                    <td><img height="50px"
+                                                                            src="{{ asset('uploads/pictures/' . $item->picture) }}">
+                                                                    </td>
+                                                                    <td>{{ $item->Preco }}</td>
+                                                                    <td>{{ $item->created_at }}</td>
+                                                                    <td>{{ $item->updated_at }}</td>
+                                                                </tr>
+                                                            </tbody>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th scope="row">{{ $item->id }}</th>
+                                                                    <td>{{ $item->NomeCategoria }}</td>
+                                                                    <td><img height="50px"
+                                                                            src="{{ asset('uploads/pictures/' . $item->picture) }}">
+                                                                    </td>
+                                                                    <td>{{ $item->Preco }}</td>
+                                                                    <td>{{ $item->created_at }}</td>
+                                                                    <td>{{ $item->updated_at }}</td>
+                                                                </tr>
+                                                            </tbody>
+
+                                                        @endforeach
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-                {{-- <div class="header bg-primary pb-6">
+        {{-- <div class="header bg-primary pb-6">
 
       </div>
       <!-- Page content -->
@@ -716,19 +756,31 @@
           </div>
         </div> --}}
 
-            </div>
-            <script src="{{ asset('assetslogged/vendor/jquery/dist/jquery.min.js') }}"></script>
-            <script src="{{ asset('assetslogged/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
-            <script src="{{ asset('assetslogged/vendor/js-cookie/js.cookie.js') }}"></script>
-            <script src="{{ asset('assetslogged/vendor/jquery.scrollbar/jquery.scrollbar.min.js') }}"></script>
-            <script src="{{ asset('assetslogged/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js') }}"></script>
-            <!-- Optional JS -->
-            <script src="{{ asset('assetslogged/vendor/chart.js/dist/Chart.min.js') }}"></script>
-            <script src="{{ asset('assetslogged/js/sweetalert.js') }}"></script>
-            <script src="{{ asset('common/custom.js') }}"></script>
-            <script src="{{ asset('assetslogged/vendor/chart.js/dist/Chart.extension.js') }}"></script>
-            <!-- Argon JS -->
-            <script src="{{ asset('assetslogged/js/argon.js?v=1.2.0') }}"></script>
+    </div>
+    <script src="{{ asset('assetslogged/vendor/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('assetslogged/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assetslogged/vendor/js-cookie/js.cookie.js') }}"></script>
+    <script src="{{ asset('assetslogged/vendor/jquery.scrollbar/jquery.scrollbar.min.js') }}"></script>
+    <script src="{{ asset('assetslogged/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js') }}"></script>
+    <!-- Optional JS -->
+    <script src="{{ asset('assetslogged/vendor/chart.js/dist/Chart.min.js') }}"></script>
+    <script src="{{ asset('assetslogged/js/sweetalert.js') }}"></script>
+    <script src="{{ asset('common/custom.js') }}"></script>
+    <script src="{{ asset('assetslogged/vendor/chart.js/dist/Chart.extension.js') }}"></script>
+    <!-- Argon JS -->
+    <script src="{{ asset('assetslogged/js/argon.js?v=1.2.0') }}"></script>
+
+    <!--   core js files    -->
+    <script src="{{ asset('assetsUnlogged/js/jquery.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assetsUnlogged/js/bootstrap.js') }}" type="text/javascript"></script>
+    <script type="text/javascript" src="{{ asset('assetsUnlogged/js/chart.js') }}"></script>
+
+    <!--  js library for devices recognition -->
+    <script type="text/javascript" src="{{ asset('assetsUnlogged/js/modernizr.js') }}"></script>
+
+    <!--   file where we handle all the script from the Gaia - Bootstrap Template   -->
+    <script type="text/javascript" src="{{ asset('assetsUnlogged/js/gaia.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assetsUnlogged/js/chart.js') }}"></script>
 </body>
 
 </html>
