@@ -134,4 +134,19 @@ class Products extends Controller
         return;
     }
 
+    public function get_data(Request $request, $id = NULL){
+        // return;
+        $categories = CategoriesModel::all();
+        if(ProductsModel::find($id)){
+            $productId = ProductsModel::where('id', $id)->first();
+            $categoryId = CategoriesModel::where('id', $id)->take(1)->get();
+            var_dump($productId['Category_ID']);
+            return;
+        }
+        return view('unlogged.test',[
+            // 'list' => $productId,
+            // 'item' => $categoryId,
+        ]);
+    }
+
 }

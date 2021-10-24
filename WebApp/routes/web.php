@@ -150,7 +150,10 @@ Route::get(
 )->middleware('auth')->name('subcategories-delete');
 /**End Subcategories Routes */
 
-
+Route::get(
+    '/manovai/{id}',
+    [Products::class, 'get_data']
+);
 /**Home routes */
     Route::get(
         '/home2',
