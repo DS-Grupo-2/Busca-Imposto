@@ -11,6 +11,7 @@
             <label>Imagem</label>
             <input type="file" name="image" class="form-control">
 
+            <br>
             <tag> Nome </tag>
             <input id="NomeProduto" type="text" class="form-control @error('NomeProduto') is-invalid @enderror" name="NomeProduto"
                 value="" required>
@@ -24,8 +25,10 @@
                 <strong></strong>
             </span>
         @enderror
-        <br> Categoria <br>
-        <select  class="form-control col-md-4 col-xl-4 col-lg-4 col-sm-12"name="Category_ID">
+        <div class="form-row ">
+        <div class="form-group col-md-2">    
+             Categoria 
+        <select  class="form-control col-md-12 col-xl-12 col-lg-12 col-sm-12"name="Category_ID">
         <option selected="selected"> --SELECT-- </option>
 
         @foreach ($categories as $category)
@@ -34,11 +37,10 @@
         >{{ $category->NomeCategoria }}</option>
         @endforeach
         </select>
-
-
-        <br>
-        <br> Sub-Categoria <br>
-        <select  class="form-control col-md-4 col-xl-4 col-lg-4 col-sm-12" name="SubCategoryID">
+        </div>
+        <div class="form-group col-md-2">
+         Sub-Categoria 
+        <select  class="form-control col-md-12 col-xl-12 col-lg-12 col-sm-12" name="SubCategoryID">
         <option selected="selected"> --SELECT-- </option>
 
         @foreach ($subcategories as $subcategory)
@@ -47,11 +49,10 @@
             >{{ $subcategory->NomeSubCategoria }}</option>
         @endforeach
         </select>
-
+        </div>
+        </div>
 
         <br>
-        <br>
-
 
         <button type="submit" class="btn btn-primary"> Salvar </button>
     </form>

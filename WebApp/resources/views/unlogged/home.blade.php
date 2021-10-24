@@ -26,11 +26,11 @@
                                             width: auto;
                                             height: auto;" src="{{ asset('uploads/product/' . $item->image) }}" alt="Card image cap">
                                             <div class="card-body">
-                                                <p class="card-text">{{ $item->NomeProduto }}</p>
-                                                <h5 class="card-title">R$ {{ $item->Preco }}</h5>
+                                                <p class="card-text" style="margin: 1%">{{ $item->NomeProduto }}</p>
+                                                <h5 class="card-title" style="margin: 1%">R$ {{ $item->Preco }}</h5>
                                                 <div class="grid-item text-center"><div style="font-size:16px; color:red">❤ <span style="text-color:black"> {{ $item->likes }} </span> </div></div>
                                                 <div class="text-center">
-                                                    <a href="{{ url('product/'.$item->id) }}" class="btn btn-primary">Ver detalhes</a>
+                                                    <a href="{{ url('product/'.$item->id) }}" class="btn btn-primary" style="background-color: #8391d8;color: white; margin:5%" >Ver detalhes</a>
                                                 </div>
                                             </div>
                                         </div>
