@@ -117,9 +117,11 @@ class Categories extends Controller
         $list = CategoriesModel::simplePaginate(15);
         $item = ProductsModel::simplePaginate(15);
         $page['title'] = 'Categorias';
+        $listProd = ProductsModel::orderBy('likes', "DESC")->orderBy('NomeCategoria')->simplePaginate(12);
 
         return view('unlogged.home', [
             'list' => $list,
+            'listProd' => $listProd,
             'item' => $item,
             'page' => $page
         ]);

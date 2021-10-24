@@ -63,11 +63,17 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="{{ url('/system/saved-products') }}">
+                  <i class="ni ni-tv-2 text-primary"></i>
+                  <span class="nav-link-text">Produtos Salvos</span>
+                </a>
+              </li>
+              {{-- <li class="nav-item">
                 <a class="nav-link" href="{{ route('logged-test') }}">
                   <i class="ni ni-tv-2 text-primary"></i>
                   <span class="nav-link-text">Teste</span>
                 </a>
-              </li>
+              </li> --}}
             </ul>
             <!-- Divider -->
             <hr class="my-3">

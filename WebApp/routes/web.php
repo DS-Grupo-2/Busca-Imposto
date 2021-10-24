@@ -107,6 +107,11 @@ Auth::routes();
         [Products::class, 'edit']
     )->middleware('auth')->name('products-edit');
 
+    Route::get(
+        '/system/saved-products',
+        [Products::class, 'getSaveds']
+    )->middleware('auth');
+
     Route::post(
         '/system/products/edit/{id}',
         [Products::class, 'edit']
@@ -117,13 +122,13 @@ Auth::routes();
         [Products::class, 'delete']
     )->middleware('auth')->name('products-delete');
 
-    Route::get(
-        'search-by-product',
-        [Products::class, 'getMatchedProducts']
-    )->name('search-by-product');
+    // Route::get(
+    //     'search-by-product',
+    //     [Products::class, 'getMatchedProducts']
+    // )->name('search-by-product');
     Route::get(
         '/search',
-        [Products::class, 'getMatchedProducts']
+        [Products::class, 'getMatchedProductsXHR']
     )->name('search-by-product');
 
     Route::get(
@@ -136,8 +141,10 @@ Auth::routes();
         [Products::class, 'getProduct']
     );
 
-
-
+    Route::get(
+        '/save-product/{id}',
+        [Products::class, 'saveProduct']
+    );
 /**End products Routes */
 
 

@@ -28,7 +28,7 @@ $(document).ready(function () {
                             dotsBigWords = "...";
                         }
                         $(".search-custom").append(
-                            '<li class="list-group-item list-group-item-bic">' +
+                            '<a href="'+base_url+'/product/'+obj[i]["id"]+'"><li class="list-group-item list-group-item-bic">' +
                                 '<span class="text-center" >' +
                                 '<img src="' +
                                 imgPatch +
@@ -39,7 +39,7 @@ $(document).ready(function () {
                                 obj[i]["NomeProduto"].substring(0, 30) +
                                 dotsBigWords +
                                 "</span>" +
-                                "</li>"
+                                "</li></a>"
                         );
                     }
                 },

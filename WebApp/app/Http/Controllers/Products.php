@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
 use App\Categories as CategoriesModel;
 use App\SubCategories as SubCategoriesModel;
+use App\Favorite as FavoriteModel;
 use Illuminate\Support\Facades\DB;
 
 class Products extends Controller
@@ -145,19 +146,13 @@ class Products extends Controller
         }
     }
 
-    /*public function getMatchedProducts(Request $request){
+    public function getMatchedProductsXHR(Request $request){
         $name = $request->input('item', '');
         $list = ProductsModel::where('NomeProduto', 'like', '%'.$name.'%')->take(5)->get();
 
-        //echo json_encode($list);
-
-        return view('search', [
-            'list' => $list,
-            'categories' => CategoriesModel::all(),
-            'subcategories' => SubCategoriesModel::all(),
-        ]);
+        echo json_encode($list);
         return;
-    }*/
+    }
 
     // public function get_data(Request $request, $id = NULL){
     //     // return;
@@ -235,7 +230,7 @@ class Products extends Controller
             $subCategoryData = SubCategoriesModel::where('categoryId', $category)->get();
         }
         if($search != ''){
-            $list = ProductsModel::where('NomeCategoria', 'like', '%'.$search.'%')->orderBy('NomeCategoria')->simplePaginate(9);
+            $list = ProductsModel::where('NomeProduto', 'like', '%'.$search.'%')->orderBy('NomeProduto')->simplePaginate(9);
         }
         // $list->get();
 
@@ -257,49 +252,20 @@ class Products extends Controller
 
 
     public function getProduct(Request $request, $id = NULL){
-        //Por categoria
-        //Pos subcategoria
-        //Por nome dentro de uma categoria e subcategoria
-        // $list = [];
-        // $list = ProductsModel::orderBy('NomeCategoria')->get();
-        // $search = $request->input('search', '');
-        // $category = $request->input('category', '');
-        // $subcategory = $request->input('subcategory', '');
-        // $categoryData = [];
-        // $subCategoryData = [];
-
-        // $list = ProductsModel::orderBy('NomeCategoria')->simplePaginate(9);
-
-        // $subcategories  = SubCategoriesModel::orderBy('NomeSubCategoria')->get();
-
-        // if($subcategory != '' && $category !=''){
-        //     $list = ProductsModel::where('NomeCategoria', 'like', '%'.$search.'%')->where('Category_ID', $category)->where('SubCategoryID', $category)->orderBy('NomeCategoria')->simplePaginate(9);
-        //     $categoryData = CategoriesModel::where('id', $category)->first();
-        //     $subCategoryData = SubCategoriesModel::where('categoryId', $category)->get();
-        // }
-        // elseif($category != ''){
-        //     $list = ProductsModel::where('NomeCategoria', 'like', '%'.$search.'%')->where('Category_ID', $category)->orderBy('NomeCategoria')->simplePaginate(9);
-        //     $categoryData = CategoriesModel::where('id', $category)->get();
-        //     $subCategoryData = SubCategoriesModel::where('categoryId', $category)->get();
-
-        // }
-        // elseif($subcategory != ''){
-        //     $list = ProductsModel::where('NomeCategoria', 'like', '%'.$search.'%')->where('Category_ID', $category)->where('SubCategoryID', $category)->orderBy('NomeCategoria')->simplePaginate(9);
-        //     $subCategoryData = SubCategoriesModel::where('categoryId', $category)->get();
-        // }
-        // if($search != ''){
-        //     $list = ProductsModel::where('NomeCategoria', 'like', '%'.$search.'%')->orderBy('NomeCategoria')->simplePaginate(9);
-        // }
-        // // $list->get();
-
-        // $page['title'] = 'Produtos';
-
-
         $product  = ProductsModel::where('id',$id)->first();
 
         $categoryData = CategoriesModel::where('id', $product->Category_ID)->first();
         $subCategoryData = SubCategoriesModel::where('id', $product->SubCategoryID)->first();
         $search = $request->input('search', '');
+
+        $userId = Auth::id();
+        $UserFavorite = 0;
+        if($userId !== NULL){
+            if(FavoriteModel::where('productId', $id)->where('userId', $userId)->first() != NULL){
+                $UserFavorite = 1;
+            }
+        }
+
 
         if($search != ''){
             $list = ProductsModel::where('NomeCategoria', 'like', '%'.$search.'%')->orderBy('NomeCategoria')->simplePaginate(9);
@@ -309,8 +275,60 @@ class Products extends Controller
             'item' => $product,
             'categoryData' => $categoryData,
             'subCategoryData' => $subCategoryData,
-            'defSearch' => $search
+            'defSearch' => $search,
+            'UserFavorite' => $UserFavorite
 
+        ]);
+    }
+
+    public function saveProduct(Request $request, $id =NULL){
+        $userId = Auth::id();
+
+        if($userId === NULL){
+            return redirect('/')->with('error','Product not exists!');
+        }
+        if(!ProductsModel::find($id)){
+            return redirect('/get-products')->with('warning','Product not exists!');
+        }
+
+        $product = ProductsModel::where('id', $id)->first();
+        $productId = ProductsModel::where('id', $id)->update([
+            'likes' => ($product['likes']+1)
+        ]);
+
+        $likedId = FavoriteModel::where('productId', $id)->where('userId', $userId)->first();
+        if($likedId == NULL){
+            $productId = FavoriteModel::create([
+                'productId' => $id,
+                'userId' => $userId,
+            ]);
+        }
+        else{
+
+            FavoriteModel::destroy($likedId['id']);
+            if($product['likes'] >= 0){
+                $productId = ProductsModel::where('id', $id)->update([
+                    'likes' => ($product['likes']-1)
+                ]);
+            }
+            return redirect('/product'.'/'.$id)->with('success','Product removed with success!');
+
+        }
+
+        return redirect('/product'.'/'.$id)->with('success','Product save with success!');
+    }
+
+    public function getSaveds(){
+        $userId = Auth::id();
+
+        if($userId === NULL){
+            return redirect('/')->with('error','Product not exists!');
+        }
+
+        $list = DB::table('Product')->select('Product.*')->leftJoin('favorite', 'Product.id', '=', 'favorite.productId')->where('userId', $userId)->orderBy('NomeProduto', 'asc')->simplePaginate(15);
+
+        return view('logged.favorites.view', [
+            'list' => $list,
         ]);
     }
 }

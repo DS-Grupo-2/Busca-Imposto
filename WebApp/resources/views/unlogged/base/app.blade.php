@@ -77,6 +77,9 @@ $categories = CategoriesModel::all();
                                 customInMethod="GET" style="width: 110%" type="search" placeholder="Pesquisar Produto"
                                 aria-label="Search">
                         </form>
+
+                        <ul class="list-group search-custom">
+                        </ul>
                     </li>
 
                     <li class="dropdown">

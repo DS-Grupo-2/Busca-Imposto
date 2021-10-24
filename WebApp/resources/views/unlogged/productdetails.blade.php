@@ -113,7 +113,12 @@
                             </div>
                             <div class="col-6">
                                 <div class="text-center">
-                                    <a href="{{ $item->linksites }}" class="btn btn-success"> Adc. Lista de desejos </a>
+
+                                    @if($UserFavorite == 1)
+                                    <a href="{{ url('/save-product'.'/'.$item->id) }}" class="btn btn-warning"> Rem. Lista de desejos </a>
+                                    @else
+                                    <a href="{{ url('/save-product'.'/'.$item->id) }}" class="btn btn-success"> Adc. Lista de desejos </a>
+                                    @endif
                                 </div>
                             </div>
                         </div>
