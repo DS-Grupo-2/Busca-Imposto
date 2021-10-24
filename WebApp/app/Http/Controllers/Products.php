@@ -29,13 +29,17 @@ class Products extends Controller
         }
 
         $page['title'] = 'Produtos';
-
+        $search = $request->input('search', '');
+        if($search != ''){
+            $list = ProductsModel::where('NomeProduto', 'like', '%'.$search.'%')->orderBy('NomeProduto')->get();
+        }
 
         return view('logged.products.view', [
             'list' => $list,
             'categories' => CategoriesModel::all(),
             'subcategories' => SubCategoriesModel::all(),
-            'page' => $page
+            'page' => $page,
+            'defSearch' => $search
         ]);
     }
     public function create($id = NULL,  Request $request)
@@ -77,11 +81,17 @@ class Products extends Controller
         $subcategories = SubCategoriesModel::all();
         $page['title'] = 'Produtos';
 
+        $search = $request->input('search', '');
+        if($search != ''){
+            $list = ProductsModel::where('NomeProduto', 'like', '%'.$search.'%')->orderBy('NomeProduto')->get();
+        }
+
         return view('logged\Products\view', [
             'list' => $list,
             'categories' => $categories,
             'subcategories' => $subcategories,
-            'page' => $page
+            'page' => $page,
+            'defSearch' => $search
         ]);
 
 
@@ -127,12 +137,20 @@ class Products extends Controller
         $subcategories = SubCategoriesModel::all();
         $page['title'] = 'Editar produto';
 
+
+        $search = $request->input('search', '');
+        if($search != ''){
+            $list = ProductsModel::where('NomeProduto', 'like', '%'.$search.'%')->orderBy('NomeProduto')->get();
+        }
+
         return view('logged.products.edit', [
             'item' => $product,
             'list' => $list,
             'categories' => $categories,
             'subcategories' => $subcategories,
-            'page' => $page
+            'page' => $page,
+            'defSearch' => $search
+
         ]);
     }
     public function delete($id = NULL)
@@ -174,11 +192,18 @@ class Products extends Controller
         $list = ProductsModel::where('NomeProduto', 'like', '%'.$name.'%')->take(5)->get();
         $page['title'] = 'Produtos';
 
+
+        $search = $request->input('search', '');
+        if($search != ''){
+            $list = ProductsModel::where('NomeProduto', 'like', '%'.$search.'%')->orderBy('NomeProduto')->get();
+        }
+
         return view('search', [
             'list' => $list,
             'categories' => CategoriesModel::all(),
             'subcategories' => SubCategoriesModel::all(),
-            'page' => $page
+            'page' => $page,
+            'defSearch' => $search
 
         ]);
     }
@@ -192,9 +217,17 @@ class Products extends Controller
             $categoryId = CategoriesModel::where('id', $productId['Category_ID'])->first();
         }
 
+
+        $search = $request->input('search', '');
+        if($search != ''){
+            $list = ProductsModel::where('NomeProduto', 'like', '%'.$search.'%')->orderBy('NomeProduto')->get();
+        }
+
         return view('unlogged.test',[
             'list' => $productId,
             'item' => $categoryId,
+            'defSearch' => $search
+
         ]);
     }
 
@@ -215,12 +248,13 @@ class Products extends Controller
         $subcategories  = SubCategoriesModel::orderBy('NomeSubCategoria')->get();
 
         if($subcategory != '' && $category !=''){
-            $list = ProductsModel::where('NomeCategoria', 'like', '%'.$search.'%')->where('Category_ID', $category)->where('SubCategoryID', $category)->orderBy('NomeCategoria')->simplePaginate(9);
+            // $list = ProductsModel::where('NomeCategoria', 'like', '%'.$search.'%')->where('Category_ID', $category)->where('SubCategoryID', $category)->orderBy('NomeCategoria')->simplePaginate(9);
+            $list = ProductsModel::where('SubCategoryID', $subcategory)->orderBy('NomeCategoria')->simplePaginate(9);
             $categoryData = CategoriesModel::where('id', $category)->first();
             $subCategoryData = SubCategoriesModel::where('categoryId', $category)->get();
         }
         elseif($category != ''){
-            $list = ProductsModel::where('NomeCategoria', 'like', '%'.$search.'%')->where('Category_ID', $category)->orderBy('NomeCategoria')->simplePaginate(9);
+            $list = ProductsModel::where('NomeCategoria', 'like', '%'.$search.'%')->orWhere('Category_ID', $category)->orderBy('NomeCategoria')->simplePaginate(9);
             $categoryData = CategoriesModel::where('id', $category)->first();
             $subCategoryData = SubCategoriesModel::where('categoryId', $category)->get();
 
@@ -249,7 +283,6 @@ class Products extends Controller
 
         ]);
     }
-
 
     public function getProduct(Request $request, $id = NULL){
         $product  = ProductsModel::where('id',$id)->first();
@@ -318,17 +351,38 @@ class Products extends Controller
         return redirect('/product'.'/'.$id)->with('success','Product save with success!');
     }
 
-    public function getSaveds(){
+    public function getSaveds(Request $request){
         $userId = Auth::id();
 
         if($userId === NULL){
             return redirect('/')->with('error','Product not exists!');
         }
-
         $list = DB::table('Product')->select('Product.*')->leftJoin('favorite', 'Product.id', '=', 'favorite.productId')->where('userId', $userId)->orderBy('NomeProduto', 'asc')->simplePaginate(15);
+
+
+        $search = $request->input('search', '');
+        if($search != ''){
+            $list = ProductsModel::where('NomeProduto', 'like', '%'.$search.'%')->orderBy('NomeProduto')->get();
+        }
 
         return view('logged.favorites.view', [
             'list' => $list,
+            'defSearch' => $search,
+
+        ]);
+    }
+
+    public function getBests(Request $request){
+        $list = ProductsModel::orderBy('likes', "DESC")->orderBy('NomeCategoria')->simplePaginate(12);
+
+
+        $search = $request->input('search', '');
+        if($search != ''){
+            $list = ProductsModel::where('NomeProduto', 'like', '%'.$search.'%')->orderBy('NomeProduto')->get();
+        }
+        return view('logged.bestProds', [
+            'list' => $list,
+            'defSearch' => $search,
         ]);
     }
 }

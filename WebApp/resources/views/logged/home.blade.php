@@ -1,4 +1,4 @@
-@extends('logged.base.app')
+@extends('logged.base.app2')
 
 @section('content')
 
@@ -14,7 +14,7 @@
 
   <br> Criado em: {{ $user->created_at }} <br>
   Atualizado em: {{ $user->updated_at }}<br>
-    </form>  
+    </form>
 </div>
 </div>
 

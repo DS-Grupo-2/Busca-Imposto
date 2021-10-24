@@ -1,4 +1,4 @@
-@extends('logged.base.app')
+@extends('logged.base.app2')
 @section('content')
 
 <form method="POST" enctype="multipart/form-data" action="{{ url('/system/products/edit/'.$item->id) }}">

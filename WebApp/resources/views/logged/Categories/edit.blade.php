@@ -1,4 +1,4 @@
-@extends('logged.base.app')
+@extends('logged.base.app2')
 @section('content')
 
 
@@ -25,7 +25,7 @@
         </div>
       </div>
     </div>
-    
+
     <button type="submit" class="btn btn-primary"> Salvar </button>
   </form>
   <hr>
@@ -34,32 +34,32 @@
     <table class="table table-hover">
       <thead>
         <tr>
-             
+
           <th scope="col">ID</th>
           <th scope="col">Categoria</th>
           <th scope="col">ImageM</th>
           <th scope="col">Porcentagem</th>
           <th scope="col">Criado</th>
           <th scope="col">Atualizado</th>
-          
+
         </tr>
       </thead>
       @foreach($list as $item)
         <tbody>
-          <tr> 
+          <tr>
             <th scope="row">{{ $item->id }}</th>
             <td>{{ $item->NomeCategoria }}</td>
             <td><img height="50px" src="{{ asset('uploads/pictures/' . $item->picture) }}"></td>
             <td>{{ $item->taxPercentage }}</td>
-                
-              
+
+
                 <td>{{ $item->created_at }}</td>
                 <td>{{ $item->updated_at }}</td>
-                <td> 
+                <td>
                 <button type="submit" class="btn btn-success "><a href="{{ url('/system/categories/edit/'.$item->id) }} " class="text-white" > Editar </a></button>
                 <button type="submit" class="btn btn-danger "><a href="{{ url('/system/categories/delete/'.$item->id) }}" class="text-white"> Deletar</a></button>
             </td>
-            </tr>        
+            </tr>
           </tbody>
       @endforeach
     </table>
@@ -75,6 +75,6 @@
 @endforeach
  {{--pagination (: --}}
 {{ $list->links() }}
-@endsection 
+@endsection
 
 

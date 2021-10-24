@@ -46,7 +46,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('categories-view') }}">
+                <a class="nav-link" href="">
                   <i class="ni ni-tv-2 text-primary"></i>
                   <span class="nav-link-text">Categorias</span>
                 </a>
@@ -66,6 +66,12 @@
                 <a class="nav-link" href="{{ url('/system/saved-products') }}">
                   <i class="ni ni-tv-2 text-primary"></i>
                   <span class="nav-link-text">Produtos Salvos</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url('/system/get-bests') }}">
+                  <i class="ni ni-tv-2 text-primary"></i>
+                  <span class="nav-link-text">The bests</span>
                 </a>
               </li>
               {{-- <li class="nav-item">
