@@ -68,6 +68,12 @@
                   <span class="nav-link-text">Produtos Salvos</span>
                 </a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url('/system/get-bests') }}">
+                  <i class="ni ni-tv-2 text-primary"></i>
+                  <span class="nav-link-text">The bests</span>
+                </a>
+              </li>
               {{-- <li class="nav-item">
                 <a class="nav-link" href="{{ route('logged-test') }}">
                   <i class="ni ni-tv-2 text-primary"></i>

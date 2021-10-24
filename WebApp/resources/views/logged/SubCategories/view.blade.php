@@ -17,7 +17,7 @@
                 </span>
             @enderror
             <br> Categoria <br>
-            <select class="form-control col-md-4 col-xl-4 col-lg-4 col-sm-12" name="Category_ID">
+            <select class="form-control col-md-4 col-xl-4 col-lg-4 col-sm-12" name="categoryId">
                 <option selected="selected"> --SELECT-- </option>
 
                 @foreach ($categories as $category)

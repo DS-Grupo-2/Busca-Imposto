@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use App\User as UserModel;
+use App\CategoriesModel as CategoriesModel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use League\MimeTypeDetection\FinfoMimeTypeDetector;
@@ -19,14 +20,20 @@ class User extends Controller
      */
 
 
-    public function userInfo()
+    public function userInfo(Request $request)
     {
         $uId = Auth::id();
         $user = UserModel::where("id", $uId)->first();
 
+        $search = $request->input('search', '');
+        if($search != ''){
+            $list = CategoriesModel::where('NomeCategoria', 'like', '%'.$search.'%')->orderBy('NomeCategoria')->get();
+        }
+
         $page['title'] = 'Informações';
 
-        return view('logged.home',  ['user' => $user, 'page' => $page]);
+        return view('logged.home',  ['user' => $user, 'page' => $page,             'defSearch' => $search
+    ]);
     }
 
     public function saveUserInfo(Request $request)

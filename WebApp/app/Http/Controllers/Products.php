@@ -215,12 +215,13 @@ class Products extends Controller
         $subcategories  = SubCategoriesModel::orderBy('NomeSubCategoria')->get();
 
         if($subcategory != '' && $category !=''){
-            $list = ProductsModel::where('NomeCategoria', 'like', '%'.$search.'%')->where('Category_ID', $category)->where('SubCategoryID', $category)->orderBy('NomeCategoria')->simplePaginate(9);
+            // $list = ProductsModel::where('NomeCategoria', 'like', '%'.$search.'%')->where('Category_ID', $category)->where('SubCategoryID', $category)->orderBy('NomeCategoria')->simplePaginate(9);
+            $list = ProductsModel::where('SubCategoryID', $subcategory)->orderBy('NomeCategoria')->simplePaginate(9);
             $categoryData = CategoriesModel::where('id', $category)->first();
             $subCategoryData = SubCategoriesModel::where('categoryId', $category)->get();
         }
         elseif($category != ''){
-            $list = ProductsModel::where('NomeCategoria', 'like', '%'.$search.'%')->where('Category_ID', $category)->orderBy('NomeCategoria')->simplePaginate(9);
+            $list = ProductsModel::where('NomeCategoria', 'like', '%'.$search.'%')->orWhere('Category_ID', $category)->orderBy('NomeCategoria')->simplePaginate(9);
             $categoryData = CategoriesModel::where('id', $category)->first();
             $subCategoryData = SubCategoriesModel::where('categoryId', $category)->get();
 
@@ -249,7 +250,6 @@ class Products extends Controller
 
         ]);
     }
-
 
     public function getProduct(Request $request, $id = NULL){
         $product  = ProductsModel::where('id',$id)->first();
@@ -328,6 +328,14 @@ class Products extends Controller
         $list = DB::table('Product')->select('Product.*')->leftJoin('favorite', 'Product.id', '=', 'favorite.productId')->where('userId', $userId)->orderBy('NomeProduto', 'asc')->simplePaginate(15);
 
         return view('logged.favorites.view', [
+            'list' => $list,
+        ]);
+    }
+
+    public function getBests(){
+        $list = ProductsModel::orderBy('likes', "DESC")->orderBy('NomeCategoria')->simplePaginate(12);
+
+        return view('logged.bestProds', [
             'list' => $list,
         ]);
     }

@@ -145,6 +145,12 @@ Auth::routes();
         '/save-product/{id}',
         [Products::class, 'saveProduct']
     );
+
+
+    Route::get(
+        '/system/get-bests',
+        [Products::class, 'getBests']
+    )->middleware('auth');
 /**End products Routes */
 
 
