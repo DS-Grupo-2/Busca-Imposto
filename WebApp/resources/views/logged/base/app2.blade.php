@@ -145,17 +145,9 @@
                             </a>
                             <div class="dropdown-menu " style="background-color: #f6f5f8"
                                 aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="{{ route('user-info') }}">
                                     <i class="ni ni-laptop"></i>
-                                    <span class="nav-link-text">Categorias</span>
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="ni ni-laptop"></i>
-                                    <span class="nav-link-text">Subcategorias</span>
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="ni ni-laptop"></i>
-                                    <span class="nav-link-text">Produtos</span>
+                                    <span class="nav-link-text">Usuário</span>
                                 </a>
                             </div>
                         </li>
@@ -175,11 +167,51 @@
                             </a>
                         </li>
                     </ul>
+                    <ul class="navbar-nav md-3 mb-2" style="margin-left:2px;margin-right:2px">
+                        <li class="nav-item">
+                            <a class="nav-link text-white btn" href="{{ route('user-info') }}" {{-- target="_blank" --}}>
+                                <i class="ni ni-single-02"></i>
+                                <span class="nav-link-text">Usuário</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav md-3 mb-2" style="margin-left:2px;margin-right:2px">
+                        <li class="nav-item">
+                            <a class="nav-link text-white btn" href="{{ route('categories-view') }}" {{-- target="_blank" --}}>
+                                <i class="ni ni-single-02"></i>
+                                <span class="nav-link-text">Categorias</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav md-3 mb-2" style="margin-left:2px;margin-right:2px">
+                        <li class="nav-item">
+                            <a class="nav-link text-white btn" href="{{ route('subcategories-view') }}" {{-- target="_blank" --}}>
+                                <i class="ni ni-single-02"></i>
+                                <span class="nav-link-text">SubCategorias</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav md-3 mb-2" style="margin-left:2px;margin-right:2px">
+                        <li class="nav-item">
+                            <a class="nav-link text-white btn" href="{{ route('products-view') }}" {{-- target="_blank" --}}>
+                                <i class="ni ni-single-02"></i>
+                                <span class="nav-link-text">Produtos</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav md-3 mb-2" style="margin-left:2px;margin-right:2px">
+                        <li class="nav-item">
+                            <a class="nav-link text-white btn" href="{{ url('/system/saved-products') }}" {{-- target="_blank" --}}>
+                                <i class="ni ni-single-02"></i>
+                                <span class="nav-link-text">Produtos Salvos</span>
+                            </a>
+                        </li>
+                    </ul>
                     <ul class="navbar-nav md-3" style="margin-left:2px;margin-right:2px">
                         <li class="nav-item">
-                            <a class="nav-link text-white btn" href="{{ route('register') }}" {{-- target="_blank" --}}>
+                            <a class="nav-link text-white btn" href="{{ url('/system/get-bests') }}" {{-- target="_blank" --}}>
                                 <i class="ni ni-single-02"></i>
-                                <span class="nav-link-text">Registre-se</span>
+                                <span class="nav-link-text">The bests</span>
                             </a>
                         </li>
                     </ul>

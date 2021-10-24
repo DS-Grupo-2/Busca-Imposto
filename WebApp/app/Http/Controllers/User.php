@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use App\User as UserModel;
-use App\CategoriesModel as CategoriesModel;
+use App\Categories as CategoriesModel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use League\MimeTypeDetection\FinfoMimeTypeDetector;

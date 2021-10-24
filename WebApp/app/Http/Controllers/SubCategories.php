@@ -10,14 +10,24 @@ use Illuminate\Support\Facades\Auth;
 class SubCategories extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
         $list = SubCategoriesModel::simplePaginate(15);
         $page['title'] = 'Subcategorias';
+
+
+
+        $search = $request->input('search', '');
+        if($search != ''){
+            $list = SubCategoriesModel::where('NomeSubCategoria', 'like', '%'.$search.'%')->orderBy('NomeSubCategoria')->get();
+        }
+
         return view('logged.subcategories.view', [
             'page' => $page,
             'list' => $list,
-            'categories' => CategoriesModel::all()
+            'categories' => CategoriesModel::all(),
+            'defSearch' => $search
+
         ]);
     }
 
@@ -59,11 +69,18 @@ class SubCategories extends Controller
         $list = SubCategoriesModel::simplePaginate(15);
         $page['title'] = 'Editar Subcategoria';
 
+        $search = $request->input('search', '');
+        if($search != ''){
+            $list = SubCategoriesModel::where('NomeSubCategoria', 'like', '%'.$search.'%')->orderBy('NomeSubCategoria')->get();
+        }
+
         return view('logged.subcategories.edit', [
             'item' => $subcategory,
             'list' => $list,
             'categories' => CategoriesModel::all(),
-            'page' => $page
+            'page' => $page,
+            'defSearch' => $search
+
         ]);
     }
 

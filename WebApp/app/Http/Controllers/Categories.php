@@ -19,9 +19,16 @@ class Categories extends Controller
 
         $page['title'] = 'Categorias';
 
+        $search = $request->input('search', '');
+        if($search != ''){
+            $list = CategoriesModel::where('NomeCategoria', 'like', '%'.$search.'%')->orderBy('NomeCategoria')->get();
+        }
+
         return view('logged.categories.view', [
             'list' => $list,
-            'page' => $page
+            'page' => $page,
+            'defSearch' => $search
+
         ]);
     }
 
@@ -41,6 +48,7 @@ class Categories extends Controller
                 'NomeCategoria' => $request->input('NomeCategoria'),
                 'taxPercentage' => $request->input('taxPercentage'),
                 'picture' => $newImageName,
+
             ]);
             return redirect('system/categories')->with('success','Category created successfuly!');
         }
@@ -75,10 +83,17 @@ class Categories extends Controller
         $list = CategoriesModel::simplePaginate(15);
         $page['title'] = 'Editar Categoria';
 
+        $search = $request->input('search', '');
+        if($search != ''){
+            $list = CategoriesModel::where('NomeCategoria', 'like', '%'.$search.'%')->orderBy('NomeCategoria')->get();
+        }
+
         return view('logged.categories.edit', [
             'item' => $category,
             'list' => $list,
-            'page' => $page
+            'page' => $page,
+            'defSearch' => $search
+
         ]);
     }
 
@@ -112,18 +127,24 @@ class Categories extends Controller
         ]);
     }
 
-    public function show()
+    public function show(Request $request)
     {
         $list = CategoriesModel::simplePaginate(15);
         $item = ProductsModel::simplePaginate(15);
         $page['title'] = 'Categorias';
         $listProd = ProductsModel::orderBy('likes', "DESC")->orderBy('NomeCategoria')->simplePaginate(12);
 
+        $search = $request->input('search', '');
+        if($search != ''){
+            $list = CategoriesModel::where('NomeCategoria', 'like', '%'.$search.'%')->orderBy('NomeCategoria')->get();
+        }
+
         return view('unlogged.home', [
             'list' => $list,
             'listProd' => $listProd,
             'item' => $item,
-            'page' => $page
+            'page' => $page,
+            'defSearch' => $search
         ]);
     }
 }

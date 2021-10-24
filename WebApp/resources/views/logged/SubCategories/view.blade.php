@@ -1,4 +1,4 @@
-@extends('logged.base.app')
+@extends('logged.base.app2')
 @section('content')
 
     <div class="p-3">
