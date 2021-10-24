@@ -1,7 +1,7 @@
 @extends('unlogged.base.app')
 @section('content')
 
-<div class="conteudo">
+<div class="">
     <div class="section" style="background-color:#f6f5f8; margin-left:2%; margin-right:2%">
         <div class="container">
             <div class="row">

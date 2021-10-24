@@ -5,7 +5,7 @@
 <div class="p-3">
     <form method="POST" enctype="multipart/form-data" action="{{ route('products-create') }}">
         @csrf
-        
+
         <label for="email">
 
             <label>Imagem</label>
@@ -25,34 +25,34 @@
             </span>
         @enderror
         <br> Categoria <br>
-        <select name="Category_ID">
+        <select  class="form-control col-md-4 col-xl-4 col-lg-4 col-sm-12"name="Category_ID">
         <option selected="selected"> --SELECT-- </option>
-    
+
         @foreach ($categories as $category)
         <option value="{{ $category->id }}"
-    
+
         >{{ $category->NomeCategoria }}</option>
         @endforeach
         </select>
-    
-    
-        <br>            
+
+
+        <br>
         <br> Sub-Categoria <br>
-        <select name="SubCategoryID">
+        <select  class="form-control col-md-4 col-xl-4 col-lg-4 col-sm-12" name="SubCategoryID">
         <option selected="selected"> --SELECT-- </option>
-    
+
         @foreach ($subcategories as $subcategory)
             <option value="{{ $subcategory->id }}"
-    
+
             >{{ $subcategory->NomeSubCategoria }}</option>
         @endforeach
         </select>
-    
-    
+
+
         <br>
         <br>
-    
-    
+
+
         <button type="submit" class="btn btn-primary"> Salvar </button>
     </form>
     <hr>
@@ -67,7 +67,7 @@
         <table class="table table-hover">
          <thead>
            <tr>
-             
+
              <th scope="col">ID</th>
              <th scope="col">Produto</th>
              <th scope="col">Image</th>
@@ -81,26 +81,26 @@
          </thead>
          @foreach($list as $item)
          <tbody>
-            <tr> 
+            <tr>
              <th scope="row">{{ $item->id }}</th>
              <td>{{ $item->NomeProduto }}</td>
                 <td><img height="50px" src="{{ asset('uploads/product/' . $item->image) }}"></td>
-                
+
                 <td>{{ $item->Preco }}</td>
                 <td>{{ $item->created_at }}</td>
                 <td>{{ $item->updated_at }}</td>
                 <td>{{ $item->Category_ID }}</td>
                 <td>{{ $item->SubCategoryID }}</td>
-                <td> 
+                <td>
                 <button type="submit" class="btn btn-success "><a href="{{ url('/system/products/edit/'.$item->id) }} " class="text-white" > Editar </a></button>
                 <button type="submit" class="btn btn-danger "><a href="{{ url('/system/products/delete/'.$item->id) }}" class="text-white"> Deletar</a></button>
             </td>
-            </tr>        
+            </tr>
             </tbody>
-         @endforeach  
+         @endforeach
         </table>
     </div>
-</div>    
+</div>
 @endsection
 
 

@@ -23,7 +23,10 @@ class User extends Controller
     {
         $uId = Auth::id();
         $user = UserModel::where("id", $uId)->first();
-        return view('logged.home',  ['user' => $user]);
+
+        $page['title'] = 'Informações';
+
+        return view('logged.home',  ['user' => $user, 'page' => $page]);
     }
 
     public function saveUserInfo(Request $request)

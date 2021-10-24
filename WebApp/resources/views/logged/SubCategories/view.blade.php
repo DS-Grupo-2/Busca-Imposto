@@ -3,6 +3,8 @@
 
     <div class="p-3">
         <form method="POST" action="{{ route('subcategories-create') }}">
+
+
             @csrf
             <label for="email">
                 <tag> Nome </tag>
@@ -15,7 +17,7 @@
                 </span>
             @enderror
             <br> Categoria <br>
-            <select name="Category_ID">
+            <select class="form-control col-md-4 col-xl-4 col-lg-4 col-sm-12" name="Category_ID">
                 <option selected="selected"> --SELECT-- </option>
 
                 @foreach ($categories as $category)

@@ -27,7 +27,7 @@
                     value="" >
                     </div>
                     <div class="ml-2"> Categoria<br>
-                        <select name="Category_ID">
+                        <select class="form-control col-md-4 col-xl-4 col-lg-4 col-sm-12" name="Category_ID">
                             <option selected="selected"> --SELECT-- </option>
 
                             @foreach ($categories as $category)

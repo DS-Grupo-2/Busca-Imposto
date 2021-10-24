@@ -13,8 +13,9 @@ class SubCategories extends Controller
     public function index()
     {
         $list = SubCategoriesModel::simplePaginate(15);
-
+        $page['title'] = 'Subcategorias';
         return view('logged.subcategories.view', [
+            'page' => $page,
             'list' => $list,
             'categories' => CategoriesModel::all()
         ]);
@@ -56,12 +57,13 @@ class SubCategories extends Controller
 
         $subcategory = SubCategoriesModel::where("id", $id)->first();
         $list = SubCategoriesModel::simplePaginate(15);
+        $page['title'] = 'Editar Subcategoria';
 
         return view('logged.subcategories.edit', [
             'item' => $subcategory,
             'list' => $list,
-            'categories' => CategoriesModel::all()
-
+            'categories' => CategoriesModel::all(),
+            'page' => $page
         ]);
     }
 
@@ -74,5 +76,28 @@ class SubCategories extends Controller
         else{
             return redirect('/system/subcategories')->with('error','SubCategory not exists!');
         }
+    }
+
+    public function pagSubcategories(Request $request, $id = NULL){
+        if(!CategoriesModel::find($id)){
+            return redirect('/categories')->with('warning','Esta categoria não está cadastrada no sistema existe');
+        }
+
+        $category = CategoriesModel::where('id', $id)->orderBy('NomeSubCategoria')->first();
+        $list = SubCategoriesModel::where('categoryId', $id)->orderBy('NomeSubCategoria')->get();
+        $search = $request->input('search', '');
+        if($search != ''){
+            $list = SubCategoriesModel::where('categoryId', $id)->where('NomeSubCategoria', 'like', '%'.$search.'%')->orderBy('NomeSubCategoria')->get();
+        }
+
+
+        $page['title'] = 'Categorias';
+
+        return view('unlogged.subcategories', [
+            'list' => $list,
+            'category' => $category,
+            'page' => $page,
+            'defSearch' => $search
+        ]);
     }
 }

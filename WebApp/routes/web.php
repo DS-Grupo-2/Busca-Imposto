@@ -121,10 +121,23 @@ Auth::routes();
         'search-by-product',
         [Products::class, 'getMatchedProducts']
     )->name('search-by-product');
-        Route::get(
+    Route::get(
         '/search',
         [Products::class, 'getMatchedProducts']
     )->name('search-by-product');
+
+    Route::get(
+        '/get-products',
+        [Products::class, 'getProducts']
+    );
+
+    Route::get(
+        '/product/{id}',
+        [Products::class, 'getProduct']
+    );
+
+
+
 /**End products Routes */
 
 
@@ -153,6 +166,12 @@ Route::get(
     '/system/subcategories/delete/{id}',
     [SubCategories::class, 'delete']
 )->middleware('auth')->name('subcategories-delete');
+
+
+Route::get(
+    '/subcategory/{id}',
+    [SubCategories::class, 'pagSubcategories']
+);
 /**End Subcategories Routes */
 
 Route::get(

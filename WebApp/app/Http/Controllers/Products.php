@@ -18,7 +18,7 @@ class Products extends Controller
         if($request->input('search', '')){
             $name = $request->input('search', '');
             $list = ProductsModel::where('NomeProduto', 'like', '%'.$name.'%')->take(5)->get();
-        }else if($_GET['orderby'] != null && $_GET['orderby'] == 'value' && $request->input('search', '') == ''){
+        }else if(isset($_GET['orderby']) && $_GET['orderby'] != null && $_GET['orderby'] == 'value' && $request->input('search', '') == ''){
             $list = DB::table('Product')
                 ->orderBy('Preco', 'desc')
                 ->take(15)
@@ -27,10 +27,14 @@ class Products extends Controller
             $list = ProductsModel::simplePaginate(15);
         }
 
+        $page['title'] = 'Produtos';
+
+
         return view('logged.products.view', [
             'list' => $list,
             'categories' => CategoriesModel::all(),
             'subcategories' => SubCategoriesModel::all(),
+            'page' => $page
         ]);
     }
     public function create($id = NULL,  Request $request)
@@ -70,11 +74,13 @@ class Products extends Controller
         $list = ProductsModel::simplePaginate(15);
         $categories = CategoriesModel::all();
         $subcategories = SubCategoriesModel::all();
+        $page['title'] = 'Produtos';
+
         return view('logged\Products\view', [
             'list' => $list,
             'categories' => $categories,
-            'subcategories' => $subcategories
-
+            'subcategories' => $subcategories,
+            'page' => $page
         ]);
 
 
@@ -118,12 +124,14 @@ class Products extends Controller
         $list = ProductsModel::simplePaginate(15);
         $categories = CategoriesModel::all();
         $subcategories = SubCategoriesModel::all();
+        $page['title'] = 'Editar produto';
 
         return view('logged.products.edit', [
             'item' => $product,
             'list' => $list,
             'categories' => $categories,
-            'subcategories' => $subcategories
+            'subcategories' => $subcategories,
+            'page' => $page
         ]);
     }
     public function delete($id = NULL)
@@ -169,11 +177,14 @@ class Products extends Controller
     public function getMatchedProducts(Request $request){
         $name = $request->input('search', '');
         $list = ProductsModel::where('NomeProduto', 'like', '%'.$name.'%')->take(5)->get();
+        $page['title'] = 'Produtos';
 
         return view('search', [
             'list' => $list,
             'categories' => CategoriesModel::all(),
             'subcategories' => SubCategoriesModel::all(),
+            'page' => $page
+
         ]);
     }
 
@@ -185,10 +196,121 @@ class Products extends Controller
             $productId = ProductsModel::where('id', $id)->first();
             $categoryId = CategoriesModel::where('id', $productId['Category_ID'])->first();
         }
+
         return view('unlogged.test',[
             'list' => $productId,
             'item' => $categoryId,
         ]);
     }
 
+    public function getProducts(Request $request){
+        //Por categoria
+        //Pos subcategoria
+        //Por nome dentro de uma categoria e subcategoria
+        $list = [];
+        $list = ProductsModel::orderBy('NomeCategoria')->get();
+        $search = $request->input('search', '');
+        $category = $request->input('category', '');
+        $subcategory = $request->input('subcategory', '');
+        $categoryData = [];
+        $subCategoryData = [];
+
+        $list = ProductsModel::orderBy('NomeCategoria')->simplePaginate(9);
+
+        $subcategories  = SubCategoriesModel::orderBy('NomeSubCategoria')->get();
+
+        if($subcategory != '' && $category !=''){
+            $list = ProductsModel::where('NomeCategoria', 'like', '%'.$search.'%')->where('Category_ID', $category)->where('SubCategoryID', $category)->orderBy('NomeCategoria')->simplePaginate(9);
+            $categoryData = CategoriesModel::where('id', $category)->first();
+            $subCategoryData = SubCategoriesModel::where('categoryId', $category)->get();
+        }
+        elseif($category != ''){
+            $list = ProductsModel::where('NomeCategoria', 'like', '%'.$search.'%')->where('Category_ID', $category)->orderBy('NomeCategoria')->simplePaginate(9);
+            $categoryData = CategoriesModel::where('id', $category)->first();
+            $subCategoryData = SubCategoriesModel::where('categoryId', $category)->get();
+
+        }
+        elseif($subcategory != ''){
+            $list = ProductsModel::where('NomeCategoria', 'like', '%'.$search.'%')->where('Category_ID', $category)->where('SubCategoryID', $category)->orderBy('NomeCategoria')->simplePaginate(9);
+            $subCategoryData = SubCategoriesModel::where('categoryId', $category)->get();
+        }
+        if($search != ''){
+            $list = ProductsModel::where('NomeCategoria', 'like', '%'.$search.'%')->orderBy('NomeCategoria')->simplePaginate(9);
+        }
+        // $list->get();
+
+        $page['title'] = 'Produtos';
+
+
+        return view('unlogged.products', [
+            'list' => $list,
+            'page' => $page,
+            'defSearch' => $search,
+            'categoryItem' => $category,
+            'subcategories' => $subcategories,
+            'subcategoryItem' => $subcategory,
+            'categoryData' => $categoryData,
+            'subCategoryData' => $subCategoryData,
+
+        ]);
+    }
+
+
+    public function getProduct(Request $request, $id = NULL){
+        //Por categoria
+        //Pos subcategoria
+        //Por nome dentro de uma categoria e subcategoria
+        // $list = [];
+        // $list = ProductsModel::orderBy('NomeCategoria')->get();
+        // $search = $request->input('search', '');
+        // $category = $request->input('category', '');
+        // $subcategory = $request->input('subcategory', '');
+        // $categoryData = [];
+        // $subCategoryData = [];
+
+        // $list = ProductsModel::orderBy('NomeCategoria')->simplePaginate(9);
+
+        // $subcategories  = SubCategoriesModel::orderBy('NomeSubCategoria')->get();
+
+        // if($subcategory != '' && $category !=''){
+        //     $list = ProductsModel::where('NomeCategoria', 'like', '%'.$search.'%')->where('Category_ID', $category)->where('SubCategoryID', $category)->orderBy('NomeCategoria')->simplePaginate(9);
+        //     $categoryData = CategoriesModel::where('id', $category)->first();
+        //     $subCategoryData = SubCategoriesModel::where('categoryId', $category)->get();
+        // }
+        // elseif($category != ''){
+        //     $list = ProductsModel::where('NomeCategoria', 'like', '%'.$search.'%')->where('Category_ID', $category)->orderBy('NomeCategoria')->simplePaginate(9);
+        //     $categoryData = CategoriesModel::where('id', $category)->get();
+        //     $subCategoryData = SubCategoriesModel::where('categoryId', $category)->get();
+
+        // }
+        // elseif($subcategory != ''){
+        //     $list = ProductsModel::where('NomeCategoria', 'like', '%'.$search.'%')->where('Category_ID', $category)->where('SubCategoryID', $category)->orderBy('NomeCategoria')->simplePaginate(9);
+        //     $subCategoryData = SubCategoriesModel::where('categoryId', $category)->get();
+        // }
+        // if($search != ''){
+        //     $list = ProductsModel::where('NomeCategoria', 'like', '%'.$search.'%')->orderBy('NomeCategoria')->simplePaginate(9);
+        // }
+        // // $list->get();
+
+        // $page['title'] = 'Produtos';
+
+
+        $product  = ProductsModel::where('id',$id)->first();
+
+        $categoryData = CategoriesModel::where('id', $product->Category_ID)->first();
+        $subCategoryData = SubCategoriesModel::where('id', $product->SubCategoryID)->first();
+        $search = $request->input('search', '');
+
+        if($search != ''){
+            $list = ProductsModel::where('NomeCategoria', 'like', '%'.$search.'%')->orderBy('NomeCategoria')->simplePaginate(9);
+        }
+
+        return view('unlogged.productdetails', [
+            'item' => $product,
+            'categoryData' => $categoryData,
+            'subCategoryData' => $subCategoryData,
+            'defSearch' => $search
+
+        ]);
+    }
 }

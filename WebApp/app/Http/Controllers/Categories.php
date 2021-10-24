@@ -12,21 +12,25 @@ use App\Products as ProductsModel;
 
 class Categories extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+
         $list = CategoriesModel::simplePaginate(15);
+
+        $page['title'] = 'Categorias';
 
         return view('logged.categories.view', [
             'list' => $list,
+            'page' => $page
         ]);
     }
 
     public function create($id = NULL,  Request $request)
-    {   
+    {
         $request->validate([
             'picture' => 'required|mimes:jpg,png,jpeg|max:5048'
         ]);
-        
+
         $newImageName = time() . '-' . $request->name . '.' .
         $request->picture->extension();
 
@@ -43,13 +47,13 @@ class Categories extends Controller
     }
 
     public function edit($id= NULL, Request $request)
-    {   
-      
+    {
+
         if($request->isMethod('post')){
             $request->validate([
                 'picture' => 'required|mimes:jpg,png,jpeg|max:5048'
             ]);
-            
+
             $newImageName = time() . '-' . $request->name . '.' .
             $request->picture->extension();
             $request->picture->move(public_path('/uploads/pictures/'), $newImageName);
@@ -64,15 +68,17 @@ class Categories extends Controller
             else{
                 return redirect('/system/categories')->with('error','Category not exists!');
             }
-            
+
         }
 
         $category = CategoriesModel::where("id", $id)->first();
         $list = CategoriesModel::simplePaginate(15);
+        $page['title'] = 'Editar Categoria';
 
         return view('logged.categories.edit', [
             'item' => $category,
-            'list' => $list
+            'list' => $list,
+            'page' => $page
         ]);
     }
 
@@ -87,12 +93,22 @@ class Categories extends Controller
         }
     }
 
-    public function pag_categorias()
+    public function pag_categorias(Request $request)
     {
-        $list = CategoriesModel::simplePaginate(15);
+        $list = CategoriesModel::orderBy('NomeCategoria')->get();
 
-        return view('categories', [
+        $search = $request->input('search', '');
+        if($search != ''){
+            $list = CategoriesModel::where('NomeCategoria', 'like', '%'.$search.'%')->orderBy('NomeCategoria')->get();
+        }
+
+
+        $page['title'] = 'Categorias';
+
+        return view('unlogged.categories', [
             'list' => $list,
+            'page' => $page,
+            'defSearch' => $search
         ]);
     }
 
@@ -100,10 +116,12 @@ class Categories extends Controller
     {
         $list = CategoriesModel::simplePaginate(15);
         $item = ProductsModel::simplePaginate(15);
-        
+        $page['title'] = 'Categorias';
+
         return view('unlogged.home', [
             'list' => $list,
             'item' => $item,
+            'page' => $page
         ]);
     }
 }
