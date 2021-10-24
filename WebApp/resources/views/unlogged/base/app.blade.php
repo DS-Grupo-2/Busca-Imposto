@@ -73,10 +73,10 @@
                 <ul class="nav navbar-nav navbar-right navbar-uppercase">
 
                     <li style="margin-right:50px">
-                        <form class="form-inline" style="margin-top: 5%">
+                        <form class="form-inline" style="margin-top: 5%" action="{{ route('search-by-product') }}">
                             <input class="form-control searchInput" url="{{ route('search-by-product') }}"
                                 customInMethod="GET" style="width: 110%" type="search" placeholder="Pesquisar Produto"
-                                aria-label="Search">
+                                aria-label="Search" name="search">
                         </form>
 
                         <ul class="list-group search-custom">

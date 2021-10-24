@@ -101,6 +101,7 @@ Auth::routes();
         [Products::class, 'create']
     )->middleware('auth')->name('products-create');
 
+
     Route::get(
         '/system/products/edit/{id}',
         [Products::class, 'edit']
@@ -118,6 +119,10 @@ Auth::routes();
 
     Route::get(
         'search-by-product',
+        [Products::class, 'getMatchedProducts']
+    )->name('search-by-product');
+        Route::get(
+        '/search',
         [Products::class, 'getMatchedProducts']
     )->name('search-by-product');
 /**End products Routes */
@@ -159,20 +164,45 @@ Route::get(
         '/home2',
         [Home::class, 'index']
     );
+
     Route::get(
         '/',
         [Home::class, 'index']
     );
+
+    Route::get(
+        '/',
+        [Categories::class, 'show']
+    )->name('data-show');
 /**End Home Routes */
+
+
+/**Imposto routes */
+
+Route::get(
+    '/imposto/{id}',
+    [Products::class, 'get_data']
+)->name('data-imposto');
+
+/**End Home Routes */
+
 
 /**TEST routes */
 
 Route::get('/system/test', function () {
     return view('logged.test');
 })->name('logged-test');
-Route::get('/home/test', function () {
-    return view('unlogged.test');
-})->name('unlogged-test');
+
+Route::get(
+    '/home/test/',
+    [Products::class, 'get_data']
+)->name('unlogged-test');
+
+Route::get(
+    '/home/test/{id}',
+    [Products::class, 'get_data']
+)->name('data-test');
+
 /**End TEST Routes */
 
 Route::post('/home', 'UserController@update_avatar');

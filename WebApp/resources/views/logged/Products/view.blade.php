@@ -5,6 +5,7 @@
 <div class="p-3">
     <form method="POST" enctype="multipart/form-data" action="{{ route('products-create') }}">
         @csrf
+        
         <label for="email">
 
             <label>Imagem</label>
@@ -54,9 +55,15 @@
     
         <button type="submit" class="btn btn-primary"> Salvar </button>
     </form>
-<hr>
-
-<div class="table-responsive">
+    <hr>
+    <h2 style="margin-left: 1%;">Lista</h2>
+    <form class="form-inline" action="{{ route('products-view') }}">
+        <input class="form-control searchInput" url="{{ route('products-view') }}"
+            customInMethod="GET" style="width: 110%" type="search" placeholder="Pesquisar Produto"
+            aria-label="Search" name="search">
+    </form>
+    <br>
+    <div class="table-responsive">
         <table class="table table-hover">
          <thead>
            <tr>
@@ -64,7 +71,7 @@
              <th scope="col">ID</th>
              <th scope="col">Produto</th>
              <th scope="col">Image</th>
-             <th scope="col">Preço</th>
+             <th scope="col"><a href="{{ url('/system/products?orderby=value') }}">Preço</a></th>
              <th scope="col">Criado</th>
              <th scope="col">Atualizado</th>
              <th scope="col">Categoria</th>
@@ -92,7 +99,7 @@
             </tbody>
          @endforeach  
         </table>
-</div>
+    </div>
 </div>    
 @endsection
 
