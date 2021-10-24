@@ -47,13 +47,7 @@
                   </select>
     </div>
 </div>
-    <div class="form-row">
-    <div class="form-group col-md-6 ">
-      <label for="exampleFormControlTextarea1">Descrição</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-    </div>
-    </div>
-
+    
   </div>
   
   

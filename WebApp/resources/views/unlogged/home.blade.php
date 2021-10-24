@@ -20,8 +20,8 @@
                                     <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
 
                                         <div class="card" style="width: 12rem;">
-                                            <img class="card-img-top img-fluid" style="height:250px; width:300px display: block;
-                                            max-width:300px;
+                                            <img class="card-img-top img-fluid" style=" display: block;
+                                            max-width:168px;
                                             max-height:220px;
                                             width: auto;
                                             height: auto;" src="{{ asset('uploads/product/' . $item->image) }}" alt="Card image cap">
