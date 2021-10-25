@@ -1,3 +1,7 @@
+<?php
+    use App\Http\Middleware\Authenticate as Authc;
+?>
+
 <!DOCTYPE html>
 <html>
 
