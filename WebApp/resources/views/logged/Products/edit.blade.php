@@ -18,6 +18,8 @@
         <label for="NomeProduto">Nome</label>
         <input id="NomeProduto" type="text" class="form-control @error('NomeProduto') is-invalid @enderror" name="NomeProduto"
               value="{{ $item->NomeProduto }}" required autocomplete="text" autofocus>
+          <br>Preço<br>
+        <input id="Preco" type="text" class="form-control mb-2 @error('Preco') is-invalid @enderror" name="Preco" value="" required>
       </div>
     </div>
 <div class="form-row">
@@ -47,7 +49,12 @@
                   </select>
     </div>
 </div>
-    
+<div class="form-row">
+  <div class="form-group col-md-6 ">
+    <label for="exampleFormControlTextarea1">Descrição</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+</div>
   </div>
   
   
