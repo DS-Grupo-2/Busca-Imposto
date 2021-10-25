@@ -228,7 +228,6 @@ class Products extends Controller
             'list' => $productId,
             'item' => $categoryId,
             'defSearch' => $search
-
         ]);
     }
 
@@ -300,8 +299,6 @@ class Products extends Controller
                 $UserFavorite = 1;
             }
         }
-
-
         if($search != ''){
             $list = ProductsModel::where('NomeCategoria', 'like', '%'.$search.'%')->orderBy('NomeCategoria')->simplePaginate(9);
         }

@@ -1,3 +1,7 @@
+<?php
+    use App\Http\Middleware\Authenticate as Authc;
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -145,30 +149,42 @@
                             </a>
                         </li>
                     </ul>
-                    <ul class="navbar-nav md-3 mb-2" style="margin-left:2px;margin-right:2px">
-                        <li class="nav-item">
-                            <a class="nav-link text-white btn" href="{{ route('categories-view') }}" {{-- target="_blank" --}}>
-                                <i class="ni ni-single-02"></i>
-                                <span class="nav-link-text">Categorias</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav md-3 mb-2" style="margin-left:2px;margin-right:2px">
-                        <li class="nav-item">
-                            <a class="nav-link text-white btn" href="{{ route('subcategories-view') }}" {{-- target="_blank" --}}>
-                                <i class="ni ni-single-02"></i>
-                                <span class="nav-link-text">SubCategorias</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav md-3 mb-2" style="margin-left:2px;margin-right:2px">
-                        <li class="nav-item">
-                            <a class="nav-link text-white btn" href="{{ route('products-view') }}" {{-- target="_blank" --}}>
-                                <i class="ni ni-single-02"></i>
-                                <span class="nav-link-text">Produtos</span>
-                            </a>
-                        </li>
-                    </ul>
+                    @if(Authc::isAdmin())
+                        <ul class="navbar-nav md-3 mb-2" style="margin-left:2px;margin-right:2px">
+                            <li class="nav-item">
+                                <a class="nav-link text-white btn" href="{{ route('categories-view') }}" {{-- target="_blank" --}}>
+                                    <i class="ni ni-single-02"></i>
+                                    <span class="nav-link-text">Categorias</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav md-3 mb-2" style="margin-left:2px;margin-right:2px">
+                            <li class="nav-item">
+                                <a class="nav-link text-white btn" href="{{ route('subcategories-view') }}" {{-- target="_blank" --}}>
+                                    <i class="ni ni-single-02"></i>
+                                    <span class="nav-link-text">SubCategorias</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav md-3 mb-2" style="margin-left:2px;margin-right:2px">
+                            <li class="nav-item">
+                                <a class="nav-link text-white btn" href="{{ route('products-view') }}" {{-- target="_blank" --}}>
+                                    <i class="ni ni-single-02"></i>
+                                    <span class="nav-link-text">Produtos</span>
+                                </a>
+                            </li>
+                        </ul>
+
+                        <ul class="navbar-nav md-3" style="margin-left:2px;margin-right:2px">
+                            <li class="nav-item">
+                                <a class="nav-link text-white btn" href="{{ url('/system/get-bests') }}" {{-- target="_blank" --}}>
+                                    <i class="ni ni-single-02"></i>
+                                    <span class="nav-link-text">The bests</span>
+                                </a>
+                            </li>
+                        </ul>
+                    @endif
+
                     <ul class="navbar-nav md-3 mb-2" style="margin-left:2px;margin-right:2px">
                         <li class="nav-item">
                             <a class="nav-link text-white btn" href="{{ url('/system/saved-products') }}" {{-- target="_blank" --}}>
@@ -177,14 +193,7 @@
                             </a>
                         </li>
                     </ul>
-                    <ul class="navbar-nav md-3" style="margin-left:2px;margin-right:2px">
-                        <li class="nav-item">
-                            <a class="nav-link text-white btn" href="{{ url('/system/get-bests') }}" {{-- target="_blank" --}}>
-                                <i class="ni ni-single-02"></i>
-                                <span class="nav-link-text">The bests</span>
-                            </a>
-                        </li>
-                    </ul>
+
                 </div>
             </div>
         </div>
@@ -232,6 +241,7 @@
                                     <i class="ni ni-zoom-split-in"></i>
                                 </a>
                             </li>
+                        </ul>
                     </div>
                 </div>
             </nav>
@@ -246,9 +256,22 @@
                 </div>
             </div>
         </div>
-        
+
 
     </div>
+{{--
+    <a href="http://127.0.0.1:8000/logout" class="dropdown-item"
+        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+        <i class="ni ni-user-run"></i>
+        <span>Logout</span>
+
+        <form id="logout-form" action="http://127.0.0.1:8000/logout" method="POST"
+            class="d-none">
+            <input type="hidden" name="_token"
+                value="GjdsMGl3g5mmhZTc587uNHZNeieUN3HtMzCe7pD8">
+        </form>
+
+    </a> --}}
     <script src="{{ asset('assetslogged/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assetslogged/vendor/js-cookie/js.cookie.js') }}"></script>
     <script src="{{ asset('assetslogged/vendor/jquery.scrollbar/jquery.scrollbar.min.js') }}"></script>
