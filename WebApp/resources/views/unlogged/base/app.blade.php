@@ -84,7 +84,6 @@ $categories = CategoriesModel::all();
 
                     <li class="dropdown">
                     <li class="nav-item">
-                        <a class="nav-link " href="{{ route('unlogged-test') }}">Categorias e Produtos</a>
                     </li>
                     @guest
                         <li class="nav-item">
