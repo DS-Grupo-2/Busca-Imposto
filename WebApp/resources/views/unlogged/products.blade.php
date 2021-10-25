@@ -32,15 +32,19 @@
                                 <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
 
                                     <div class="card" style="width: 12rem; height: 28rem">
+                                        <div style="height: 210px">
                                         <img class="card-img-top img-fluid" style="display: block;
                                         max-width:168px;
-                                        max-height:220px;
+                                        max-height:210px;
                                         min-width:167px;
                                         min-height:170px;                                            width: auto;
                                         height: auto;" src="{{ asset('uploads/product/' . $item->image) }}" alt="Card image cap">
+                                        </div>
                                         <div class="card-body">
+                                        <div style="height: 90px;margin-bottom:35%">
                                             <p class="card-text">{{ $item->NomeProduto }}</p>
                                             <h5 class="card-title">R$ {{ $item->Preco }}</h5>
+                                        </div>    
                                             <div class="text-center">
                                                 <a href="{{ url('product/'.$item->id) }}" class="btn btn-primary">Ver detalhes</a>
                                             </div>
