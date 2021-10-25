@@ -81,7 +81,6 @@ $categories = CategoriesModel::all();
                         <ul class="list-group search-custom">
                         </ul>
                     </li>
-
                     <li class="dropdown">
                     @guest
                         <li class="nav-item">
