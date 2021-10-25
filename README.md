@@ -20,14 +20,14 @@
 
 <p align="center"> 
  <h3 align="left"> 
-     🚧  Em construção... 🚀 🚧
+     Em andamento...
  </h1>
 </p>
 
 <br/>  
 
 ### 📄 Sobre o projeto
-> 🚧 <br/> 
+> O Busca-Imposto é uma aplicação que tem por objetivo informar ao consumidor quanto de imposto é pago em diversos produtos <br/> 
 
 ## ⚙️ Tecnologias utilizadas
 <div align="center">
