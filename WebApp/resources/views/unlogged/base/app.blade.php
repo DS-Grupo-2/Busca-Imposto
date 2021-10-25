@@ -81,11 +81,7 @@ $categories = CategoriesModel::all();
                         <ul class="list-group search-custom">
                         </ul>
                     </li>
-
                     <li class="dropdown">
-                    <li class="nav-item">
-                        <a class="nav-link " href="{{ route('unlogged-test') }}">Categorias e Produtos</a>
-                    </li>
                     @guest
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="modal"  data-target="#exampleModalCenter">{{ __('Login') }}</a>

@@ -94,8 +94,11 @@
                     <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8">
                         <div class="text-center">
                             <h1>
-                                R$ {{ $item->Preco }}
+                               Preço - R$ {{ $item->Preco }}
                             </h1>
+                            <h2 class="text-warning">
+                                Imposto - R$ {{$tax}}
+                            </h2>
                         </div>
 
                         <div>
