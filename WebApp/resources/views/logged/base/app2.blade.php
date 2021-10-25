@@ -140,7 +140,7 @@
                             </a>
                         </li>
                     </ul>
-                    <ul class="navbar-nav mb-2" style="margin-left: 2px;margin-right:2px">
+                    {{-- <ul class="navbar-nav mb-2" style="margin-left: 2px;margin-right:2px">
                         <li class="nav-item dropdown">
                             <a class="nav-link text-white btn" href="#" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false">
@@ -155,7 +155,7 @@
                                 </a>
                             </div>
                         </li>
-                    </ul>
+                    </ul> --}}
 
 
                     <ul class="navbar-nav md-3 mb-2" style="margin-left:2px;margin-right:2px">

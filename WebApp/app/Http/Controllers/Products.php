@@ -10,10 +10,17 @@ use App\Categories as CategoriesModel;
 use App\SubCategories as SubCategoriesModel;
 use App\Favorite as FavoriteModel;
 use Illuminate\Support\Facades\DB;
+use App\Http\Middleware\Authenticate as Authc;
 
 class Products extends Controller
 {
+
     public function index(Request $request){
+        if(!Authc::isAdmin()){
+            return redirect('/home')->with('warning','Action not allowed!');
+        }
+
+
         $list = [];
 
         if($request->input('search', '')){
@@ -44,6 +51,10 @@ class Products extends Controller
     }
     public function create($id = NULL,  Request $request)
     {
+        if(!Authc::isAdmin()){
+            return redirect('/home')->with('warning','Action not allowed!');
+        }
+
         // var_dump($request->input());
         // return;
         $request->validate([
@@ -74,6 +85,7 @@ class Products extends Controller
                 'SubCategoryID' => $request->input('SubCategoryID'),
                 'Preco' => $request->input('Preco'),
                 'image' => $fullName,
+                'linksites' => $request->input('linksites'),
                 'Especificacao' => $request->input('Especificacao'),
             ]);
         }
@@ -102,25 +114,40 @@ class Products extends Controller
 
     public function edit($id= NULL, Request $request)
     {
+        if(!Authc::isAdmin()){
+            return redirect('/home')->with('warning','Action not allowed!');
+        }
+
         $post = ProductsModel::where('id',$id)->first();
         $post->image = $request->get('image');
 
 
-        if ($request->hasFile('image')) {
 
-            $image = $request->file('image');
-            $input['image'] = time().'.'.$image->getClientOriginalExtension();
-            $destinationPath = public_path('/uploads/product/');
-            $image->move($destinationPath, $input['image']);
-            $post->image = $input['image'];
-        }
         $post->save();
 
         if($request->isMethod('post')){
+            $input['image'] = $request->input('image','');
+
+            if($request->hasFile('image') && isset($_FILES['picture']['name']) && $_FILES['picture']['name'] != '') {
+                $request->validate([
+                    'image' => 'required|mimes:jpg,png,jpeg|max:5048'
+                ]);
+                $image = $request->file('image');
+                $input['image'] = time().'.'.$image->getClientOriginalExtension();
+                $destinationPath = public_path('/uploads/product/');
+                $image->move($destinationPath, $input['image']);
+                $post->image = $input['image'];
+            }
+
             if(ProductsModel::find($id)){
                 $productId = ProductsModel::where('id', $id)->update([
                     'NomeProduto' => $request->input('NomeProduto'),
-
+                    'Category_ID' => $request->input('Category_ID'),
+                    'SubCategoryID' => $request->input('SubCategoryID'),
+                    'Preco' => $request->input('Preco'),
+                    'image' => $input['image'],
+                    'linksites' => $request->input('linksites'),
+                    'Especificacao' => $request->input('Especificacao'),
                 ]);
                 return redirect('/system/products')->with('success','Product edited successfuly!');
             }
@@ -156,6 +183,10 @@ class Products extends Controller
     }
     public function delete($id = NULL)
     {
+        if(!Authc::isAdmin()){
+            return redirect('/home')->with('warning','Action not allowed!');
+        }
+
         if(ProductsModel::find($id)){
             $deletedRows = ProductsModel::destroy($id);
             return redirect('/system/products')->with('warning','Product deleted successfuly!');
@@ -373,6 +404,8 @@ class Products extends Controller
     }
 
     public function getBests(Request $request){
+
+
         $list = ProductsModel::orderBy('likes', "DESC")->orderBy('NomeCategoria')->simplePaginate(12);
 
 

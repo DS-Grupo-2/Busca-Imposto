@@ -7,13 +7,16 @@ use App\Categories as CategoriesModel;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
 use App\Products as ProductsModel;
-
+use App\Http\Middleware\Authenticate as Authc;
 
 
 class Categories extends Controller
 {
     public function index(Request $request)
     {
+        if(!Authc::isAdmin()){
+            return  redirect('/home')->with('warning','Action not allowed!');
+        }
 
         $list = CategoriesModel::simplePaginate(15);
 
@@ -34,6 +37,11 @@ class Categories extends Controller
 
     public function create($id = NULL,  Request $request)
     {
+        if(!Authc::isAdmin()){
+            return  redirect('/home')->with('warning','Action not allowed!');
+        }
+
+
         $request->validate([
             'picture' => 'required|mimes:jpg,png,jpeg|max:5048'
         ]);
@@ -56,15 +64,24 @@ class Categories extends Controller
 
     public function edit($id= NULL, Request $request)
     {
+        if(!Authc::isAdmin()){
+            return  redirect('/home')->with('warning','Action not allowed!');
+        }
 
         if($request->isMethod('post')){
-            $request->validate([
-                'picture' => 'required|mimes:jpg,png,jpeg|max:5048'
-            ]);
+            $newImageName = $request->input('picture','');
 
-            $newImageName = time() . '-' . $request->name . '.' .
-            $request->picture->extension();
-            $request->picture->move(public_path('/uploads/pictures/'), $newImageName);
+            if(isset($_FILES['picture']['name']) && $_FILES['picture']['name'] != ''){
+                $request->validate([
+                    'picture' => 'required|mimes:jpg,png,jpeg|max:5048'
+                ]);
+
+                $newImageName = time() . '-' . $request->name . '.' .
+                $request->picture->extension();
+                $request->picture->move(public_path('/uploads/pictures/'), $newImageName);
+            }
+
+
             if(CategoriesModel::find($id)){
                 $categoryId = CategoriesModel::where('id', $id)->update([
                     'NomeCategoria' => $request->input('NomeCategoria'),
@@ -99,6 +116,8 @@ class Categories extends Controller
 
     public function delete($id = NULL)
     {
+        if(Authc::isAdmin());
+
         if(CategoriesModel::find($id)){
             $deletedRows = CategoriesModel::destroy($id);
             return redirect('/system/categories')->with('warning','Category deleted successfuly!');
@@ -110,6 +129,7 @@ class Categories extends Controller
 
     public function pag_categorias(Request $request)
     {
+
         $list = CategoriesModel::orderBy('NomeCategoria')->get();
 
         $search = $request->input('search', '');
@@ -129,6 +149,7 @@ class Categories extends Controller
 
     public function show(Request $request)
     {
+
         $list = CategoriesModel::simplePaginate(15);
         $item = ProductsModel::simplePaginate(15);
         $page['title'] = 'Categorias';

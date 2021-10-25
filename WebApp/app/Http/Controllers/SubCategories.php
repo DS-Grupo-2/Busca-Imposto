@@ -6,12 +6,18 @@ use Illuminate\Http\Request;
 use App\SubCategories as SubCategoriesModel;
 use App\Categories as CategoriesModel;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Middleware\Authenticate as Authc;
 
 class SubCategories extends Controller
 {
 
     public function index(Request $request)
     {
+        if(!Authc::isAdmin()){
+            return redirect('/home')->with('warning','Action not allowed!');
+        }
+
+
         $list = SubCategoriesModel::simplePaginate(15);
         $page['title'] = 'Subcategorias';
 
@@ -33,6 +39,11 @@ class SubCategories extends Controller
 
     public function create($id = NULL,  Request $request)
     {
+        if(!Authc::isAdmin()){
+            return redirect('/home')->with('warning','Action not allowed!');
+        }
+
+
         // var_dump($request->input());
         // return;
         if($request->isMethod('post')){
@@ -41,7 +52,6 @@ class SubCategories extends Controller
                 'NomeSubCategoria' => $request->input('NomeSubCategoria'),
                 'categoryId' => $request->input('categoryId'),
                 'taxPercentage' => $request->input('taxPercentage'),
-
             ]);
             return redirect('system/subcategories')->with('success','Category created successfuly!');
         }
@@ -51,6 +61,11 @@ class SubCategories extends Controller
     {
         // var_dump($request->input());
         // return;
+        if(!Authc::isAdmin()){
+            return redirect('/home')->with('warning','Action not allowed!');
+        }
+
+
         if($request->isMethod('post')){
             if(SubCategoriesModel::find($id)){
                 $subcategoryId = SubCategoriesModel::where('id', $id)->update([
@@ -86,6 +101,11 @@ class SubCategories extends Controller
 
     public function delete($id = NULL)
     {
+        if(!Authc::isAdmin()){
+            return redirect('/home')->with('warning','Action not allowed!');
+        }
+
+
         if(SubCategoriesModel::find($id)){
             $deletedRows = SubCategoriesModel::destroy($id);
             return redirect('/system/subcategories')->with('warning','SubCategory deleted successfuly!');
@@ -96,6 +116,7 @@ class SubCategories extends Controller
     }
 
     public function pagSubcategories(Request $request, $id = NULL){
+
         if(!CategoriesModel::find($id)){
             return redirect('/categories')->with('warning','Esta categoria não está cadastrada no sistema existe');
         }
