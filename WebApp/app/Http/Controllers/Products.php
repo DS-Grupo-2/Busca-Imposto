@@ -290,6 +290,7 @@ class Products extends Controller
         $categoryData = CategoriesModel::where('id', $product->Category_ID)->first();
         $subCategoryData = SubCategoriesModel::where('id', $product->SubCategoryID)->first();
         $search = $request->input('search', '');
+        $tax = (($subCategoryData->taxPercentage)/100)*($product->Preco);
 
         $userId = Auth::id();
         $UserFavorite = 0;
@@ -309,7 +310,8 @@ class Products extends Controller
             'categoryData' => $categoryData,
             'subCategoryData' => $subCategoryData,
             'defSearch' => $search,
-            'UserFavorite' => $UserFavorite
+            'UserFavorite' => $UserFavorite,
+            'tax' => $tax
 
         ]);
     }
