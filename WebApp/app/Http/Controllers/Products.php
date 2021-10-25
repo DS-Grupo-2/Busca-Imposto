@@ -73,7 +73,8 @@ class Products extends Controller
                 'Category_ID' => $request->input('Category_ID'),
                 'SubCategoryID' => $request->input('SubCategoryID'),
                 'Preco' => $request->input('Preco'),
-                'image' => $fullName
+                'image' => $fullName,
+                'Especificacao' => $request->input('Especificacao'),
             ]);
         }
         $list = ProductsModel::simplePaginate(15);

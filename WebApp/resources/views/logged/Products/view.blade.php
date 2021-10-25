@@ -53,8 +53,14 @@
         </div>
         <div class="form-row">
             <div class="form-group col-md-4 ">
-              <label for="exampleFormControlTextarea1">Descrição</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <label for="Especificacao">Descrição</label>
+              <textarea class="form-control" id="Especificacao" rows="3"></textarea>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4 ">
+              <label for="linkexterno">Link do anuncio</label>
+              <textarea class="form-control" id="linkexterno" rows="3"></textarea>
             </div>
         </div>
         
@@ -131,3 +137,4 @@
     <input type="file" name="image" class="form-control" required> --}}
 
     {{-- <form method="POST" enctype="multipart/form-data" action="{{ route('products-create') }}"> --}}
+
