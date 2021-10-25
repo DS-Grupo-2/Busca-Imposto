@@ -604,7 +604,7 @@
                                     aria-haspopup="true" aria-expanded="false">
                                     <div class="media align-items-center">
                                         <span class="avatar avatar-sm rounded-circle">
-                                            <img src="/uploads/avatars/default.jpg"
+                                            <img src="/uploads/avatars/{{ Auth::user()->avatar }}"
                                                 style="width:34px; height:34px; position:relativa; top:10px; left:10px; border-radius:50%">
                                         </span>
                                         <div class="media-body text-dark ml-2  d-none d-lg-block">

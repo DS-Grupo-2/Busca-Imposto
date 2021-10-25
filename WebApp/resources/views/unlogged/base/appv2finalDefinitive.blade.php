@@ -579,8 +579,15 @@
                                     aria-haspopup="true" aria-expanded="false">
                                     <div class="media align-items-center">
                                         <span class="avatar avatar-sm rounded-circle">
-                                            <img src="/uploads/avatars/default.jpg"
-                                                style="width:34px; height:34px; position:relativa; top:10px; left:10px; border-radius:50%">
+                                          @guest
+                            {{-- DO something if user is NOT logged --}}
+                            <img src="/uploads/avatars/default.jpg" style="width:34px; height:34px; position:relativa; top:10px; left:10px; border-radius:50%">
+                        @else
+                            {{-- Do something if user is logged --}}
+                       
+                                            <img src="/uploads/avatars/{{ Auth::user()->avatar }}"style="width:34px; height:34px; position:relativa; top:10px; left:10px; border-radius:50%">
+                                            @endguest
+                                                
                                         </span>
                                         <div class="media-body text-dark ml-2  d-none d-lg-block">
                                             <span class="mb-0 text-sm  font-weight-bold text-dark">usuario</span>
