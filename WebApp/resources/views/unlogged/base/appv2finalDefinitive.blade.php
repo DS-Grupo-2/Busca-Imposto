@@ -140,53 +140,13 @@
                             </a>
                         </li>
                     </ul>
-                    <ul class="navbar-nav mb-2" style="margin-left: 2px;margin-right:2px">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link text-white btn" href="#" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
-                                <i class="ni ni-chart-bar-32"></i>
-                                <span class="nav-link-text">Imposto</span>
-                            </a>
-                            <div class="dropdown-menu " style="background-color: #f6f5f8"
-                                aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="ni ni-laptop"></i>
-                                    <span class="nav-link-text">Categorias</span>
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="ni ni-laptop"></i>
-                                    <span class="nav-link-text">Subcategorias</span>
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="ni ni-laptop"></i>
-                                    <span class="nav-link-text">Produtos</span>
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
                     <!-- Divider -->
                     {{-- <hr class="my-3"> --}}
                     <!-- Heading -->
                     {{-- <h6 class="navbar-heading p-0 text-muted">
                         <span class="docs-normal">Usuário</span>
                     </h6> --}}
-                    <!-- Navigation -->
-                    <ul class="navbar-nav md-3 mb-2" style="margin-left:2px;margin-right:2px">
-                        <li class="nav-item">
-                            <a class="nav-link text-white btn" href="{{ route('login') }}" {{-- target="_blank" --}}>
-                                <i class="ni ni-single-02"></i>
-                                <span class="nav-link-text">Login</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav md-3" style="margin-left:2px;margin-right:2px">
-                        <li class="nav-item">
-                            <a class="nav-link text-white btn" href="{{ route('register') }}" {{-- target="_blank" --}}>
-                                <i class="ni ni-single-02"></i>
-                                <span class="nav-link-text">Registre-se</span>
-                            </a>
-                        </li>
-                    </ul>
+                    <!-- Navigation -->   
                 </div>
             </div>
         </div>
