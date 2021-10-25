@@ -84,7 +84,7 @@ $categories = CategoriesModel::all();
 
                     <li class="dropdown">
                     <li class="nav-item">
-                        <a class="nav-link " href="{{ route('unlogged-test') }}">Teste</a>
+                        <a class="nav-link " href="{{ route('unlogged-test') }}">Categorias e Produtos</a>
                     </li>
                     @guest
                         <li class="nav-item">
@@ -108,6 +108,7 @@ $categories = CategoriesModel::all();
                                                                                  document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
+                                
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                     class="d-none">
@@ -149,8 +150,9 @@ $categories = CategoriesModel::all();
                     <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/categories">Impostos</a>
+                    <a class="nav-link" href="/categories">Impostos por Categoria</a>
                 </li>
+
                 {{-- <li class="nav-item">
                     <a class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"  href="/categories">Categorias</a>
                 </li> --}}
@@ -162,9 +164,8 @@ $categories = CategoriesModel::all();
                             <a href="{{ url('/get-products?category='.$category->id) }}" >{{ $category->NomeCategoria }}</a>
                         @endforeach
                     </div>
-                </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Disabled</a>
+                    <a class="nav-link" href="/home">Meu Perfil</a>
                 </li>
             </ul>
         </div>

@@ -159,14 +159,7 @@
                         <span class="docs-normal">Usuário</span>
                     </h6> --}}
                     <!-- Navigation -->
-                    <ul class="navbar-nav md-3 mb-2" style="margin-left:2px;margin-right:2px">
-                        <li class="nav-item">
-                            <a class="nav-link text-white btn" href="{{ route('login') }}" {{-- target="_blank" --}}>
-                                <i class="ni ni-single-02"></i>
-                                <span class="nav-link-text">Login</span>
-                            </a>
-                        </li>
-                    </ul>
+                    
                     <ul class="navbar-nav md-3 mb-2" style="margin-left:2px;margin-right:2px">
                         <li class="nav-item">
                             <a class="nav-link text-white btn" href="{{ route('user-info') }}" {{-- target="_blank" --}}>
@@ -628,12 +621,12 @@
 
 
                                     <div class="dropdown-divider"></div>
-                                    <a href="http://localhost:8000/logout" class="dropdown-item"
+                                    <a href="http://127.0.0.1:8000/logout" class="dropdown-item"
                                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         <i class="ni ni-user-run"></i>
                                         <span>Logout</span>
 
-                                        <form id="logout-form" action="http://localhost:8000/logout" method="POST"
+                                        <form id="logout-form" action="http://127.0.0.1:8000/logout" method="POST"
                                             class="d-none">
                                             <input type="hidden" name="_token"
                                                 value="GjdsMGl3g5mmhZTc587uNHZNeieUN3HtMzCe7pD8">
