@@ -82,9 +82,7 @@ $categories = CategoriesModel::all();
                         </ul>
                     </li>
 
-                    <li class="dropdown">
-                    <li class="nav-item">
-                    </li>
+                 
                     @guest
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="modal"  data-target="#exampleModalCenter">{{ __('Login') }}</a>
