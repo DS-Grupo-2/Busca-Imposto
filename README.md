@@ -16,7 +16,7 @@
 
 <br/>
 
-## :hammer_and_wrench: Status do Projeto
+##  Status do Projeto
 
 <p align="center"> 
  <h3 align="left"> 
@@ -73,7 +73,7 @@ php artisan serve
 ```
 
 
-## 🤝 Colaboradores
+## Colaboradores
 
 <!-- 
 Arquiteto: rosa #FF00FF
