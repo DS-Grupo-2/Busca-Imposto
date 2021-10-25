@@ -584,12 +584,12 @@
 
 
                                     <div class="dropdown-divider"></div>
-                                    <a href="http://localhost:8000/logout" class="dropdown-item"
+                                    <a href="http://127.0.0.1:8000/logout" class="dropdown-item"
                                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         <i class="ni ni-user-run"></i>
                                         <span>Logout</span>
 
-                                        <form id="logout-form" action="http://localhost:8000/logout" method="POST"
+                                        <form id="logout-form" action="http://127.0.0.1:8000/logout" method="POST"
                                             class="d-none">
                                             <input type="hidden" name="_token"
                                                 value="GjdsMGl3g5mmhZTc587uNHZNeieUN3HtMzCe7pD8">

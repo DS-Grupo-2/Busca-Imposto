@@ -37,8 +37,8 @@
 
           <th scope="col">ID</th>
           <th scope="col">Categoria</th>
-          <th scope="col">ImageM</th>
-          <th scope="col">Porcentagem</th>
+          <th scope="col">Imagem</th>
+          <th scope="col">Alíquota (%)</th>
           <th scope="col">Criado</th>
           <th scope="col">Atualizado</th>
 
