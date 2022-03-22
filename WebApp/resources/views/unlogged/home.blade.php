@@ -19,21 +19,23 @@
                                 @foreach ($listProd as $item)
                                     <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
 
-                                        <div class="card" style="width: 12rem; height: 28rem">
-                                        <div style="height:220px" >
-                                            <img class="card-img-top img-fluid" style=" display: block;
-                                            max-width:168px;
+                                        <div class="card" style="">
+                                        <div style="height:220px" class="text-center" >
+                                            <img class="card-img-top img-fluid" style="display: block;
+                                            /* max-width:168px; */
                                             max-height:220px;
-                                            min-width:167px;
-                                            min-height:170px;                                            width: auto;
-                                            height: auto;" src="{{ asset('uploads/product/' . $item->image) }}" alt="Card image cap">
-                                        </div> 
+                                            /* min-width:167px; */
+                                            /* min-height:170px;                                            width: auto; */
+                                            height: auto;  margin: 0 auto;
+                                            " src="{{ asset('uploads/product/' . $item->image) }}" alt="Card image cap">
+                                        </div>
                                          <div class="card-body">
+                                             <br>
                                             <div style="height: 90px">
                                                 <p class="card-text" style="margin-left: 5%;margin-right:5%">{{ $item->NomeProduto }}</p>
                                                 <h5 class="card-title" style="margin-left: 5%;margin-right:5%">R$ {{ $item->Preco }}</h5>
-                                            </div>   
-                                                <div class="grid-item text-center"><div style="margin-bottom:5%;font-size:16px; color:red">❤ <span style="text-color:black"> {{ $item->likes }} </span> </div></div>
+                                            </div>
+                                                <div class="grid-item text-center"><div style="font-size:16px; color:red">❤ <span style="text-color:black"> {{ $item->likes }} </span> </div></div>
                                                 <div class="text-center">
                                                     <a href="{{ url('product/'.$item->id) }}" class="btn btn-primary" style="background-color: #8391d8;color: white; margin:5%" >Ver detalhes</a>
                                                 </div>
